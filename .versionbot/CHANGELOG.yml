@@ -10,8 +10,8 @@
       author: rcooke-warwick
       nested: []
   version: 2.4.0
-  title: "'get ssh to work with ed25519 algorithm'"
-  date: 2022-06-07T11:26:55.354Z
+  title: "'build(deps): bump semver-regex from 3.1.2 to 3.1.4 in /core'"
+  date: 2022-06-07T12:32:37.929Z
 - commits:
     - subject: "worker: Expose additional QEMU runtime args via docker-compose"
       hash: ee574bb798cafa3e4a0504d2dde72079f8db8eeb
