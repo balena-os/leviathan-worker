@@ -1,4 +1,98 @@
 - commits:
+    - subject: Remove docker-compose client files
+      hash: 9da5d051e62303d0c26a6a53ab70bb3e6df5ea1e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Move worker files to root of project
+      hash: 15bc9c8eb188feb078a907ccf64944077f18490d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Merge package and package-lock files to root of project
+      hash: e8569c67c9253096c3b1fc72ddac583ba49a5db9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Update ignore files
+      hash: 1a5fecc39ff3cec305152902b80228e6abaa45fc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Remove Makefile
+      hash: de015b65783fd0018e3c1bd1899b70cdcb2d211a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Change project type to sw.block
+      hash: 894c8ee7e5dacb30100cbfd9af203a278c283246
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Use the service account balenaio_push_bot for deployments
+      hash: 43788b32da77e2af839a398d091705653a9a0f45
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: "worker: Fix hadolint warnings"
+      hash: d3b080b6f8a5c6f8510748a5b90fd4bc54da31f1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Deploy to blocks in addition to rigs
+      hash: 4830d03546f407bbdbe623be36976f0f3b372f21
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.5.1
+  title: "'Deploy to blocks in addition to rigs'"
+  date: 2022-06-10T15:20:17.027Z
+- commits:
     - subject: "minor: Extract Worker and cleanup"
       hash: b4d8a3c02643a1f9854f72b00f29c04e1db726cd
       body: ""
