@@ -4,11 +4,5 @@ build
 coverage
 .nyc*
 
-# binaries may be download by the makefile if missing
-bin/
-
 # emulated balena build will install qemu binaries here
 **/.balena
-
-# custom paths for docker-compose bind mounts
-.env

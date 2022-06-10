@@ -8,19 +8,25 @@ env:
   ENVIRONMENT: balena-cloud.com
 
 jobs:
-  balena-cloud-build:
+  deploy:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: true
       matrix:
-        fleets: [balena/testbot-rig, balena/testbot-rig-beta, balena/testbot-personal]
+        fleets:
+          - balena/testbot-rig
+          - balena/testbot-rig-beta
+          - balena/testbot-personal
+          - balena/leviathan-worker-amd64
+          - balena/leviathan-worker-aarch64
+          - balena/leviathan-worker-armv7hf
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: balena-io/deploy-to-balena-action@v0.10.7
+      - uses: balena-io/deploy-to-balena-action@v0.11.0
         with:
-          balena_token: ${{ secrets.BALENA_TOKEN }}
+          balena_token: ${{ secrets.BALENA_API_KEY_PUSH }}
           fleet: ${{ matrix.fleets }}
           versionbot: true
           environment: ${{ env.ENVIRONMENT }}
