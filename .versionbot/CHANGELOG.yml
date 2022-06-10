@@ -1,4 +1,19 @@
 - commits:
+    - subject: "core: Add 243390-rpi3 support, use specific network configuration for
+        it"
+      hash: eb3714938f72da1017a69272caf77b4e36b6a8b6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.4.2
+  title: "'core: Add 243390-rpi3 support, use specific network configuration for it'"
+  date: 2022-06-10T13:24:42.525Z
+- commits:
     - subject: catch error in executeCommandInhostOs
       hash: db1677995f1cf2f93284dcd35bb173d1cb3e08ca
       body: ""
