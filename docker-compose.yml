@@ -5,8 +5,7 @@ volumes:
 services:
   worker:
     privileged: true
-    build:
-      context: ./worker
+    build: .
     pid: host
     network_mode: host
     ipc: host
