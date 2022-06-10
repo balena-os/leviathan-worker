@@ -4,8 +4,6 @@ build
 coverage
 .nyc*
 
-.balena/secrets/
-
 # binaries may be download by the makefile if missing
 bin/
 

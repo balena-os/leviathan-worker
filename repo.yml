@@ -1,4 +1,1 @@
 type: node
-upstream:
-  - repo: contracts
-    url: https://github.com/balena-io/contracts
