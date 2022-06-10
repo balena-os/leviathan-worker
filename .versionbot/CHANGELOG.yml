@@ -1,4 +1,18 @@
 - commits:
+    - subject: "worker: Use device-specific flashing method for 243390-rpi3"
+      hash: f7c6319a26796d3a22971bee7f9a5bea41f406d6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.5.2
+  title: "'worker: Use device-specific flashing method for 243390-rpi3'"
+  date: 2022-06-10T16:31:36.276Z
+- commits:
     - subject: Remove docker-compose client files
       hash: 9da5d051e62303d0c26a6a53ab70bb3e6df5ea1e
       body: ""
