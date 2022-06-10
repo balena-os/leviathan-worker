@@ -1,5 +1,5 @@
 name: leviathan-worker
-type: sw.application
+type: sw.block
 description: 'Leviathan-worker is the abstraction layer that makes it easy to
   automate and talk to different testing environements'
 assets:
