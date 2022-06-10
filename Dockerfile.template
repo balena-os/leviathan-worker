@@ -6,8 +6,6 @@ WORKDIR /tmp/node
 # hadolint ignore=DL3018
 RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base git linux-headers eudev-dev
 
-ARG SKIP_INSTALL_BINARY
-
 COPY package*.json ./
 RUN npm ci
 
