@@ -1,6 +1,7 @@
 name: leviathan-worker
 type: sw.application
-description: 'Leviathan-worker is the abstraction layer that makes it easy to automate and talk to different testing environements'
+description: 'Leviathan-worker is the abstraction layer that makes it easy to
+  automate and talk to different testing environements'
 assets:
   repository:
     type: blob.asset
@@ -18,4 +19,4 @@ data:
   defaultDeviceType: fincm3
   supportedDeviceTypes:
     - fincm3
-version: 2.4.1
+version: 2.5.0
