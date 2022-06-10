@@ -1,6 +1,0 @@
-bin/*.gz
-bin/config.js
-bin/*.log
-
-node_modules/
-build/

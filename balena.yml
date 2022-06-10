@@ -1,11 +1,11 @@
-name: leviathan
+name: leviathan-worker
 type: sw.application
-description: 'Leviathan is a distributed testing framework. '
+description: 'Leviathan-worker is the abstraction layer that makes it easy to automate and talk to different testing environements'
 assets:
   repository:
     type: blob.asset
     data:
-      url: 'https://github.com/balena-os/leviathan'
+      url: 'https://github.com/balena-os/leviathan-worker'
 data:
   applicationConfigVariables:
     - BALENA_SUPERVISOR_PERSISTENT_LOGGING: true
