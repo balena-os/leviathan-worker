@@ -12,6 +12,7 @@ import {
 	CoralDevBoard,
 	JetsonNano,
 	Rockpi4bRk3399,
+	Rpi243390,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
 import { createWriteStream } from 'fs';
@@ -55,6 +56,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'rockpi-4b-rk3399') {
 		return new Rockpi4bRk3399(hat);
+	}
+	if (process.env.TESTBOT_DUT_TYPE === '243390-rpi3') {
+		return new Rpi243390(hat);
 	}
 	return new RaspberryPi(hat);
 };
