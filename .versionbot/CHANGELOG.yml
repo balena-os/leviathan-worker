@@ -1,4 +1,18 @@
 - commits:
+    - subject: send image before flashing
+      hash: f8852558ccceec3f8949a4e192f0d2a26f5d6f91
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.5.3
+  title: "'send image before flashing'"
+  date: 2022-06-10T19:03:50.759Z
+- commits:
     - subject: "worker: Use device-specific flashing method for 243390-rpi3"
       hash: f7c6319a26796d3a22971bee7f9a5bea41f406d6
       body: ""
