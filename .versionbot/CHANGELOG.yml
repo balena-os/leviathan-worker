@@ -1,4 +1,29 @@
 - commits:
+    - subject: Clean up dev dependencies
+      hash: ea2c431a1a2be2827f320d0d74499459188c9102
+      body: |
+        Avoid copying all of the dev dependencies from the build stage.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Update readme
+      hash: d7718885943e64e5422ce56da4a96182c939b5f0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.5.4
+  title: "'Clean up development dependencies'"
+  date: 2022-06-13T17:42:54.121Z
+- commits:
     - subject: send image before flashing
       hash: f8852558ccceec3f8949a4e192f0d2a26f5d6f91
       body: ""
