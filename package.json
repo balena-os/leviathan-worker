@@ -4,7 +4,6 @@
   "scripts": {
     "lint:fix": "balena-lint -e js -e ts --fix bin/ lib/ test/",
     "lint": "balena-lint -u -e js -e ts --tests lib/ bin/ test/ && tsc --noEmit",
-    "preinstall": "for component in 'worker'; do npm --prefix $component install; done",
     "clean": "rm -rf build",
     "test": "npm run lint:fix && npm run lint && npm run test:cov",
     "build": "npm run clean && tsc",
