@@ -25,6 +25,8 @@ import * as Stream from 'stream';
 import { manageHandlers } from '../helpers';
 import ScreenCapture from '../helpers/graphics';
 import NetworkManager, { Supported } from '../helpers/nm';
+import once from 'lodash/once';
+
 
 // TODO: Consider moving network and screen capture logic to testbot SDK.
 
@@ -128,8 +130,12 @@ class TestBotWorker extends EventEmitter implements Leviathan.Worker {
 	public async powerOn() {
 		const dutLog = await this.hatBoard.openDutSerial();
 		if (dutLog) {
-			this.dutLogStream = createWriteStream(dutSerialPath);
+			this.dutLogStream = createWriteStream(dutSerialPath, { flags: `a+` });
 			dutLog.pipe(this.dutLogStream);
+		} else {
+			once(() => {
+				console.error(`Can't record serial logs: Getting ${dutLog} output`)
+			})
 		}
 		console.log('Trying to power on DUT...');
 		await this.deviceInteractor.powerOn();
