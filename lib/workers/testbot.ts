@@ -13,6 +13,7 @@ import {
 	JetsonNano,
 	Rockpi4bRk3399,
 	Rpi243390,
+	RevPiConnect,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
 import { createWriteStream } from 'fs';
@@ -41,6 +42,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'revpi-core-3') {
 		return new RevPiCore3(hat);
+	}
+	if (process.env.TESTBOT_DUT_TYPE === 'revpi-connect') {
+		return new RevPiConnect(hat);
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'raspberrypicm4-ioboard') {
 		return new CM4IOBoard(hat);
