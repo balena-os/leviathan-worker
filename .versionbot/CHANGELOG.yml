@@ -1,4 +1,18 @@
 - commits:
+    - subject: "lib/worker: Add RevPi Connect to supported devices"
+      hash: 8c83c79a421e250ca0884e6cb5801b50a0a3bf8c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.5.5
+  title: "'Add Revolution Pi Connect'"
+  date: 2022-06-23T11:51:12.009Z
+- commits:
     - subject: Clean up dev dependencies
       hash: ea2c431a1a2be2827f320d0d74499459188c9102
       body: |
