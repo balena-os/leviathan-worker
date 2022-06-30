@@ -346,9 +346,13 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			.concat(qmpArgs);
 
 		if (this.screenCapturer != null) {
-			const gfxArgs = ['-vnc', `:${vncDisplay}`];
 
-			args = args.concat(gfxArgs);
+			const gfxArgs: { [arch: string]: string[] } = {
+				x86_64: ['-vnc', `:${vncDisplay}`],
+				aarch64: ['-vnc', `:${vncDisplay}`, '-device', 'virtio-gpu-pci'],
+			};
+
+			args = args.concat(gfxArgs[deviceArch]);
 		}
 
 		console.debug("QEMU args:\n", args);
