@@ -1,4 +1,17 @@
 - commits:
+    - subject: "patch: Add display device for aarch64"
+      hash: 458034c30602acd48c69cc837615c3109382f777
+      body: |
+        https://wiki.qemu.org/Documentation/Platforms/ARM
+      footer:
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.5.6
+  title: "'patch: Add display device for aarch64'"
+  date: 2022-06-30T21:16:46.560Z
+- commits:
     - subject: "lib/worker: Add RevPi Connect to supported devices"
       hash: 8c83c79a421e250ca0884e6cb5801b50a0a3bf8c
       body: ""
