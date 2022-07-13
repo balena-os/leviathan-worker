@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add append flags to Serial Capture file"
+      hash: 01f34dcb594f1beb0a3d490c59bb3114f4c75864
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.5.7
+  title: "'patch: Add append flags to Serial Capture file'"
+  date: 2022-07-13T17:55:10.285Z
+- commits:
     - subject: "patch: Add display device for aarch64"
       hash: 458034c30602acd48c69cc837615c3109382f777
       body: |
