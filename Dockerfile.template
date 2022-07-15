@@ -31,6 +31,9 @@ FROM balenalib/${BALENA_ARCH}-alpine:3.12-run
 
 WORKDIR /usr/app
 
+# remove the sh stub that prints image details
+RUN mv /bin/sh.real /bin/sh
+
 ENV UDEV 1
 ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
 
