@@ -1,4 +1,18 @@
 - commits:
+    - subject: "e2e: Run tests with leviathan master and draft worker release"
+      hash: 514328e46fb32abf42914b354f03e9ca27a3f2ee
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.5.7
+  title: "'e2e: Run tests with leviathan master and draft worker release'"
+  date: 2022-07-13T17:57:33.420Z
+- commits:
     - subject: "patch: Add display device for aarch64"
       hash: 458034c30602acd48c69cc837615c3109382f777
       body: |
