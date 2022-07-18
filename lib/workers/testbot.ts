@@ -14,6 +14,7 @@ import {
 	Rockpi4bRk3399,
 	Rpi243390,
 	RevPiConnect,
+	RtRpi300,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
 import { createWriteStream } from 'fs';
@@ -63,6 +64,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	}
 	if (process.env.TESTBOT_DUT_TYPE === '243390-rpi3') {
 		return new Rpi243390(hat);
+	}
+	if (process.env.TESTBOT_DUT_TYPE === 'rt-rpi-300') {
+		return new RtRpi300(hat);
 	}
 	return new RaspberryPi(hat);
 };
