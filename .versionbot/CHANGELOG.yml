@@ -1,4 +1,18 @@
 - commits:
+    - subject: "lib: Add RT RPI 300 to supported devices"
+      hash: bca6411753656f51fa95663f34861ec0a4be38b8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.5.8
+  title: "'lib: Add RT RPI 300 to supported devices'"
+  date: 2022-07-19T14:15:30.909Z
+- commits:
     - subject: "e2e: Run tests with leviathan master and draft worker release"
       hash: 514328e46fb32abf42914b354f03e9ca27a3f2ee
       body: ""
