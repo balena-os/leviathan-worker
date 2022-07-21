@@ -1,4 +1,21 @@
 - commits:
+    - subject: "lib: Add RPI3 Neuron CDS to leviathan supported devices"
+      hash: e3e25e2e23cb05bff8f2165f26a6d7748973ad23
+      body: |
+        This is a CDS device, similar to the RT RPI 300
+        that has been recently added in the previous merged
+        commit.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.5.9
+  title: "'lib: Add RPI3 Neuron CDS to leviathan supported devices'"
+  date: 2022-07-21T11:24:58.748Z
+- commits:
     - subject: "lib: Add RT RPI 300 to supported devices"
       hash: bca6411753656f51fa95663f34861ec0a4be38b8
       body: ""
