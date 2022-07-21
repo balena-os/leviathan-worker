@@ -15,6 +15,7 @@ import {
 	Rpi243390,
 	RevPiConnect,
 	RtRpi300,
+	RPI3Neuron,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
 import { createWriteStream } from 'fs';
@@ -67,6 +68,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'rt-rpi-300') {
 		return new RtRpi300(hat);
+	}
+	if (process.env.TESTBOT_DUT_TYPE === 'raspberrypi3-unipi-neuron') {
+		return new RPI3Neuron(hat);
 	}
 	return new RaspberryPi(hat);
 };
