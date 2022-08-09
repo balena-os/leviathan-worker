@@ -1,4 +1,15 @@
 - commits:
+    - subject: "patch: Add append flags to Serial Capture file"
+      hash: 33b749c769fcce7ed5304e88114b0a4abdcc8dc6
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.5.11
+  date: 2022-08-09T11:58:38.959Z
+- commits:
     - subject: "package: Update testbotsdk to include TX2 support"
       hash: c55dda86f452f6ef3ff5cbf0bb61679b43619ca9
       body: ""
