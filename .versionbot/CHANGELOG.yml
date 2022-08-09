@@ -1,4 +1,18 @@
 - commits:
+    - subject: "package: Update testbotsdk to include TX2 support"
+      hash: c55dda86f452f6ef3ff5cbf0bb61679b43619ca9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.5.10
+  title: "'package: Update testbotsdk to include TX2 support'"
+  date: 2022-08-09T06:55:02.022Z
+- commits:
     - subject: "lib: Add RPI3 Neuron CDS to leviathan supported devices"
       hash: e3e25e2e23cb05bff8f2165f26a6d7748973ad23
       body: |
