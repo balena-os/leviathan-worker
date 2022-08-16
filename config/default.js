@@ -16,6 +16,7 @@ module.exports = {
 				cpus: process.env.QEMU_CPUS || '4',
 				memory: process.env.QEMU_MEMORY || '512M',
 				debug: process.env.QEMU_DEBUG || false,
+				forceRaid: process.env.QEMU_FORCE_RAID || false,
 				network: {
 					autoconfigure: true,
 					bridgeName: process.env.QEMU_BRIDGE_NAME || null,

@@ -26,6 +26,7 @@ declare global {
 				code: string,
 				vars: string
 			},
+			forceRaid: false,
 			network: {
 				autoconfigure: boolean;
 				bridgeName: string;
