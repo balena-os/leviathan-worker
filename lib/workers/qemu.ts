@@ -160,29 +160,34 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		await this.powerOff();
 
 		await execProm(`fallocate -l 8G ${this.image}`);
-		const loopbackDevice = (
-			await execProm(`losetup -fP --show ${this.image}`)
-		).stdout.trim();
-		const arrayDevice = `/dev/md/${this.id}`;
+		const loopbackDevice = this.qemuOptions.forceRaid
+			? (await execProm(`losetup -fP --show ${this.image}`)).stdout.trim()
+			: null;
+		const arrayDevice = this.qemuOptions.forceRaid
+			? `/dev/md/${this.id}`
+			: null;
 		try {
-			await execProm([
-				'yes', '|',
-					'mdadm',
-						'--create',
-						'--verbose',
-						'--level=1',
-						'--raid-devices=1',
-						'--metadata=0.90',
-						'--force',
-						arrayDevice,
-						loopbackDevice,
-				].join(' ')
-			);
+			if (this.qemuOptions.forceRaid) {
+				console.log(`Creating a RAID array at ${arrayDevice}`);
+				await execProm([
+					'yes', '|',
+						'mdadm',
+							'--create',
+							'--verbose',
+							'--level=1',
+							'--raid-devices=1',
+							'--metadata=0.90',
+							'--force',
+							arrayDevice,
+							loopbackDevice,
+					].join(' ')
+				);
+			}
 
 			const source = new sdk.sourceDestination.SingleUseStreamSource(stream);
 
 			const destination = new sdk.sourceDestination.File({
-				path: arrayDevice,
+				path: this.qemuOptions.forceRaid ? arrayDevice! : this.image,
 				write: true,
 			});
 
@@ -201,8 +206,10 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				}).then(resolve);
 			});
 		} finally {
-			await execProm(`mdadm --stop ${arrayDevice}`);
-			await execProm(`losetup -d ${loopbackDevice}`);
+			if (this.qemuOptions.forceRaid) {
+				await execProm(`mdadm --stop ${arrayDevice}`);
+				await execProm(`losetup -d ${loopbackDevice}`);
+			}
 		}
 	}
 
