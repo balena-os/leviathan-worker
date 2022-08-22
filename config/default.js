@@ -3,7 +3,7 @@ module.exports = {
 		port: process.env.WORKER_PORT || 80,
 		runtimeConfiguration: {
 			worker: {
-				workdir: process.env.WORKDIR || '/data',
+				workdir: process.env.WORKDIR || '/tmp',
 				deviceType: process.env.WORKER_TYPE || 'testbot_hat',
 			},
 			screenCapture: process.env.SCREEN_CAPTURE === 'true',

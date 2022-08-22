@@ -1,4 +1,5 @@
 #!/bin/sh
+modprobe sg
 
 eval $(ssh-agent)
 

@@ -156,7 +156,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		}
 	}
 
-	public async flash(stream: Stream.Readable): Promise<void> {
+	public async flash(filename: string): Promise<void> {
 		await this.powerOff();
 
 		await execProm(`truncate -s 8G ${this.internalDisk} ${this.externalDisk}`);
@@ -188,7 +188,9 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				);
 			}
 
-			const source = new sdk.sourceDestination.SingleUseStreamSource(stream);
+			const readstream = fs.createReadStream(filename);
+
+			const source = new sdk.sourceDestination.SingleUseStreamSource(readstream);
 
 			const destination = new sdk.sourceDestination.File({
 				path: this.externalDisk,
