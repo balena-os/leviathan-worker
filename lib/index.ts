@@ -7,6 +7,7 @@ import { getSdk } from 'balena-sdk';
 import { resolveLocalTarget } from './helpers';
 import { TestBotWorker } from './workers/testbot';
 import QemuWorker from './workers/qemu';
+import { AutokitWorker } from './workers/autokit';
 import { Contract } from '../typings/worker';
 
 import { Stream } from 'stream';
@@ -23,9 +24,10 @@ const balena = getSdk({
 	apiUrl: 'https://api.balena-cloud.com/',
 });
 
-const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker> = {
+const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker | typeof AutokitWorker> = {
 	testbot_hat: TestBotWorker,
 	qemu: QemuWorker,
+	autokit: AutokitWorker
 };
 
 const balenaLockPath = process.env.BALENA_APP_LOCK_PATH?.replace('.lock', '');
@@ -355,10 +357,11 @@ async function setup(
 				res.write('status: pending');
 			}, httpServer.keepAliveTimeout);
 
+			const FILENAME = '/data/os.img';
 			try {
 				worker.on('progress', onProgress);
 				const imageStream = createGunzip();
-				const fileStream = createWriteStream('/tmp/flashImg.img');
+				const fileStream = createWriteStream(FILENAME);
 				console.log(`Streaming image to file...`)
 				await pipeline(
 					req,
@@ -367,10 +370,10 @@ async function setup(
 				)
 
 				console.log(`attempting to flash...`)
-				const flashStream = createReadStream('/tmp/flashImg.img');
-				await worker.flash(flashStream);
+				await worker.flash(FILENAME);
 			} catch (e) {
 				if (e instanceof Error) {
+					console.log(e)
 					res.write(`error: ${e.message}`);
 				}
 			} finally {

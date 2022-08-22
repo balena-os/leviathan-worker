@@ -35,6 +35,7 @@
     "@balena/testbot": "^1.9.22",
     "@types/bluebird": "^3.5.25",
     "@types/config": "0.0.34",
+    "autokit": "0.0.2-ryan-add-sw-interface-230cb87b9a15992e2a9322b29f233229cb35643d",
     "balena-sdk": "^16.12.1",
     "bluebird": "^3.5.3",
     "bluebird-retry": "^0.11.0",

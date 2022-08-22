@@ -156,7 +156,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		}
 	}
 
-	public async flash(stream: Stream.Readable): Promise<void> {
+	public async flash(filename: string): Promise<void> {
 		await this.powerOff();
 
 		await execProm(`fallocate -l 8G ${this.image}`);
@@ -184,27 +184,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				);
 			}
 
-			const source = new sdk.sourceDestination.SingleUseStreamSource(stream);
-
-			const destination = new sdk.sourceDestination.File({
-				path: this.qemuOptions.forceRaid ? arrayDevice! : this.image,
-				write: true,
-			});
-
-			await new Bluebird((resolve, reject) => {
-				sdk.multiWrite.pipeSourceToDestinations({
-					source: source,
-					destinations: [destination],
-					onFail:
-					(_destination, error) => {
-						reject(error);
-					},
-					onProgress: (progress: sdk.multiWrite.MultiDestinationProgress) => {
-						this.emit('progress', progress);
-					},
-					verify: true,
-				}).then(resolve);
-			});
+			
 		} finally {
 			if (this.qemuOptions.forceRaid) {
 				await execProm(`mdadm --stop ${arrayDevice}`);
