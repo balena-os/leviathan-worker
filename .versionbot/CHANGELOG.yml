@@ -1,4 +1,70 @@
 - commits:
+    - subject: "compose: explicitly enable udev"
+      hash: b8aeffbb78db4570080d00af4d8b54618cacd0bf
+      body: |
+        Testbot workers require udev to be running while qemu workers manage
+        devices themselves, and require udev to be disabled. Explicitly add the
+        UDEV env var to the compose file for testbot workers, to be consistent
+        with the qemu compose file.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: remove qemu compose file
+      hash: e814094e3b9365e1edff9dc1b2e9e2f111b4febc
+      body: |
+        Remove qemu compose file, which was copied from Leviathan when
+        leviathan-worker was split off. The main Leviathan repo is the source of
+        truth for this compose file.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "qemu: flash to md device"
+      hash: bd06c5e7d7f836573151d32c9714f6611790b228
+      body: |
+        In order to test metadata devices (software RAID), setup the root disk
+        as an md device with a single member before flashing. This ensures that
+        in virtualized environments, we test rootfs on md device functionality.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "entry: setup loopback and metadata devices"
+      hash: a6c6c0c9266f4446190ec1054286ec654422629a
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "Dockerfile: remove UDEV=1"
+      hash: e64e5dcdc318cf0eb7ffe6c5a399410fb1592572
+      body: |
+        Later, we'll need to enable CAP_SYS_ADMIN for privileged IOCTLs, and
+        udev breaks devices inside our container, so disable it.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.6.0
+  title: "'Jakogut/qemu md'"
+  date: 2022-08-29T14:03:20.303Z
+- commits:
     - subject: "package: Update testbotsdk to include TX2 support"
       hash: c55dda86f452f6ef3ff5cbf0bb61679b43619ca9
       body: ""
