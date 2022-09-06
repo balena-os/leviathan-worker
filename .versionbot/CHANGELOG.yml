@@ -1,4 +1,23 @@
 - commits:
+    - subject: Revert software raid support
+      hash: a8bab6f414ed9632136f11875fb01fa3782b1003
+      body: |
+        Reverts balena-os/leviathan-worker#21
+
+        The original PR is not compatible with existing balenaOS releases
+        and is blocking testing. This feature should be re-implemented with
+        a toggle that is disabled by default.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.6.1
+  title: "'Revert software raid support'"
+  date: 2022-09-06T13:28:53.839Z
+- commits:
     - subject: "compose: explicitly enable udev"
       hash: b8aeffbb78db4570080d00af4d8b54618cacd0bf
       body: |
