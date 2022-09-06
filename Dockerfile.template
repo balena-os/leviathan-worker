@@ -31,6 +31,7 @@ FROM balenalib/${BALENA_ARCH}-alpine:3.12-run
 
 WORKDIR /usr/app
 
+ENV UDEV 1
 ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
 
 # ovmf is only packaged for x86_64 and aarch64 so ignore failures on arm
@@ -44,8 +45,7 @@ RUN apk add --no-cache \
   libusb-dev dbus-dev eudev-dev \
   gstreamer-tools gst-plugins-base gst-plugins-bad gst-plugins-good \
   bridge bridge-utils iproute2 dnsmasq iptables \
-  qemu-img qemu-system-x86_64 qemu-system-aarch64 \
-  mdadm util-linux
+  qemu-img qemu-system-x86_64 qemu-system-aarch64
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing || true
