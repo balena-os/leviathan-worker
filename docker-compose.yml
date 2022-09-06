@@ -12,8 +12,6 @@ services:
     volumes:
       - 'core-storage:/data'
       - 'reports-storage:/reports'
-    environment:
-      - UDEV=1
     labels:
       io.balena.features.dbus: '1'
       io.balena.features.balena-socket: '1'
