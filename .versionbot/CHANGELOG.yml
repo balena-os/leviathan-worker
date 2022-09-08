@@ -1,4 +1,22 @@
 - commits:
+    - subject: "qemu: add forceRaid option for testing"
+      hash: db3babac0a5ee920231b0162743808c4aa44065f
+      body: |
+        In order to test metadata devices (software RAID), add an option to
+        force RAID in QEMU, setting up the root disk as an md device with a
+        single member before flashing. This ensures that in virtualized
+        environments, we test rootfs on md device functionality.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.6.2
+  title: "'qemu: make RAID an optional configuration'"
+  date: 2022-09-08T20:43:56.123Z
+- commits:
     - subject: Revert software raid support
       hash: a8bab6f414ed9632136f11875fb01fa3782b1003
       body: |
