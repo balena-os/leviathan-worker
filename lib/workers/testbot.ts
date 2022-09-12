@@ -16,6 +16,7 @@ import {
 	RevPiConnect,
 	RtRpi300,
 	RPI3Neuron,
+	RPI4Neuron,
 	JetsonTX2,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
@@ -72,6 +73,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'raspberrypi3-unipi-neuron') {
 		return new RPI3Neuron(hat);
+	}
+	if (process.env.TESTBOT_DUT_TYPE === 'raspberrypi4-unipi-neuron') {
+		return new RPI4Neuron(hat);
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'jetson-tx2') {
 		return new JetsonTX2(hat);
