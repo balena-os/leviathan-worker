@@ -1,4 +1,18 @@
 - commits:
+    - subject: "package: Update testbotsdk to include Unipi Neuron RPi4 support"
+      hash: b53cd69cd94253cc9f84c8a6fc9f89dd0ee018df
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+      nested: []
+  version: 2.6.3
+  title: "'package: Update testbotsdk to include Unipi Neuron RPi4 support'"
+  date: 2022-09-12T09:09:16.552Z
+- commits:
     - subject: "qemu: add forceRaid option for testing"
       hash: db3babac0a5ee920231b0162743808c4aa44065f
       body: |
