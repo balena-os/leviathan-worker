@@ -18,6 +18,7 @@ import {
 	RPI3Neuron,
 	RPI4Neuron,
 	JetsonTX2,
+	Imx8mmVarDartNRT,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
 import { createWriteStream } from 'fs';
@@ -80,6 +81,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	if (process.env.TESTBOT_DUT_TYPE === 'jetson-tx2') {
 		return new JetsonTX2(hat);
 	}
+	if (process.env.TESTBOT_DUT_TYPE === 'imx8mm-var-dart-nrt') {
+		return new Imx8mmVarDartNRT(hat);
+        }
 	return new RaspberryPi(hat);
 };
 
