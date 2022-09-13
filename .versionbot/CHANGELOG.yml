@@ -1,4 +1,20 @@
 - commits:
+    - subject: "package-lock: Update testbotsdk to 2.9.21"
+      hash: f9fc9520a87103531fb3dca4329bea4ebd84c3dd
+      body: |
+        To include voltage increase for RockPi4B
+        and iMX8MM-VAR-DART-NRT support
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.6.4
+  title: "'Update testbotsdk'"
+  date: 2022-09-13T09:32:49.203Z
+- commits:
     - subject: "package: Update testbotsdk to include Unipi Neuron RPi4 support"
       hash: b53cd69cd94253cc9f84c8a6fc9f89dd0ee018df
       body: ""
