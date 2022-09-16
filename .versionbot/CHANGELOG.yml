@@ -1,4 +1,18 @@
 - commits:
+    - subject: "package-lock: Update testbotsdk for NRT flashing"
+      hash: 0be35cb1e8fe6a18787cbe464533db26362f1aa1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.6.5
+  title: "'package-lock: Update testbotsdk for NRT flashing'"
+  date: 2022-09-14T07:22:16.356Z
+- commits:
     - subject: "package-lock: Update testbotsdk to 2.9.21"
       hash: f9fc9520a87103531fb3dca4329bea4ebd84c3dd
       body: |
