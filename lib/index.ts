@@ -9,7 +9,7 @@ import { TestBotWorker } from './workers/testbot';
 import QemuWorker from './workers/qemu';
 import { Contract } from '../typings/worker';
 
-import { Stream } from 'stream';
+import { Stream, Readable } from 'stream';
 import { join } from 'path';
 import * as tar from 'tar-fs';
 import * as util from 'util';
@@ -357,17 +357,17 @@ async function setup(
 
 			try {
 				worker.on('progress', onProgress);
-				const imageStream = createGunzip();
-				const fileStream = createWriteStream('/tmp/flashImg.img');
-				console.log(`Streaming image to file...`)
+				const fileStream = createWriteStream('/tmp/flashImg.img.gz');
+				console.log(`Streaming image to gzip file...`)
 				await pipeline(
 					req,
-					imageStream,
 					fileStream
 				)
 
-				console.log(`attempting to flash...`)
-				const flashStream = createReadStream('/tmp/flashImg.img');
+				console.log(`attempting to flash...`);
+				let flashStream: Readable = createReadStream('/tmp/flashImg.img.gz');
+				flashStream = flashStream.pipe(createGunzip())
+
 				await worker.flash(flashStream);
 			} catch (e) {
 				if (e instanceof Error) {
