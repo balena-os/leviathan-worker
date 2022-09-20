@@ -19,6 +19,7 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
             sdMux: process.env.SD_MUX || 'linuxAut',
             network: process.env.NETWORK ||  'linuxNetwork',
             video: process.env.VIDEO || 'linuxVideo',
+			serial: process.env.SERIAL || 'ftdi',
             usbBootPort: process.env.USB_BOOT_PORT || '4'
         }
 
