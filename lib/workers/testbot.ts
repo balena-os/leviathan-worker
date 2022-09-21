@@ -19,6 +19,7 @@ import {
 	RPI4Neuron,
 	JetsonTX2,
 	Imx8mmVarDartNRT,
+	RockPro64,
 } from '@balena/testbot';
 import { EventEmitter } from 'events';
 import { createWriteStream } from 'fs';
@@ -83,6 +84,9 @@ const resolveDeviceInteractor = (hat: TestBotHat): DeviceInteractor => {
 	}
 	if (process.env.TESTBOT_DUT_TYPE === 'imx8mm-var-dart-nrt') {
 		return new Imx8mmVarDartNRT(hat);
+        }
+	if (process.env.TESTBOT_DUT_TYPE === 'rockpro64') {
+		return new RockPro64(hat);
         }
 	return new RaspberryPi(hat);
 };
