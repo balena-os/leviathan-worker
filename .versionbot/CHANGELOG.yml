@@ -1,4 +1,18 @@
 - commits:
+    - subject: "lib: Add RockPro64 to the leviathan"
+      hash: 1fce510c16d2a1b865f0883c086be03f89ab14b3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.6.6
+  title: "'lib: Add RockPro64 to the leviathan'"
+  date: 2022-09-21T06:56:44.592Z
+- commits:
     - subject: "package-lock: Update testbotsdk for NRT flashing"
       hash: 0be35cb1e8fe6a18787cbe464533db26362f1aa1
       body: ""
