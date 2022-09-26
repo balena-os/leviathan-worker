@@ -1,4 +1,18 @@
 - commits:
+    - subject: fix uhubctl repository
+      hash: 0009e81f809e12e082a47f6515c96bcab95681d2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.6.7
+  title: "'fix uhubctl repository'"
+  date: 2022-09-26T13:55:11.842Z
+- commits:
     - subject: "lib: Add RockPro64 to the leviathan"
       hash: 1fce510c16d2a1b865f0883c086be03f89ab14b3
       body: ""
