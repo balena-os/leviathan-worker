@@ -307,9 +307,10 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			this.qemuOptions.cpus,
 			'-drive',
 			`format=raw,file=${this.image},if=virtio`,
-			'-serial',
-			`file:${dutSerialPath}`,
 		];
+
+		const serialArgs = this.qemuOptions.debug ? []
+			: ['-serial', 'file:${dutSerialPath}'];
 
 		// Basic mapping of node process.arch to matching qemu target architecture
 		// This ensures we only enable KVM on compatible architectures
@@ -366,6 +367,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			.concat(archArgs[deviceArch])
 			.concat(networkArgs)
 			.concat(firmwareArgs[deviceArch])
+			.concat(serialArgs)
 			.concat(qmpArgs);
 
 		if (this.screenCapturer != null) {
