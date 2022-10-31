@@ -1,4 +1,38 @@
 - commits:
+    - subject: "qemu: disable serial logging when debug is enabled"
+      hash: b1a415b7f7ad71540201c20c1e000a64b23ddac7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "entry: skip creation of existing device nodes"
+      hash: 9adbe1fbe0926baca6834cd4ed8e9591bff49a22
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "config: default: standardize boolean parsing"
+      hash: 5f332a9f1cb4745b83b7c84c766924b06ead4f16
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.6.8
+  title: "'Qemu Fixes'"
+  date: 2022-10-31T14:38:17.477Z
+- commits:
     - subject: fix uhubctl repository
       hash: 0009e81f809e12e082a47f6515c96bcab95681d2
       body: ""
