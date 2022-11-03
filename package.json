@@ -35,7 +35,7 @@
     "@balena/testbot": "^1.9.22",
     "@types/bluebird": "^3.5.25",
     "@types/config": "0.0.34",
-    "autokit": "0.0.5-ryan-add-flasher-a4fab08761b44f1662822efc03db1aff004c9ac2",
+    "autokit": "^0.1.6-ryan-fix-mux-name-eacea438d634c962aef2287db063b08704c5f196-1",
     "balena-sdk": "^16.12.1",
     "bluebird": "^3.5.3",
     "bluebird-retry": "^0.11.0",
