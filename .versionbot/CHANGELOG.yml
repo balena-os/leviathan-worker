@@ -1,4 +1,18 @@
 - commits:
+    - subject: use gzip to save space on worker
+      hash: 58f32de7e1bdaf080649a0866f3aa1b389faf6c7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.6.8
+  title: "'use gzip to save space on worker'"
+  date: 2022-11-04T08:41:19.927Z
+- commits:
     - subject: fix uhubctl repository
       hash: 0009e81f809e12e082a47f6515c96bcab95681d2
       body: ""
