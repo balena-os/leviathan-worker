@@ -1,4 +1,20 @@
 - commits:
+    - subject: "package: Update testbotsdk from 1.9.23 to 1.9.25"
+      hash: c989bf9aff9945b9311f208686fc8f737300b4b0
+      body: |
+        To bring in the fixes made by Ryan for improving
+        flashing consistancy.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.6.8
+  title: "'package: Update testbotsdk from 1.9.23 to 1.9.25'"
+  date: 2022-11-11T09:13:01.065Z
+- commits:
     - subject: fix uhubctl repository
       hash: 0009e81f809e12e082a47f6515c96bcab95681d2
       body: ""
