@@ -1,4 +1,78 @@
 - commits:
+    - subject: test-dummy-change
+      hash: db2cc97e5e3ef25c170c71897425ca48df9bb214
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: bump autokit to 0.1.9
+      hash: 464ff419afd9d17d80c25d3a6b693ad52c05686c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: bump autokit to 0.1.8
+      hash: ba2e3abe6425b2916ef9e9f7074e195d40b837e0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: bump autokit to 0.1.7
+      hash: 900585a7dc6327fc4474b3fc0a54b6c3363f0340
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: bump autokit to 0.1.6
+      hash: 75fffe285aaafff2fd892ad3e806f508d2098bd9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add flasher and ftdi
+      hash: 0ccbffe68218d0b3ad626df94657ef485776e63b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add autokit worker
+      hash: 29d88f342903cb98cf7346fae54586524027310d
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.7.0
+  title: "'add autokit worker'"
+  date: 2022-11-14T10:57:06.581Z
+- commits:
     - subject: "package-lock: Update testbotsdk for NRT flashing"
       hash: 0be35cb1e8fe6a18787cbe464533db26362f1aa1
       body: ""
