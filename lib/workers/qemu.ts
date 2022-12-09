@@ -21,7 +21,8 @@ const dutSerialPath = '/reports/dut-serial.txt';
 
 class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	private id: string;
-	private image: string;
+	private internalDisk: string;
+	private externalDisk: string;
 	private signalHandler: (signal: NodeJS.Signals) => Promise<void>;
 	private qemuProc: ChildProcess | null = null;
 	private dnsmasqProc: ChildProcess | null = null;
@@ -41,10 +42,11 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		this.id = `${Math.random().toString(36).substring(2, 10)}`;
 
 		if (options != null) {
-			this.image =
+			this.externalDisk =
 				options.worker != null && options.worker.disk != null
 					? options.worker.disk
-					: '/data/os.img';
+					: '/data/external.img';
+			this.internalDisk = '/data/internal.img';
 
 			if (options.screenCapture) {
 				this.screenCapturer = new ScreenCapture(
@@ -159,9 +161,9 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	public async flash(stream: Stream.Readable): Promise<void> {
 		await this.powerOff();
 
-		await execProm(`fallocate -l 8G ${this.image}`);
-		const loopbackDevice = this.qemuOptions.forceRaid
-			? (await execProm(`losetup -fP --show ${this.image}`)).stdout.trim()
+		await execProm(`truncate -s 8G ${this.internalDisk} ${this.externalDisk}`);
+		const loopDevice = this.qemuOptions.forceRaid
+			? (await execProm(`losetup -fP --show ${this.internalDisk}`)).stdout.trim()
 			: null;
 		const arrayDevice = this.qemuOptions.forceRaid
 			? `/dev/md/${this.id}`
@@ -179,7 +181,11 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 							'--metadata=0.90',
 							'--force',
 							arrayDevice,
-							loopbackDevice,
+							loopDevice,
+						'&&',
+							'mdadm',
+								'--stop',
+								arrayDevice,
 					].join(' ')
 				);
 			}
@@ -187,7 +193,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			const source = new sdk.sourceDestination.SingleUseStreamSource(stream);
 
 			const destination = new sdk.sourceDestination.File({
-				path: this.qemuOptions.forceRaid ? arrayDevice! : this.image,
+				path: this.externalDisk,
 				write: true,
 			});
 
@@ -208,7 +214,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		} finally {
 			if (this.qemuOptions.forceRaid) {
 				await execProm(`mdadm --stop ${arrayDevice}`);
-				await execProm(`losetup -d ${loopbackDevice}`);
+				await execProm(`losetup -d ${loopDevice}`);
 			}
 		}
 	}
@@ -305,10 +311,18 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			this.qemuOptions.memory,
 			'-smp',
 			this.qemuOptions.cpus,
-			'-drive',
-			`format=raw,file=${this.image},if=virtio`,
 			'-serial',
 			`file:${dutSerialPath}`,
+		];
+
+		const internalStorageArgs = [
+			'-drive', `format=raw,file=${this.internalDisk},media=disk`,
+		];
+
+		const externalStorageArgs = [
+			'-drive', `format=raw,file=${this.externalDisk},if=none,id=ext0`,
+			'-device', 'qemu-xhci',
+			'-device', 'usb-storage,drive=ext0,bootindex=1',
 		];
 
 		// Basic mapping of node process.arch to matching qemu target architecture
@@ -363,6 +377,8 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		};
 		const qmpArgs = ['-qmp', `tcp:localhost:${qmpPort},server,nowait`];
 		let args = baseArgs
+			.concat(internalStorageArgs)
+			.concat(externalStorageArgs)
 			.concat(archArgs[deviceArch])
 			.concat(networkArgs)
 			.concat(firmwareArgs[deviceArch])
