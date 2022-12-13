@@ -1,11 +1,9 @@
 import * as Bluebird from 'bluebird';
-import * as retry from 'bluebird-retry';
 import { ChildProcess, spawn, exec } from 'child_process';
 import * as sdk from 'etcher-sdk';
 import { EventEmitter } from 'events';
-import { assignIn } from 'lodash';
 import { fs } from 'mz';
-import { dirname, join } from 'path';
+import { join } from 'path';
 import * as Stream from 'stream';
 import { manageHandlers } from '../helpers';
 import ScreenCapture from '../helpers/graphics';
