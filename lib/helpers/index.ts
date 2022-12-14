@@ -127,7 +127,7 @@ export function getIpFromIface(iface: string): string {
 	throw new Error(`Could not find connected interface ${iface}`);
 }
 
-var resolverCache: { [target: string]: string } = {};
+const resolverCache: { [target: string]: string } = {};
 
 export function resolveLocalTarget(target: string): PromiseLike<string> {
 	if (target in resolverCache) {
