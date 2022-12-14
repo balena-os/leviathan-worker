@@ -1,4 +1,18 @@
 - commits:
+    - subject: Prevent e2e tests on closed events
+      hash: 2ba986adda71d7cdb1f3900227ef5a0d1b88dec7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.6.10
+  title: ""
+  date: 2022-12-14T20:03:08.651Z
+- commits:
     - subject: Run Flowzone before e2e tests
       hash: 3ad36fcda2663393951140f174b2c5ff2c627d7e
       body: ""
