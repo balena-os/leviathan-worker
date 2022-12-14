@@ -1,4 +1,40 @@
 - commits:
+    - subject: Run Flowzone before e2e tests
+      hash: 3ad36fcda2663393951140f174b2c5ff2c627d7e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Remove npm tests as they are broken
+      hash: 9986b3490bb77d859c6111923f903821ddc648ca
+      body: |
+        At some point we stopped running these tests and they
+        have all sorts of issues and misaligned interfaces.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Fix npm test errors and dependencies
+      hash: 425659f1c26cb289a00c829f1bd5071f6b0a11ac
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.6.9
+  title: ""
+  date: 2022-12-14T18:32:42.439Z
+- commits:
     - subject: "package: Update testbotsdk from 1.9.23 to 1.9.25"
       hash: c989bf9aff9945b9311f208686fc8f737300b4b0
       body: |
@@ -1349,7 +1385,7 @@
 - commits:
     - subject: "patch: Add config.js for e2e suite"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.28
 - date: 2022-02-23T12:56:23Z
 - commits:
@@ -1365,7 +1401,7 @@
 - commits:
     - subject: "worker: bump testbot sdk for bbb improvments"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.27
 - date: 2022-02-23T12:22:12Z
 - commits:
@@ -1381,7 +1417,7 @@
 - commits:
     - subject: "revert: core: balenaos: use temp file for image path"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.26
 - date: 2022-02-22T12:02:19Z
 - commits:
@@ -1394,7 +1430,7 @@
 - commits:
     - subject: "patch: Track test skips & summarize the summaries"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 55151cef4df8948d474837614e9592ccc8cd1a55
 - commits:
@@ -1405,7 +1441,7 @@
 - commits:
     - subject: Lint & prettify files
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.25
 - date: 2022-02-18T18:16:54Z
 - commits:
@@ -1421,7 +1457,7 @@
 - commits:
     - subject: "worker: fix build on x86"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.24
 - date: 2022-02-18T17:50:52Z
 - commits:
@@ -1437,7 +1473,7 @@
 - commits:
     - subject: "worker: bump testbot sdk for fin fix"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.23
 - date: 2022-02-15T00:18:23Z
 - commits:
@@ -1476,7 +1512,7 @@
 - commits:
     - subject: "workers: qemu: specify machine and cpu type for aarch64"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 530401012384bcf27bbe4fb3f0f3d67e92d51f46
 - commits:
@@ -1508,7 +1544,7 @@
 - commits:
     - subject: "patch: Throw errors on upload"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.20
 - date: 2022-02-08T14:49:39Z
 - commits:
@@ -1607,7 +1643,7 @@
 - commits:
     - subject: "core: Prevent duplicate entries in balenarc.yml"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.15
 - date: 2022-02-03T17:34:43Z
 - commits:
@@ -1640,7 +1676,7 @@
 - commits:
     - subject: "patch: Support staging environment for balenaCLI"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.13
 - date: 2022-02-03T10:32:29Z
 - commits:
@@ -1731,7 +1767,7 @@
 - commits:
     - subject: "client: Export additional env vars required for cloud suites"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.8
 - date: 2022-01-26T11:00:25Z
 - commits:
@@ -1744,7 +1780,7 @@
 - commits:
     - subject: "patch: Delete interactive client code"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f7895cbec9f74e9e2bb3ddec6d8df5b280e327a2
 - commits:
@@ -1755,7 +1791,7 @@
 - commits:
     - subject: Delete interactive mode documentation
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 12cc9ace0cfe913c87f630d3080f2f4eb837f0b3
 - commits:
@@ -1766,7 +1802,7 @@
 - commits:
     - subject: Remove client/core interactive mode interaction
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.7
 - date: 2022-01-26T09:15:45Z
 - commits:
@@ -1827,7 +1863,7 @@
 - commits:
     - subject: "core: add some logging to preload helper"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.4
 - date: 2022-01-25T11:53:21Z
 - commits:
@@ -1941,7 +1977,7 @@
 - commits:
     - subject: "core: update cloud helpers after sdk bump"
 - commits:
-    - ? body
+    - body: null
 - version: 1.35.0
 - date: 2022-01-19T15:22:56Z
 - commits:
@@ -2013,7 +2049,7 @@
 - commits:
     - subject: "core: Update balena-sdk init function"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: abe8d59c616b6696ca49e4b95682b4caefc48873
 - commits:
@@ -2043,7 +2079,7 @@
 - commits:
     - subject: fix preloading helpers for qemu worker
 - commits:
-    - ? body
+    - body: null
 - version: 1.34.1
 - date: 2022-01-18T11:51:49Z
 - commits:
@@ -2056,7 +2092,7 @@
 - commits:
     - subject: "patch: Change code theme in docs"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 695777eb6f19f136ba494e1d6b18979756020267
 - commits:
@@ -2067,7 +2103,7 @@
 - commits:
     - subject: Update documentation
 - commits:
-    - ? body
+    - body: null
 - version: 1.34.0
 - date: 2022-01-18T10:50:00Z
 - commits:
@@ -2080,7 +2116,7 @@
 - commits:
     - subject: "minor: Add testbot e2e tests"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2921474e7ea5a57fbe9f1fc6cfeee91a2e281199
 - commits:
@@ -2091,7 +2127,7 @@
 - commits:
     - subject: Add diagnostics endpoint & worker logic
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 760711879ef484574c74a63843398157effe66c1
 - commits:
@@ -2102,7 +2138,7 @@
 - commits:
     - subject: Expose testbot methods for e2e tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4d58e42e1c4c8ca8d2a7444c4ef2cbd337705d6f
 - commits:
@@ -2113,7 +2149,7 @@
 - commits:
     - subject: Delete old tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: fe178995aa7894d95035799c1f69dfc783a19960
 - commits:
@@ -2127,7 +2163,7 @@
 - commits:
     - subject: Fixed serial logging test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 04f7bdcf2b935a8ffcf325d811676d69574d79f9
 - commits:
@@ -2138,7 +2174,7 @@
 - commits:
     - subject: Add example config.js
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: edb63d72f665bc0a8b130f2448bb9e2ba0985f66
 - commits:
@@ -2149,7 +2185,7 @@
 - commits:
     - subject: Add fake image Upload option
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 31d4a2aa38a80a041eb21f34fe4f2ad36479d6ec
 - commits:
@@ -2160,7 +2196,7 @@
 - commits:
     - subject: Support QEMU worker in e2e tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 81bb17194dd6cdcfddfd1eece2505e72309bafce
 - commits:
@@ -2171,7 +2207,7 @@
 - commits:
     - subject: Document e2e test suite
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 563f19886666f755d21bce1b1d5bb0323687204b
 - commits:
@@ -2182,7 +2218,7 @@
 - commits:
     - subject: Add fetchOS download progress on image download
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 69ff455ed9e55cb713318eca2d2d5ace75704d2f
 - commits:
@@ -2193,7 +2229,7 @@
 - commits:
     - subject: Add QEMU test suite improvements to e2e
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9d2b8606863e4ef6518e263a4acbbe00d3e668f6
 - commits:
@@ -2204,7 +2240,7 @@
 - commits:
     - subject: Add developmentMode as true
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 405a0dacee2770964a1050fcaed5ce2cfe282b63
 - commits:
@@ -2215,7 +2251,7 @@
 - commits:
     - subject: Add worker contracts in tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5f67f2b9e242c42593d9d6acf91ba395cf0327f3
 - commits:
@@ -2226,7 +2262,7 @@
 - commits:
     - subject: Unify contract/diagnostic endpoints
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 18dce64d4c0a9df4f4b77d64b8ab586d0c07702b
 - commits:
@@ -2237,7 +2273,7 @@
 - commits:
     - subject: Add more information to test assertions
 - commits:
-    - ? body
+    - body: null
 - version: 1.33.0
 - date: 2022-01-17T13:36:35Z
 - commits:
@@ -2250,7 +2286,7 @@
 - commits:
     - subject: "minor: Deprecate the use of conf.js in test suites"
 - commits:
-    - ? body
+    - body: null
 - version: 1.32.7
 - date: 2022-01-17T13:29:51Z
 - commits:
@@ -2266,7 +2302,7 @@
 - commits:
     - subject: Add applicationConfigVariables to balena.yml
 - commits:
-    - ? body
+    - body: null
 - version: 1.32.6
 - date: 2022-01-14T08:34:27Z
 - commits:
@@ -2295,7 +2331,7 @@
 - commits:
     - subject: "worker: Avoid running QEMU entrypoint cmds on testbot"
 - commits:
-    - ? body
+    - body: null
 - version: 1.32.4
 - date: 2022-01-13T21:33:38Z
 - commits:
@@ -2372,7 +2408,7 @@
 - commits:
     - subject: "workers: qemu: enable serial logging"
 - commits:
-    - ? body
+    - body: null
 - version: 1.32.1
 - date: 2022-01-11T18:24:35Z
 - commits:
@@ -2385,7 +2421,7 @@
 - commits:
     - subject: "patch: Add deploy to balena action"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: bd2ceecfcafa906c2ac932f7de671b851b8b02fb
 - commits:
@@ -2396,7 +2432,7 @@
 - commits:
     - subject: Add submodules
 - commits:
-    - ? body
+    - body: null
 - version: 1.32.0
 - date: 2022-01-09T10:54:34Z
 - commits:
@@ -2409,7 +2445,7 @@
 - commits:
     - subject: "minor: Remove git hooks"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9ba6bc83cbc56b4aae8e015b6a6913ab38f1f3df
 - commits:
@@ -2420,7 +2456,7 @@
 - commits:
     - subject: "[Client] Formatting fixes"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4e4c998d74ce784d51b8bc8eedab3fd6edc8d8e9
 - commits:
@@ -2431,7 +2467,7 @@
 - commits:
     - subject: "[Client] Trim dependencies"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c5d8243b93a3789bcac164415ca36bd884269abb
 - commits:
@@ -2442,7 +2478,7 @@
 - commits:
     - subject: "[Core] Formatting fixes && trim dependencies"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 837c0f4905700029dc458730808dd598d85d6e83
 - commits:
@@ -2453,7 +2489,7 @@
 - commits:
     - subject: "[Worker] Fix double ==, Formatting  && trim dependencies"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 20d8e2300a3faa72ca56622c11202f90f586ed0b
 - commits:
@@ -2464,7 +2500,7 @@
 - commits:
     - subject: Amend leviathan package.json scripts
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7f668a35ef669ac560f60a85a0a4e0e6947e8e57
 - commits:
@@ -2475,7 +2511,7 @@
 - commits:
     - subject: Convert to balena-lint
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.9
 - date: 2022-01-07T10:29:27Z
 - commits:
@@ -2485,7 +2521,7 @@
 - commits:
     - subject: "patch: Replace link-checker with Lychee"
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.8
 - date: 2021-12-29T06:24:48Z
 - commits:
@@ -2498,7 +2534,7 @@
 - commits:
     - subject: "patch: Clear cache when test starts"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 810434b46e3d25ba16c074e97d15c33c1bcce49b
 - commits:
@@ -2509,7 +2545,7 @@
 - commits:
     - subject: Remove package-lock.json file from ignore lists
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.7
 - date: 2021-12-22T16:14:18Z
 - commits:
@@ -2525,7 +2561,7 @@
 - commits:
     - subject: "local-test: Split up client and local compose files"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b1116c56dcc04b82a0b75ad4e2cf4b85446d376c
 - commits:
@@ -2553,7 +2589,7 @@
 - commits:
     - subject: "local-test: Remove dependency on npx"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b7d23c0073aac800288f9b0ac4064a59b687ef5d
 - commits:
@@ -2567,7 +2603,7 @@
 - commits:
     - subject: "local-test: Remove orphan containers on compose up"
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.6
 - date: 2021-12-21T13:43:56Z
 - commits:
@@ -2580,7 +2616,7 @@
 - commits:
     - subject: "patch: Update balena-sdk to 16.1.0"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0e3899f90b721c30531c1571849525210d06f0bd
 - commits:
@@ -2591,7 +2627,7 @@
 - commits:
     - subject: Update balena-sdk calling function
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.5
 - date: 2021-12-20T13:46:11Z
 - commits:
@@ -2607,7 +2643,7 @@
 - commits:
     - subject: "client: Expose config module path in docker cmd"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: feb675b31f5478c854ced50ee5126307eb74e81d
 - commits:
@@ -2621,7 +2657,7 @@
 - commits:
     - subject: "client: Change base image to alpine"
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.4
 - date: 2021-12-17T15:58:46Z
 - commits:
@@ -2655,7 +2691,7 @@
 - commits:
     - subject: "worker: set up bridge parameters dynamically"
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.2
 - date: 2021-12-15T14:44:10Z
 - commits:
@@ -2671,7 +2707,7 @@
 - commits:
     - subject: Update package-lock.json
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.1
 - date: 2021-12-15T11:21:28Z
 - commits:
@@ -2687,7 +2723,7 @@
 - commits:
     - subject: Add CM4 IO-Board
 - commits:
-    - ? body
+    - body: null
 - version: 1.31.0
 - date: 2021-12-09T21:06:57Z
 - commits:
@@ -2703,7 +2739,7 @@
 - commits:
     - subject: "core: Change base images from debian to alpine"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 28812cba7a8c1f6740c25970c8a1b63e53181abf
 - commits:
@@ -2717,7 +2753,7 @@
 - commits:
     - subject: "worker: Change base images from debian to alpine"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 398474b5ac9e894152ea9a99a8a851462c3b0343
 - commits:
@@ -2773,7 +2809,7 @@
 - commits:
     - subject: "patch: Remove duplicate build property"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.13
 - date: 2021-12-05T15:42:32Z
 - commits:
@@ -2789,7 +2825,7 @@
 - commits:
     - subject: allow setting of ports via env var
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.12
 - date: 2021-12-02T23:56:46Z
 - commits:
@@ -2805,7 +2841,7 @@
 - commits:
     - subject: "worker: Return error if bridge address is already in use"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.11
 - date: 2021-12-02T15:58:04Z
 - commits:
@@ -2867,7 +2903,7 @@
 - commits:
     - subject: "core: Fix rebased multicast-dns reference"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.9
 - date: 2021-11-30T19:25:17Z
 - commits:
@@ -2880,7 +2916,7 @@
 - commits:
     - subject: "patch: Streamline the docs"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6f2c42525b83130a24b0241988299ed0c3ff550b
 - commits:
@@ -2891,7 +2927,7 @@
 - commits:
     - subject: Add config.json example to target all devices in fleet
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e6054ef61ae2cef33a883bf64aed6f2543432809
 - commits:
@@ -2902,7 +2938,7 @@
 - commits:
     - subject: Fix dead links
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: afc82ad9f52e0d7655ac6e63e6109f9080a4fe5e
 - commits:
@@ -2913,7 +2949,7 @@
 - commits:
     - subject: Add GitHub action for finding dead links
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4604bc5cab3d049b540171e5098af3ec4ab967e7
 - commits:
@@ -2924,7 +2960,7 @@
 - commits:
     - subject: Generate documentation
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.8
 - date: 2021-11-30T00:10:11Z
 - commits:
@@ -2971,7 +3007,7 @@
 - commits:
     - subject: "Makefile: fix ENOENT when paths don't exist in clean target"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4253ba5d92405da557ce10f91b2533b6d63dd5f1
 - commits:
@@ -3005,7 +3041,7 @@
 - commits:
     - subject: Force install to replace missing dependencies
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3ac85edcdc5196a6d4b5ca94ce26300a2d15293a
 - commits:
@@ -3019,7 +3055,7 @@
 - commits:
     - subject: Remove deprecated balena-sync package
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 884f982320301e78e8d7186585c09b459b892e10
 - commits:
@@ -3030,7 +3066,7 @@
 - commits:
     - subject: Update multicast-dns commit ref as the PR has been rebased
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.5
 - date: 2021-11-26T14:43:49Z
 - commits:
@@ -3046,7 +3082,7 @@
 - commits:
     - subject: "worker: update package-lock"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.4
 - date: 2021-11-26T13:10:07Z
 - commits:
@@ -3062,7 +3098,7 @@
 - commits:
     - subject: Add RevPi Core 3
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b03af4adf3da9a063b7928f0beaca77b0cda5faf
 - commits:
@@ -3073,7 +3109,7 @@
 - commits:
     - subject: "worker: Update testbot SDK to include RevPi support"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.3
 - date: 2021-11-26T12:24:20Z
 - commits:
@@ -3089,7 +3125,7 @@
 - commits:
     - subject: Fix ordering of docker-compose args
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.2
 - date: 2021-11-26T09:18:06Z
 - commits:
@@ -3105,7 +3141,7 @@
 - commits:
     - subject: "makefile: fix detached flag in make detach"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.1
 - date: 2021-11-25T17:30:06Z
 - commits:
@@ -3121,7 +3157,7 @@
 - commits:
     - subject: "worker: set up iptables and cleanup in teardown"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 05a0394d0d949cae8e06c345a21817ea7cdf3675
 - commits:
@@ -3135,7 +3171,7 @@
 - commits:
     - subject: "worker: wait for qemu image resize before flashing"
 - commits:
-    - ? body
+    - body: null
 - version: 1.30.0
 - date: 2021-11-25T16:40:10Z
 - commits:
@@ -3166,7 +3202,7 @@
 - commits:
     - subject: Update documentation with new makefile commands
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.10
 - date: 2021-11-23T02:02:46Z
 - commits:
@@ -3206,7 +3242,7 @@
 - commits:
     - subject: Add detached target to makefile for running in jenkins
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: aca70f5def3d8af01e54f90119967e9190ad1156
 - commits:
@@ -3217,7 +3253,7 @@
 - commits:
     - subject: Fix typo in qemu lib dnsmasqArgs
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.8
 - date: 2021-11-22T15:54:16Z
 - commits:
@@ -3253,7 +3289,7 @@
 - commits:
     - subject: 'Revert "patch: Reduce helpers delays and retries"'
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 46bec0b5a258eb067750d20e6c02df6a98f4e64f
 - commits:
@@ -3267,7 +3303,7 @@
 - commits:
     - subject: "client: fix flashing status messages"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 98e7ebad82cc8f8da6b281b05c043f990f417abf
 - commits:
@@ -3281,7 +3317,7 @@
 - commits:
     - subject: "client: let client execute suites on one worker"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d491ff74aecfd33e1bdec84dc20a0cd303d2f576
 - commits:
@@ -3295,7 +3331,7 @@
 - commits:
     - subject: "core: add dependencies for hup suite"
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.6
 - date: 2021-11-16T09:36:04Z
 - commits:
@@ -3308,7 +3344,7 @@
 - commits:
     - subject: "patch: Remove nadoo/glider from Dockerfile"
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.5
 - date: 2021-11-16T07:25:31Z
 - commits:
@@ -3318,7 +3354,7 @@
 - commits:
     - subject: "patch: Create balena-ci.yml"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ab61d68ed3ef4b8b695df568d52018cabb3ffa57
 - commits:
@@ -3329,7 +3365,7 @@
 - commits:
     - subject: Update dependabot to bump actions
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: cf5ba688012f3d198a46671f2ebe0b6be36493bc
 - commits:
@@ -3340,7 +3376,7 @@
 - commits:
     - subject: Add matrix of fleets to deploy releases
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.4
 - date: 2021-11-15T21:21:51Z
 - commits:
@@ -3369,7 +3405,7 @@
 - commits:
     - subject: "patch: Install git in the worker for npm dependencies"
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.2
 - date: 2021-11-15T13:09:25Z
 - commits:
@@ -3382,7 +3418,7 @@
 - commits:
     - subject: "patch: Reduce helpers delays and retries"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6f57b9cb5ed570e6e53cea0342720c3c047da5fe
 - commits:
@@ -3393,7 +3429,7 @@
 - commits:
     - subject: Reduce timeouts for cloud worker
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.1
 - date: 2021-11-15T11:07:11Z
 - commits:
@@ -3409,7 +3445,7 @@
 - commits:
     - subject: add worker contract
 - commits:
-    - ? body
+    - body: null
 - version: 1.29.0
 - date: 2021-11-15T10:33:08Z
 - commits:
@@ -3461,7 +3497,7 @@
 - commits:
     - subject: Re-enable qemu worker
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e83bcdf7fa986f3d6c41e24e4ef95577dc6288ab
 - commits:
@@ -3472,7 +3508,7 @@
 - commits:
     - subject: "workers: qemu: promisify network setup"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b0a5a8f65144e050dc4fcd6bf145ff8327739042
 - commits:
@@ -3483,7 +3519,7 @@
 - commits:
     - subject: "workers: qemu: re-enable support for screenCapturer"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3a1c56a9f3c1c73311cad4c1541374d81933bb25
 - commits:
@@ -3591,7 +3627,7 @@
 - commits:
     - subject: "compose/generic-x86.yml: enable SCREEN_CAPTURE"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2ea43d2d6e3ff10a26d50f34481f07fd051fd75d
 - commits:
@@ -3639,7 +3675,7 @@
 - commits:
     - subject: "README: update with QEMU worker instructions"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b9f687eec9657528b53c96750ebd051e77db079c
 - commits:
@@ -3671,7 +3707,7 @@
 - commits:
     - subject: "Makefile: replace BALENA_ARCH in Dockerfile templates"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 030f47322f0f89e81673adde601d627500d8c9c1
 - commits:
@@ -3685,7 +3721,7 @@
 - commits:
     - subject: "worker: Dockerfile: s/BALENA_MACHINE_NAME/BALENA_ARCH"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.36
 - date: 2021-11-08T20:30:30Z
 - commits:
@@ -3732,7 +3768,7 @@
 - commits:
     - subject: allow option to keep image post test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2fec0e39855a34ce7265d87689c1f5749fa22925
 - commits:
@@ -3746,7 +3782,7 @@
 - commits:
     - subject: stub worker functions if env variable present
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.34
 - date: 2021-11-02T09:05:04Z
 - commits:
@@ -3762,7 +3798,7 @@
 - commits:
     - subject: add title to json summary
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.33
 - date: 2021-10-29T13:20:53Z
 - commits:
@@ -3778,7 +3814,7 @@
 - commits:
     - subject: add json test summary
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.32
 - date: 2021-10-29T10:36:09Z
 - commits:
@@ -3794,7 +3830,7 @@
 - commits:
     - subject: stop testbotsdk build breaking local make
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.31
 - date: 2021-10-29T10:24:36Z
 - commits:
@@ -3824,7 +3860,7 @@
 - commits:
     - subject: "Makefile: update usage of --yes for npm >= 7"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.30
 - date: 2021-10-26T11:28:36Z
 - commits:
@@ -3834,7 +3870,7 @@
 - commits:
     - subject: "patch: Fix bluebird-retry options syntax"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.29
 - date: 2021-10-26T05:17:46Z
 - commits:
@@ -3847,7 +3883,7 @@
 - commits:
     - subject: "patch: Clarify caching implementation in fetchOS helper"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.28
 - date: 2021-10-20T13:43:01Z
 - commits:
@@ -3863,7 +3899,7 @@
 - commits:
     - subject: fix parsing of os-release file for flasher images
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.27
 - date: 2021-10-20T09:47:54Z
 - commits:
@@ -3879,7 +3915,7 @@
 - commits:
     - subject: add beaglebone support
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.26
 - date: 2021-10-20T09:29:24Z
 - commits:
@@ -3892,7 +3928,7 @@
 - commits:
     - subject: "patch: Disable Dependabot from Leviathan"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.25
 - date: 2021-10-20T09:11:58Z
 - commits:
@@ -3908,7 +3944,7 @@
 - commits:
     - subject: fix suite hangups
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.24
 - date: 2021-10-18T13:20:19Z
 - commits:
@@ -3960,7 +3996,7 @@
 - commits:
     - subject: "patch: Update .dockerignore"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.22
 - date: 2021-09-06T10:24:18Z
 - commits:
@@ -3976,7 +4012,7 @@
 - commits:
     - subject: "core: fix typo of retrieve"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.21
 - date: 2021-09-01T23:08:14Z
 - commits:
@@ -3989,7 +4025,7 @@
 - commits:
     - subject: "patch: Reduce timeout interval retrying archiveLogs helper"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.20
 - date: 2021-09-01T18:50:35Z
 - commits:
@@ -4020,7 +4056,7 @@
 - commits:
     - subject: Add documentation for archiveLogs helper
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.19
 - date: 2021-08-31T08:50:29Z
 - commits:
@@ -4053,7 +4089,7 @@
 - commits:
     - subject: "patch: Update balena-cli to v12.48.0"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.17
 - date: 2021-08-25T14:41:30Z
 - commits:
@@ -4069,7 +4105,7 @@
 - commits:
     - subject: have test suite bail after first failure
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.16
 - date: 2021-08-24T20:19:43Z
 - commits:
@@ -4085,7 +4121,7 @@
 - commits:
     - subject: remove redundant parts of worker dockerfile
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.15
 - date: 2021-08-24T14:55:29Z
 - commits:
@@ -4101,7 +4137,7 @@
 - commits:
     - subject: disable bable-node
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.14
 - date: 2021-08-19T16:15:38Z
 - commits:
@@ -4117,7 +4153,7 @@
 - commits:
     - subject: "hotfix: wait for report stream to end before exit"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.13
 - date: 2021-08-19T11:52:59Z
 - commits:
@@ -4133,7 +4169,7 @@
 - commits:
     - subject: generate mocha-style report at the end of tests
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.12
 - date: 2021-08-18T16:20:44Z
 - commits:
@@ -4149,7 +4185,7 @@
 - commits:
     - subject: increase ssh keepalive interval time
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.11
 - date: 2021-08-15T16:28:15Z
 - commits:
@@ -4162,7 +4198,7 @@
 - commits:
     - subject: "patch: Restructure teardown order to prevent dependency issues"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 43e54d98738d1aed70c961f8dd44a8e5126c9943
 - commits:
@@ -4173,7 +4209,7 @@
 - commits:
     - subject: Add archiverLogs as helper
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.10
 - date: 2021-08-11T15:48:51Z
 - commits:
@@ -4208,7 +4244,7 @@
 - commits:
     - subject: add message when suite exits to client
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.8
 - date: 2021-08-05T10:18:30Z
 - commits:
@@ -4224,7 +4260,7 @@
 - commits:
     - subject: enable testing without client uploads
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f143d6c7a330c1b9ff069b5bef1658e4270b124b
 - commits:
@@ -4238,7 +4274,7 @@
 - commits:
     - subject: store worker logs locally
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.7
 - date: 2021-08-03T11:10:23Z
 - commits:
@@ -4248,7 +4284,7 @@
 - commits:
     - subject: "patch: Add docs/ to .dockerignore"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.6
 - date: 2021-08-02T14:41:39Z
 - commits:
@@ -4264,7 +4300,7 @@
 - commits:
     - subject: bump testbot sdk package to support fin
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.5
 - date: 2021-07-22T13:46:16Z
 - commits:
@@ -4277,7 +4313,7 @@
 - commits:
     - subject: "patch: Make CLI helpers considerate of API environments"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.4
 - date: 2021-07-22T12:59:22Z
 - commits:
@@ -4290,7 +4326,7 @@
 - commits:
     - subject: "patch: Fix grouping of online testbots when selecting available workers"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.3
 - date: 2021-07-21T12:48:49Z
 - commits:
@@ -4306,7 +4342,7 @@
 - commits:
     - subject: Replace broken link and fix readme formatting
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.2
 - date: 2021-07-21T08:29:32Z
 - commits:
@@ -4319,7 +4355,7 @@
 - commits:
     - subject: "patch: Move generated docs to root for GitHub Pages"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.1
 - date: 2021-07-19T22:14:10Z
 - commits:
@@ -4332,7 +4368,7 @@
 - commits:
     - subject: "patch: generate leviathan helpers documentation"
 - commits:
-    - ? body
+    - body: null
 - version: 1.28.0
 - date: 2021-07-19T21:14:39Z
 - commits:
@@ -4348,7 +4384,7 @@
 - commits:
     - subject: Add Leviathan helpers documentation
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a39d280c019a04086d53e435c769cca4096dc244
 - commits:
@@ -4359,7 +4395,7 @@
 - commits:
     - subject: Configure typedoc for leviathan helpers
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e8391c920b33f756c4dd79d2a20ad43ca5a512c1
 - commits:
@@ -4370,7 +4406,7 @@
 - commits:
     - subject: Document helper methods in tsdoc format
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: cc328d055bde2527d7a6a25a1becf9e977700422
 - commits:
@@ -4381,7 +4417,7 @@
 - commits:
     - subject: Add params, throws, returns for helper documentation
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e89420826aae5a66043838b63d4dd0d9e851ce44
 - commits:
@@ -4392,7 +4428,7 @@
 - commits:
     - subject: Add docs to dockerignore
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 544c918353d07b4733b8f86821982e2aca8ec0f7
 - commits:
@@ -4403,7 +4439,7 @@
 - commits:
     - subject: Add learn more section
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 964e6c486d7cc47053dc10c1539a58fe7a1cd690
 - commits:
@@ -4414,7 +4450,7 @@
 - commits:
     - subject: Add What next section to Quickstart
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.13
 - date: 2021-07-14T11:56:44Z
 - commits:
@@ -4430,7 +4466,7 @@
 - commits:
     - subject: fix preload helper
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.12
 - date: 2021-07-12T06:45:05Z
 - commits:
@@ -4463,7 +4499,7 @@
 - commits:
     - subject: Fix balenaOS image link in README
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.10
 - date: 2021-06-30T15:49:37Z
 - commits:
@@ -4473,7 +4509,7 @@
 - commits:
     - subject: "patch: Delete Codeowners"
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.9
 - date: 2021-06-25T10:27:12Z
 - commits:
@@ -4489,7 +4525,7 @@
 - commits:
     - subject: Allow use of balenaOS class with any image
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 30d6eede6d843021dfd1a0eda379a2bee68d2393
 - commits:
@@ -4503,7 +4539,7 @@
 - commits:
     - subject: fix test teardowns overlapping with suite teardown
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e6a7933890fb69002c96c97a429889f8036e9b94
 - commits:
@@ -4517,7 +4553,7 @@
 - commits:
     - subject: make fetchOS function use downloads dir
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e5293c5740ccb26d9cd2e728203ede80be405fc4
 - commits:
@@ -4531,7 +4567,7 @@
 - commits:
     - subject: add get os function to worker
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8f10c3cac6230826de73fc68c3e7b0697113d553
 - commits:
@@ -4545,7 +4581,7 @@
 - commits:
     - subject: Fix formatting
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.8
 - date: 2021-06-23T10:41:45Z
 - commits:
@@ -4558,7 +4594,7 @@
 - commits:
     - subject: "patch: Reboot DUT helper"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 73ab63f4c3d23428f940bb1eee6e89c05aa76362
 - commits:
@@ -4569,7 +4605,7 @@
 - commits:
     - subject: Add fetchOS helper
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6069718b484d5bfc4b6d2b2943a3ad168df6ae3c
 - commits:
@@ -4580,7 +4616,7 @@
 - commits:
     - subject: Add documentation to helpers
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.7
 - date: 2021-06-18T16:00:20Z
 - commits:
@@ -4596,7 +4632,7 @@
 - commits:
     - subject: add log timestamping
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b2fa20dd179233703933937daeb0e52d2cabfe1b
 - commits:
@@ -4610,7 +4646,7 @@
 - commits:
     - subject: change to iso format
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.6
 - date: 2021-06-16T11:25:23Z
 - commits:
@@ -4626,7 +4662,7 @@
 - commits:
     - subject: "multi-client: catch exceptions of the single-client children"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 234596184f08841ecf0793271fb2527485b9aa04
 - commits:
@@ -4634,7 +4670,7 @@
 - commits:
     - subject: Specify code for default exception
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.5
 - date: 2021-06-09T09:52:39Z
 - commits:
@@ -4663,7 +4699,7 @@
 - commits:
     - subject: "client: fix --print flag"
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.4
 - date: 2021-05-31T14:42:45Z
 - commits:
@@ -4679,7 +4715,7 @@
 - commits:
     - subject: stop retry from throwing in pushcontainer
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.3
 - date: 2021-05-28T16:04:36Z
 - commits:
@@ -4695,7 +4731,7 @@
 - commits:
     - subject: fix image upload retry
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2c202fd86ecd5b112713d4c8d3d79e1ee5872cd0
 - commits:
@@ -4709,7 +4745,7 @@
 - commits:
     - subject: directly use stream objects and improve logs
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.2
 - date: 2021-05-26T10:42:22Z
 - commits:
@@ -4725,7 +4761,7 @@
 - commits:
     - subject: make timeout on waitUntilServicesRunning a param
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.1
 - date: 2021-05-14T23:06:23Z
 - commits:
@@ -4741,7 +4777,7 @@
 - commits:
     - subject: stop client sending multiple jobs to same worker
 - commits:
-    - ? body
+    - body: null
 - version: 1.27.0
 - date: 2021-05-14T14:21:49Z
 - commits:
@@ -4754,7 +4790,7 @@
 - commits:
     - subject: "minor: Parallelize multi-suite testing with multiple workers"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6b5742a400cb1c795e54c1f151ebf678b4c8be70
 - commits:
@@ -4823,7 +4859,7 @@
 - commits:
     - subject: Document fileNamePrefix() and added more information
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0b3b40470e0d61ae3c7c3cc43ceba297bad931a3
 - commits:
@@ -4834,7 +4870,7 @@
 - commits:
     - subject: "Change run --> job #403"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 01efa6239cbbfd5299869256566077662c41dd79
 - commits:
@@ -4859,7 +4895,7 @@
 - commits:
     - subject: allow client to gzip images before sending
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.15
 - date: 2021-05-14T13:25:24Z
 - commits:
@@ -4875,7 +4911,7 @@
 - commits:
     - subject: add more cloud helpers
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f2fb91033d6a7504e0ac0feab58f3ec551754c7f
 - commits:
@@ -4889,7 +4925,7 @@
 - commits:
     - subject: add documentation
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ce495d7e9d53a29a6e0bf4f50d8af4e268a73892
 - commits:
@@ -4903,7 +4939,7 @@
 - commits:
     - subject: Fix typedoc param declarations
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7238892780bd7d7d5d8e9b7fb777fcb77f3152ec
 - commits:
@@ -4917,7 +4953,7 @@
 - commits:
     - subject: fix preload format in cli helper class
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.14
 - date: 2021-05-13T17:16:02Z
 - commits:
@@ -4933,7 +4969,7 @@
 - commits:
     - subject: fix hdmi capture
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c1a3fd0e757740708f3aeac7523b68577f7ba75a
 - commits:
@@ -4947,7 +4983,7 @@
 - commits:
     - subject: make worker storage volume accessible by core
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d45c16f984e332849b0eae018d1857b853843f9b
 - commits:
@@ -4961,7 +4997,7 @@
 - commits:
     - subject: allow client to download artifacts
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 47823c77b1770d237e73d3ca8bd5cf199c59a373
 - commits:
@@ -4975,7 +5011,7 @@
 - commits:
     - subject: fix report archive naming
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 00980e68679e186f9fdb11543022889741d81321
 - commits:
@@ -4989,7 +5025,7 @@
 - commits:
     - subject: describe how to capture screen and send artifacts
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ce4797c6effafeeaacec37c9768b5f2aca1cfdfc
 - commits:
@@ -5003,7 +5039,7 @@
 - commits:
     - subject: Resolve promise for report downloads correctly
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: df73d99f7ceb79f179ccc5ca3a8def92bb119a8e
 - commits:
@@ -5033,7 +5069,7 @@
 - commits:
     - subject: Add unpack type that does nothing
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.12
 - date: 2021-04-14T13:08:35Z
 - commits:
@@ -5049,7 +5085,7 @@
 - commits:
     - subject: Include bluez for bluetooth tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 1357c142a68b65e3e636228d23b1bd45d4773ea1
 - commits:
@@ -5063,7 +5099,7 @@
 - commits:
     - subject: fix docker-compose
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.11
 - date: 2021-04-07T14:08:10Z
 - commits:
@@ -5079,7 +5115,7 @@
 - commits:
     - subject: add push container and execute in container helper
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9ec02c0e336aad3827ddd06ce342bbbce07854b7
 - commits:
@@ -5087,7 +5123,7 @@
 - commits:
     - subject: Merge branch 'master' into add-container-helpers
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.10
 - date: 2021-03-26T09:15:15Z
 - commits:
@@ -5103,7 +5139,7 @@
 - commits:
     - subject: move getting started leviathan guide here
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.9
 - date: 2021-03-04T11:34:48Z
 - commits:
@@ -5119,7 +5155,7 @@
 - commits:
     - subject: increase upload timeout from 5 to 10 mins
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.8
 - date: 2021-03-01T10:33:03Z
 - commits:
@@ -5149,7 +5185,7 @@
 - commits:
     - subject: Add NUC support and improve logging
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.7
 - date: 2021-02-17T21:01:13Z
 - commits:
@@ -5165,7 +5201,7 @@
 - commits:
     - subject: bump dbus package
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: afe3ffb2f943c779bb9233adf22e8c7a417bb47d
 - commits:
@@ -5176,7 +5212,7 @@
 - commits:
     - subject: Create a functional releases
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.6
 - date: 2021-02-04T12:43:24Z
 - commits:
@@ -5189,7 +5225,7 @@
 - commits:
     - subject: Add Getting Started section to README
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3d294e30864dbba0207c61179d09ee776de9ab3c
 - commits:
@@ -5197,7 +5233,7 @@
 - commits:
     - subject: Updated install instructions
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: fb6675f0e9364bc22d6d1fde2de8f8fcba6950e2
 - commits:
@@ -5205,7 +5241,7 @@
 - commits:
     - subject: Provide information for rig-owners
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f6f4a58e9b21fa1f886b34a7b5b092ab9bea48e1
 - commits:
@@ -5213,7 +5249,7 @@
 - commits:
     - subject: Update URL's
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 133e894d642d0d5de5251de3d6094fbbb7cfd33a
 - commits:
@@ -5227,7 +5263,7 @@
 - commits:
     - subject: Add note about access needed
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 445070e2ee989cc7551e66f14ec360530829cdc1
 - commits:
@@ -5238,7 +5274,7 @@
 - commits:
     - subject: Remove private package limitations
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.5
 - date: 2021-01-26T09:46:27Z
 - commits:
@@ -5254,7 +5290,7 @@
 - commits:
     - subject: Disable persistent logging test
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.4
 - date: 2021-01-21T15:51:57Z
 - commits:
@@ -5286,7 +5322,7 @@
 - commits:
     - subject: Patch permission denied error in DNS test
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.3
 - date: 2020-10-25T20:35:35Z
 - commits:
@@ -5302,7 +5338,7 @@
 - commits:
     - subject: Revert "Add integrity check on file uploads"
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.2
 - date: 2020-10-23T14:48:52Z
 - commits:
@@ -5318,7 +5354,7 @@
 - commits:
     - subject: Replace url property with HTTPS for versionbot
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.1
 - date: 2020-09-28T05:46:39Z
 - commits:
@@ -5334,7 +5370,7 @@
 - commits:
     - subject: Add integrity check to file upload
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: bcb4ab9c744066d4a47a4810d14d5e15ea0e60d0
 - commits:
@@ -5348,7 +5384,7 @@
 - commits:
     - subject: Improve message when fingerprint test passes
 - commits:
-    - ? body
+    - body: null
 - version: 1.26.0
 - date: 2020-08-12T13:38:56Z
 - commits:
@@ -5399,7 +5435,7 @@
 - commits:
     - subject: Capture DUT serial output
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3a82504c14303bf756492d89d44830471393ab59
 - commits:
@@ -5424,7 +5460,7 @@
 - commits:
     - subject: Improve logging
 - commits:
-    - ? body
+    - body: null
 - version: 1.24.4
 - date: 2020-07-08T09:01:03Z
 - commits:
@@ -5460,7 +5496,7 @@
 - commits:
     - subject: Store test report per worker device
 - commits:
-    - ? body
+    - body: null
 - version: 1.24.2
 - date: 2020-06-29T13:48:24Z
 - commits:
@@ -5476,7 +5512,7 @@
 - commits:
     - subject: Pin glider version to avoid build issues
 - commits:
-    - ? body
+    - body: null
 - version: 1.24.1
 - date: 2020-06-16T14:28:25Z
 - commits:
@@ -5512,7 +5548,7 @@
 - commits:
     - subject: Disable execution of Persistent Logging test
 - commits:
-    - ? body
+    - body: null
 - version: 1.23.4
 - date: 2020-06-12T06:40:15Z
 - commits:
@@ -5528,7 +5564,7 @@
 - commits:
     - subject: Reword fingerprint test assertions for consistency
 - commits:
-    - ? body
+    - body: null
 - version: 1.23.3
 - date: 2020-06-10T08:55:30Z
 - commits:
@@ -5544,7 +5580,7 @@
 - commits:
     - subject: Add basic retry logic to client->core communications
 - commits:
-    - ? body
+    - body: null
 - version: 1.23.2
 - date: 2020-06-05T14:02:56Z
 - commits:
@@ -5560,7 +5596,7 @@
 - commits:
     - subject: Report suite results back to the client
 - commits:
-    - ? body
+    - body: null
 - version: 1.23.1
 - date: 2020-06-04T17:02:17Z
 - commits:
@@ -5626,7 +5662,7 @@
 - commits:
     - subject: Add status LED indicator
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 27f752297301015c5bb78ed3ba12061272ae5c53
 - commits:
@@ -5640,7 +5676,7 @@
 - commits:
     - subject: Fix wired connection configuration
 - commits:
-    - ? body
+    - body: null
 - version: 1.22.2
 - date: 2020-02-16T15:51:27Z
 - commits:
@@ -5672,7 +5708,7 @@
 - commits:
     - subject: Ensure host network is used in the container
 - commits:
-    - ? body
+    - body: null
 - version: 1.22.0
 - date: 2020-01-29T18:09:45Z
 - commits:
@@ -5722,8 +5758,8 @@
     - subject: Remove unused jenkins download type
 - commits:
     - body: >-
-        We currently don't use the jenkins download type (and don't plan to use
-        it as is).
+        We currently don't use the jenkins download type (and don't plan to use it
+        as is).
 
         This also removes unzip package dependency with security problems.
 - commits:
@@ -5755,7 +5791,7 @@
 - commits:
     - subject: Perform clean install in Docker build
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7c94c310c51950fd063c5fc369566d62f45dcfa9
 - commits:
@@ -5769,7 +5805,7 @@
 - commits:
     - subject: Fix lint errors
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 83fa27ec734bfacddaf040ba7cabcc1bb6987028
 - commits:
@@ -5780,7 +5816,7 @@
 - commits:
     - subject: Fix worker initialization
 - commits:
-    - ? body
+    - body: null
 - version: 1.21.5
 - date: 2020-01-09T09:37:14Z
 - commits:
@@ -5796,7 +5832,7 @@
 - commits:
     - subject: Add package-lock files
 - commits:
-    - ? body
+    - body: null
 - version: 1.21.4
 - date: 2020-01-08T17:18:39Z
 - commits:
@@ -5812,7 +5848,7 @@
 - commits:
     - subject: Remove the /select route in favour of enviroment variable configuration
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 06860ae336789e58f2e52b11a3f83d76c0c20651
 - commits:
@@ -5823,7 +5859,7 @@
 - commits:
     - subject: Rework teardown based on the removal of /select
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6744d23f1120b5f97638700e7086afb3ea490513
 - commits:
@@ -5834,7 +5870,7 @@
 - commits:
     - subject: Refactor test suites to not use /select anymore
 - commits:
-    - ? body
+    - body: null
 - version: 1.21.3
 - date: 2020-01-02T16:51:02Z
 - commits:
@@ -5847,7 +5883,7 @@
 - commits:
     - subject: Fix exit code handling
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5e26f5bbaf25068bef63dd1c10becb37e62b8b18
 - commits:
@@ -5861,7 +5897,7 @@
 - commits:
     - subject: Trigger signal handling once, but still capture all
 - commits:
-    - ? body
+    - body: null
 - version: 1.21.2
 - date: 2019-12-20T08:42:39Z
 - commits:
@@ -5877,7 +5913,7 @@
 - commits:
     - subject: Rename managed and unmanaged test suites
 - commits:
-    - ? body
+    - body: null
 - version: 1.21.1
 - date: 2019-12-19T17:45:58Z
 - commits:
@@ -5893,7 +5929,7 @@
 - commits:
     - subject: Add default configs for single and multi client
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f041dab83873bf786c2bb1c8629e7d5c4cbad00d
 - commits:
@@ -5907,7 +5943,7 @@
 - commits:
     - subject: Update .gitignore to exclude logs and default conf
 - commits:
-    - ? body
+    - body: null
 - version: 1.21.0
 - date: 2019-12-19T15:05:32Z
 - commits:
@@ -5923,7 +5959,7 @@
 - commits:
     - subject: Add OS fingerprint test
 - commits:
-    - ? body
+    - body: null
 - version: 1.20.5
 - date: 2019-12-18T16:09:19Z
 - commits:
@@ -5939,7 +5975,7 @@
 - commits:
     - subject: Support for the testbot HAT
 - commits:
-    - ? body
+    - body: null
 - version: 1.20.4
 - date: 2019-12-18T15:21:17Z
 - commits:
@@ -5955,7 +5991,7 @@
 - commits:
     - subject: Fix run from non-bin director
 - commits:
-    - ? body
+    - body: null
 - version: 1.20.3
 - date: 2019-12-18T12:34:38Z
 - commits:
@@ -6074,7 +6110,7 @@
 - commits:
     - subject: Fix cli usage and other bugs
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 886b4c7d6bbccd682baf69abd6486fae50c9e3df
 - commits:
@@ -6088,7 +6124,7 @@
 - commits:
     - subject: Inject logger in object state
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a02b2542366acc0b547f6f7ca489bda5bda73a9b
 - commits:
@@ -6099,7 +6135,7 @@
 - commits:
     - subject: Fix some teardown related issues
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 22b8212281486f53f9868683d0644601bfb050fd
 - commits:
@@ -6110,7 +6146,7 @@
 - commits:
     - subject: Fix panel width alignment
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7d613593891d2a1b36958b06e9acf6618647a2bc
 - commits:
@@ -6121,7 +6157,7 @@
 - commits:
     - subject: Move repository information files back to the top level
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: cce35199398f28c15542efc9029d702de0c8da81
 - commits:
@@ -6132,7 +6168,7 @@
 - commits:
     - subject: Remove relic CI configuration
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f493224f4b4b241a598563c43b2cf159d1427dd1
 - commits:
@@ -6143,7 +6179,7 @@
 - commits:
     - subject: Add required reviewers to balenaCI
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f6aa4cc998d4abedec1eacc42adf6de3ddf12eb5
 - commits:
@@ -6154,7 +6190,7 @@
 - commits:
     - subject: Mark project as private
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b3ad8c7e16d8cc6c2921c0d812ad7eac9a3405ed
 - commits:
@@ -6165,7 +6201,7 @@
 - commits:
     - subject: Clean package-lock leftovers
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 515ab658ceb62cbc229b7b6104edd6673dc0f70e
 - commits:
@@ -6176,7 +6212,7 @@
 - commits:
     - subject: Add forgotted lint configuratino
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: fcfb998919765dbe9bf9f78d8e4377eddc78fc1a
 - commits:
@@ -6187,7 +6223,7 @@
 - commits:
     - subject: Increase upload timeout
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c295830480aae2885ef748b6692b6fd022a51a86
 - commits:
@@ -6198,7 +6234,7 @@
 - commits:
     - subject: Fix bugs introduced in code refactor
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4a1c80abf0b3e59e5796f58d861c5a3d272f334c
 - commits:
@@ -6209,7 +6245,7 @@
 - commits:
     - subject: Refactor message passing to only allow clients to format messages
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a95fde6c61f9560cd8654f83c86d5eafad960ed8
 - commits:
@@ -6220,7 +6256,7 @@
 - commits:
     - subject: Catching up the client with core code
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3303d6a3a6a149870b65a82adb58a8cf2f29d206
 - commits:
@@ -6231,7 +6267,7 @@
 - commits:
     - subject: Catch up our suites with the new architecture
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c45f4d2d3c9528d3cde92c0e33fd683f2ddac250
 - commits:
@@ -6242,7 +6278,7 @@
 - commits:
     - subject: Add State fixup
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: afa3dc240861448276c1183ccb90a2517e540642
 - commits:
@@ -6254,7 +6290,7 @@
     - subject: Standardise common parts of our components and move as a top level npm
         package
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ec1e24d7f435c85e47588fcba7b798a0a148c51b
 - commits:
@@ -6265,7 +6301,7 @@
 - commits:
     - subject: Remove lock files
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d23815d90d6c4f20dabd4959080cdad021a38f49
 - commits:
@@ -6276,7 +6312,7 @@
 - commits:
     - subject: No need to add prettier configuration in our container
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 59863377f19898f4ae3739f32ac58c0c5d100c9a
 - commits:
@@ -6287,7 +6323,7 @@
 - commits:
     - subject: Fix teardown bug when still flashing the testbot
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3670126fc81cbf656600b8d5b6e890b3d64c8676
 - commits:
@@ -6298,7 +6334,7 @@
 - commits:
     - subject: Make clients take advantage of the new logging system
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 806bf132e2d5487e31402fe41e51d8df3e56055f
 - commits:
@@ -6309,7 +6345,7 @@
 - commits:
     - subject: Fix some messaging issues
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e32f5342cd07de44764602103e0fb08371f9ed4f
 - commits:
@@ -6320,7 +6356,7 @@
 - commits:
     - subject: Move .eslintrc to the top level
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 63eff81d8dec4329d5038da928a9841fe2a56ba1
 - commits:
@@ -6332,7 +6368,7 @@
     - subject: Remove the need to pass CI as we can determine the style of output on
         the tty properties of a stream
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 08054e906224fa686f324743a16eade3d84fa45a
 - commits:
@@ -6343,7 +6379,7 @@
 - commits:
     - subject: Check lock has not been released already by another action
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 65c29e4293f81dbddd81940f7ed46ae8a5e2221c
 - commits:
@@ -6354,7 +6390,7 @@
 - commits:
     - subject: For a multi run with TTY attached, let us used ncurse like output
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 08a163ae68e0796be60250224cd429d982565365
 - commits:
@@ -6365,7 +6401,7 @@
 - commits:
     - subject: General bugfixes and enable scrollable content
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 1201dae77ba3445270fb5e258d0d8d7278db4457
 - commits:
@@ -6376,7 +6412,7 @@
 - commits:
     - subject: Improve blessed output
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d931fa6bf535ae81c0f82b92fb8f8b0767f4edf9
 - commits:
@@ -6389,8 +6425,8 @@
         value
 - commits:
     - body: >-
-        Allow for `-p` option, where we can print the whole output to
-        console.log regardless
+        Allow for `-p` option, where we can print the whole output to console.log
+        regardless
 
         of the runtime display; usefull for CI/CD.
 - commits:
@@ -6403,7 +6439,7 @@
 - commits:
     - subject: Make /dut/ip call retriable
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a1485f75894ebc498e0eb71d8ec17f95353932f3
 - commits:
@@ -6414,7 +6450,7 @@
 - commits:
     - subject: Show errors better in our blessed client
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2aa55a95be8b04148a78f0dd83364f476afb30ff
 - commits:
@@ -6425,7 +6461,7 @@
 - commits:
     - subject: Fix early error on non awaited promise
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2ccc6132513b402c040b696361a00f220ce18886
 - commits:
@@ -6436,7 +6472,7 @@
 - commits:
     - subject: Select appropriate tests in the os suite for the production flavours
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b057248a58f9ac4964e37e2d2d11ba14d27a6df8
 - commits:
@@ -6447,7 +6483,7 @@
 - commits:
     - subject: Define structure to expose test artifacts
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a340c37679ffbce9bafcffd9c149bca650479dbb
 - commits:
@@ -6458,7 +6494,7 @@
 - commits:
     - subject: Fix artifact paths
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e4e8ce52a7bc4a45304dddf187491a8a81dc6558
 - commits:
@@ -6469,7 +6505,7 @@
 - commits:
     - subject: Implement archive functionality
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 681d1842c8094c65085958803c7186aa49c341e3
 - commits:
@@ -6480,7 +6516,7 @@
 - commits:
     - subject: Do not bring the service down if we cannot connect the dbus
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 34df7bf4331c42e9d5c6d758b566c24a5d2109f3
 - commits:
@@ -6491,7 +6527,7 @@
 - commits:
     - subject: Fix display for early errors
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f042a5001bb82816839418790997e1051036100f
 - commits:
@@ -6502,7 +6538,7 @@
 - commits:
     - subject: Retry gstream pipeline kill if we could not kill it
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8b51073c9ca034a657b0c21672902e8c29efe5d9
 - commits:
@@ -6513,7 +6549,7 @@
 - commits:
     - subject: Make archiver take streams and handle them properly
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 051db9d5ef5885bfcb0879b8db76f0eb8d7dc02e
 - commits:
@@ -6524,7 +6560,7 @@
 - commits:
     - subject: In case the resolution was not properly negotiated, crop all sides
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b9ca1e6b421fd7e42fa1ed9380727d2204bfab00
 - commits:
@@ -6535,7 +6571,7 @@
 - commits:
     - subject: Rework the teardown mechanism for our network controller
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d644c712016dd5bb58240c9d1a0bd22d41645d27
 - commits:
@@ -6546,7 +6582,7 @@
 - commits:
     - subject: Increse delay to make sure commands are executed on the testbot
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a51b37fc049d994aeace1f6bea53a009e8944e4a
 - commits:
@@ -6557,7 +6593,7 @@
 - commits:
     - subject: As the ip interface has it's own retry, let's not repeat that
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8edeaf1399dcd79e335401829d61c76cbb4b9a35
 - commits:
@@ -6568,7 +6604,7 @@
 - commits:
     - subject: Fix typo
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 786c7e25f4b75724a48df2b9a50e64b9d8410319
 - commits:
@@ -6579,7 +6615,7 @@
 - commits:
     - subject: Handle service config with real configuration files
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4d772363254c56e5523d02a2913d91f9ed0a24c3
 - commits:
@@ -6590,7 +6626,7 @@
 - commits:
     - subject: Remove all naming scheme
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d2135a8865ba1a6c3e3629b3e87c2cf05db137f5
 - commits:
@@ -6601,7 +6637,7 @@
 - commits:
     - subject: Fix typo
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c1a1da2681b01139bfdc62e5c9207a4917e5078d
 - commits:
@@ -6625,7 +6661,7 @@
 - commits:
     - subject: Be more optimistic about our lockingnparadigm
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: eba8554731ee0680e0532028ef674234f47661e6
 - commits:
@@ -6636,7 +6672,7 @@
 - commits:
     - subject: Make our client es5 runnable
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: bb14aca50ba305a068cf8f38008bcab4c9133f23
 - commits:
@@ -6647,7 +6683,7 @@
 - commits:
     - subject: Fix indentantion
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 249bafc23ed604fd746553e013af5ee2924d39c7
 - commits:
@@ -6658,7 +6694,7 @@
 - commits:
     - subject: Pass more information back to the client to determine errors
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9828e4072cc74c78413526ca37d1de627b35583d
 - commits:
@@ -6670,7 +6706,7 @@
     - subject: Treat SIGTERM as kill signal too, this is to deal with CI services that
         send SIGTERM to the process on cancel
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 668e725bffc0aee99a44d6fc9f040d0cc1bff7ca
 - commits:
@@ -6681,7 +6717,7 @@
 - commits:
     - subject: Wrap resin-cli-visuals to make CI output safe
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 40a31cbd839f0240390aaf9b58ae98641ca14ecc
 - commits:
@@ -6693,7 +6729,7 @@
     - subject: Inform core we are running the client in CI mode using the protocol
         header
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ea2c73f13a09b722ab1d3beedc3e6fa35a6b4446
 - commits:
@@ -6704,7 +6740,7 @@
 - commits:
     - subject: Fix typo
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 88b410a584e600545e98239839b9e7a3d0f14571
 - commits:
@@ -6715,7 +6751,7 @@
 - commits:
     - subject: Improve websocket usage
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 906aedfec990fd3732027ba57ad727e18c8ef5a2
 - commits:
@@ -6726,7 +6762,7 @@
 - commits:
     - subject: Fail our execution until our service reports success
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: af5cf1d4e8d3cdecceb37fe6ed36b5199096340c
 - commits:
@@ -6737,7 +6773,7 @@
 - commits:
     - subject: Fix deadlock and connection being dropped
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d43217d7e92a33ebf03203353f441e64df42437f
 - commits:
@@ -6748,7 +6784,7 @@
 - commits:
     - subject: Prevent unnecessary calls to stop the spinner
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b6f195128b884d67c9916d52b07a5da7af66c95a
 - commits:
@@ -6759,7 +6795,7 @@
 - commits:
     - subject: Provide shorthand for tests to require modules from core
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: dff2e0d6664bc3bdb8f23484a96ff79515d98a54
 - commits:
@@ -6770,7 +6806,7 @@
 - commits:
     - subject: Small fixes across the project
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5b2a828da4554e6f4717dcbb9e55649ac047c851
 - commits:
@@ -6781,7 +6817,7 @@
 - commits:
     - subject: Improve client locking
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7009b85daaa17931d10f15beab6b29fb2bb915d9
 - commits:
@@ -6792,7 +6828,7 @@
 - commits:
     - subject: Merge supervisor suite into the OS suite as per internal discussion
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a8b3ab106565a7ec73229498cfc2c65cfaded53b
 - commits:
@@ -6803,7 +6839,7 @@
 - commits:
     - subject: Allow configuration of waitUntil ignore promise rejection
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b617d0d21dee1a23338479fbe389a93a217b1003
 - commits:
@@ -6814,7 +6850,7 @@
 - commits:
     - subject: Automate blink led test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9e2cfec3c96549c38d84200b15e5a22e6deb0ed5
 - commits:
@@ -6825,7 +6861,7 @@
 - commits:
     - subject: Improve our Makefile with a DRY option, and argument validation
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 71ff8223c572863bed8f6adc61672b2aff05099e
 - commits:
@@ -6849,7 +6885,7 @@
 - commits:
     - subject: Upgrade core base images to buster to match the worker
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 359ec796032e7a67cc84092b8d96b3bd126d1f31
 - commits:
@@ -6861,7 +6897,7 @@
     - subject: Do not ignore docker-compose link as the remote balena builder will
         ignore it too
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c33636af762755a46b267d60be026a3072b8cd47
 - commits:
@@ -6873,7 +6909,7 @@
     - subject: Remove SIGINT handler just once, otherwise we might end up in a case
         where we cannot SIGINT the process.
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8c13acb75e831e807352ec79a05194bf860403b9
 - commits:
@@ -6884,7 +6920,7 @@
 - commits:
     - subject: Show full error when we cannot find a module, to identify nested errors
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0a3917e4c7ef8d82adb71bf87c929f99828cf63b
 - commits:
@@ -6895,7 +6931,7 @@
 - commits:
     - subject: Make os filename more generic
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e7c1098f63fb68a1fb796eac1bb87559b799410f
 - commits:
@@ -6906,7 +6942,7 @@
 - commits:
     - subject: Wait for the reboot check to pass
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 34019484cdb51bee650a1276530a4450633488c2
 - commits:
@@ -6917,7 +6953,7 @@
 - commits:
     - subject: Implement screen capture test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: afb2ed4f5d3d6f6adb0b299255246705aeaefbbf
 - commits:
@@ -6928,7 +6964,7 @@
 - commits:
     - subject: Remove old artifacts before uploading
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 077755d73036465960d50b4facd710b74a91557a
 - commits:
@@ -6939,7 +6975,7 @@
 - commits:
     - subject: Handle stream errors
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6bb43265eac8e013435c0fdbb0b2c42bee3330f0
 - commits:
@@ -6950,7 +6986,7 @@
 - commits:
     - subject: Re-factor os parent test for clarity
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 024003ae486c2119b8e7e175823fed704d8e1acf
 - commits:
@@ -6961,7 +6997,7 @@
 - commits:
     - subject: Prevent express from killing our capture reponse
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: bc26f560a3f027b95475ac1cbac97bcc733089a2
 - commits:
@@ -6972,7 +7008,7 @@
 - commits:
     - subject: Improve persistentLogging tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0346beda58693fe603fc86a8ffee952967cdd9d8
 - commits:
@@ -6983,7 +7019,7 @@
 - commits:
     - subject: Remove old artifact
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b735e8fa0aa83e15de0b2264946d1a01db0f5e60
 - commits:
@@ -6994,7 +7030,7 @@
 - commits:
     - subject: Re-work the way we run reboots over SSH
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 844b6247b2e0772ad3f8a86853d5fe489cb13431
 - commits:
@@ -7005,7 +7041,7 @@
 - commits:
     - subject: Remove any libvirt cgroup functionality as we do not use any of it
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 85cf3bdf3532ae4568a0ebbc84533953377479e2
 - commits:
@@ -7016,7 +7052,7 @@
 - commits:
     - subject: Let our Makefile deal with the docker-compose linking
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: afac9c727de491cb16dfc1be13124ae4a528785d
 - commits:
@@ -7027,7 +7063,7 @@
 - commits:
     - subject: Make contracts a submodule
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c54447200839a040721330344b5c74ae764ea2e8
 - commits:
@@ -7038,7 +7074,7 @@
 - commits:
     - subject: Refactor old code
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9810b1efe890ebd40f8afc469d85c46f523e8071
 - commits:
@@ -7049,7 +7085,7 @@
 - commits:
     - subject: Ignore the link to the compose
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f79f2958d60d3d32a7d4b038f61640adbb41ef37
 - commits:
@@ -7063,7 +7099,7 @@
 - commits:
     - subject: The file should be CODEOWNERS, not what it was.
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7f1140cdc28b9a9c6da083abf981f7db0f46a78d
 - commits:
@@ -7077,7 +7113,7 @@
 - commits:
     - subject: Add MAINTAINERS file
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: dfdb8e29bb2601bc274334b833de2f6c957826be
 - commits:
@@ -7088,7 +7124,7 @@
 - commits:
     - subject: Handle premature end of stream when cache is being used
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: bfedc6979179d49dfe17cd85bb2c20b704339e06
 - commits:
@@ -7099,7 +7135,7 @@
 - commits:
     - subject: Protect against slow connection
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ca67334b08aa4511604a57343b70889cab62de7b
 - commits:
@@ -7110,7 +7146,7 @@
 - commits:
     - subject: Remove all other identities before adding the new one
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d5150a7d3569fc29267736462a7c23667683493e
 - commits:
@@ -7121,7 +7157,7 @@
 - commits:
     - subject: Remove dead code
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9770654b63a67f625b223ec0052e74881fa2b352
 - commits:
@@ -7132,7 +7168,7 @@
 - commits:
     - subject: Change the way we check for reboot and update tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 143985c3e12c6e373eb602f084a632c4bdee868d
 - commits:
@@ -7143,7 +7179,7 @@
 - commits:
     - subject: Implement artifact caching
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ec1088cc85f531b59eeb71803657633362164f5b
 - commits:
@@ -7154,7 +7190,7 @@
 - commits:
     - subject: Make flash cancellable
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3117087066b5bf9ea049209365c9389e0218fc7f
 - commits:
@@ -7165,7 +7201,7 @@
 - commits:
     - subject: Implement heartbeat to keep websocket alive
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 74048e1f789ea5223b4ae582623f8c46501350ea
 - commits:
@@ -7176,7 +7212,7 @@
 - commits:
     - subject: Fix network manager dbus backend
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 90e431439e618f73f119843a82a6b1dc3a029130
 - commits:
@@ -7187,7 +7223,7 @@
 - commits:
     - subject: "worker: move to a native dbus backend, to fix some network related bugs"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 95ab53d32f52153432bc785303b5c61af2f46f4d
 - commits:
@@ -7198,7 +7234,7 @@
 - commits:
     - subject: Rework network environment flow
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b1ad83a91d1a82aaa757fad80af268e881bd4c35
 - commits:
@@ -7209,7 +7245,7 @@
 - commits:
     - subject: Remove unused dependecies
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c83b9defb5c29a5a531d4db677c685e508a3eef9
 - commits:
@@ -7220,7 +7256,7 @@
 - commits:
     - subject: Lock core's dependencies
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d57ff74c97a22681f922076116bfe66a4296a4f7
 - commits:
@@ -7231,7 +7267,7 @@
 - commits:
     - subject: Handle SSH errors properly and fix device reboot test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ee060ddc1807ecefeaebc39cfeaf0bc7b0ed1663
 - commits:
@@ -7242,7 +7278,7 @@
 - commits:
     - subject: Refactor Suite to allow multiple setup steps
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7aa3d37a916f2987d55fc1f1c80cb476f97ac6c1
 - commits:
@@ -7253,7 +7289,7 @@
 - commits:
     - subject: Allow OS to keep offline state
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: cb6b363b624610a5914c59800953f1ff490a06b9
 - commits:
@@ -7267,7 +7303,7 @@
 - commits:
     - subject: Allow tests to define subtests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5cc2b9b2e7654e571197937be986cfed402bc75e
 - commits:
@@ -7278,7 +7314,7 @@
 - commits:
     - subject: Implete register tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f6802ff2ad7598a8a8312a1838fdf3862d9c5ccc
 - commits:
@@ -7289,7 +7325,7 @@
 - commits:
     - subject: Pass down tmpdir
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c4d3a12f4375ae65a768015c6caac3ba4f15b17b
 - commits:
@@ -7328,7 +7364,7 @@
 - commits:
     - subject: Upgrade tap version to latest
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9b51cec5b5db1c95ce882fefb999801e339764ac
 - commits:
@@ -7339,7 +7375,7 @@
 - commits:
     - subject: Allow tests to register, test specific teardowns
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ab1ef6264cd465c08fe64ff58362a68b51ccfe81
 - commits:
@@ -7350,7 +7386,7 @@
 - commits:
     - subject: Generalize our wait function
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4a20d939db9fd6b2ca1c763af094f478595c32ed
 - commits:
@@ -7361,7 +7397,7 @@
 - commits:
     - subject: Implement move device between applications test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e85aa55241c32888e691d25562abd0cf5429eb15
 - commits:
@@ -7372,7 +7408,7 @@
 - commits:
     - subject: Implement OS update test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 88627de4681ccb4b00bab6b01c56a13f472c7488
 - commits:
@@ -7383,7 +7419,7 @@
 - commits:
     - subject: Refactoring and speed improvments
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b7097c17e270119fa24913380037413d1b04aa31
 - commits:
@@ -7394,7 +7430,7 @@
 - commits:
     - subject: Configure tests to bail on the first failed assert
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f21a21b9112f69ff1ce23eac843805be09974ac7
 - commits:
@@ -7405,7 +7441,7 @@
 - commits:
     - subject: Improve waitUntil to be resilient to rejects
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ec5ad65c14e4a96dd3ceea7dae2a89e65569171e
 - commits:
@@ -7416,7 +7452,7 @@
 - commits:
     - subject: Implement supervisor API tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 78925851d02ec2e4f4aab053b4ce6f6c70c5a430
 - commits:
@@ -7427,7 +7463,7 @@
 - commits:
     - subject: Make sure the supervisor api is up before trying to trigger an update
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6548393f5006428bc5b41bc7eee1db5b6f3b3889
 - commits:
@@ -7438,7 +7474,7 @@
 - commits:
     - subject: FIXUP on API implementation
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 75fa3be07d8bbf32b58f320b86e535102d3fb1be
 - commits:
@@ -7470,7 +7506,7 @@
 - commits:
     - subject: Implement tests for supervisor download strategies
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5d5608813f65dfb1c1196ad81342da69fa5bbf5a
 - commits:
@@ -7482,7 +7518,7 @@
     - subject: Remove testlodge suite as it is a relic now. Move to new worker
         architecture
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2f54f9325080b66c407165c7efb9a156bd516c31
 - commits:
@@ -7493,7 +7529,7 @@
 - commits:
     - subject: Allow users to expose their host ssh-agent to the framework
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 40d489a46e928fac49775b09d3d8ef3b0f668aa0
 - commits:
@@ -7504,7 +7540,7 @@
 - commits:
     - subject: Clean Dockerfile up
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e38caddb2a854803c02d4c6620dddc967790d605
 - commits:
@@ -7515,7 +7551,7 @@
 - commits:
     - subject: Get contracts internally
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 345786f2395ec46c4c81e32250e8556e3a0531b9
 - commits:
@@ -7527,7 +7563,7 @@
     - subject: Do not add the tunneling overhead, just rely on retry if anything goes
         wrong
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 455917013155638bf0822da7cdfe3cb096e70e6e
 - commits:
@@ -7538,7 +7574,7 @@
 - commits:
     - subject: Give worker the ability to ssh to unmanaged devices
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: fd9179d290e50ddb372f97b4a10836c9332d601e
 - commits:
@@ -7563,7 +7599,7 @@
 - commits:
     - subject: Implement os contracts and skip functionality
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 280c2f69896c9f8d383fde9455fd883cc28b8078
 - commits:
@@ -7574,7 +7610,7 @@
 - commits:
     - subject: Implment balenaOS testing suite
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8a4eea2e5b8889f54e8d474431f8a1179790bb97
 - commits:
@@ -7585,7 +7621,7 @@
 - commits:
     - subject: Prepare for move
 - commits:
-    - ? body
+    - body: null
 - version: 1.19.5
 - date: 2019-04-29T10:14:31Z
 - commits:
@@ -7601,7 +7637,7 @@
 - commits:
     - subject: Fix some formatting issues.
 - commits:
-    - ? body
+    - body: null
 - version: 1.19.4
 - date: 2019-04-26T09:40:19Z
 - commits:
@@ -7617,7 +7653,7 @@
 - commits:
     - subject: Rename e2e suite to testlodge
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ca46836b206d9d46a586b8ee48c0b3e0f56ea2dd
 - commits:
@@ -7628,7 +7664,7 @@
 - commits:
     - subject: "Add TC40: Test Chrony and NTP time sync"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b47bac135d0637e012c0b672ad0b13f6d96f3202
 - commits:
@@ -7639,7 +7675,7 @@
 - commits:
     - subject: Add TC39 - Kernel module build
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: efd005607863c4079108298361c3d9531131fe0b
 - commits:
@@ -7650,7 +7686,7 @@
 - commits:
     - subject: Add TC42 - Local Mode
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 825d87a96aee30c905590ee07a166e51957e7455
 - commits:
@@ -7661,7 +7697,7 @@
 - commits:
     - subject: Add TC35 - Provision on supported modems
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 580c9f540637346e0c5867399a64ca8b7cd4d85d
 - commits:
@@ -7672,7 +7708,7 @@
 - commits:
     - subject: Add TC43 - Pinning device
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 65f01dc21370056e095faa016ebd7d3b05c98bff
 - commits:
@@ -7684,7 +7720,7 @@
     - subject: Add TC28 - Test old to new resin host OS update (old hostapps enabled
         OS updated to current hostapps enabled OS)
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b07708db808d7b8c411f60b8b26ad28fefd16ba5
 - commits:
@@ -7695,7 +7731,7 @@
 - commits:
     - subject: Add TC33 - HTTP proxy test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 12e69a28199ee40db5a6c6d9f675504d8d888db7
 - commits:
@@ -7706,7 +7742,7 @@
 - commits:
     - subject: Add TC25 - SOCKS proxy test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ea19fc2adc0f6ddbf8df1afa7c2c4edf609421c1
 - commits:
@@ -7717,7 +7753,7 @@
 - commits:
     - subject: Add TC49 - Override lock
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 93a53b792e17b721a756e0fdc58c2e5ab321ffbe
 - commits:
@@ -7728,7 +7764,7 @@
 - commits:
     - subject: Enable the rest of the tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: eccbb3eea8f880cfc593cc2fc645b59783b21096
 - commits:
@@ -7739,7 +7775,7 @@
 - commits:
     - subject: Mirror Testlodge titles
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 627db8205441ad76d17b56a7c58ccb6699dbac52
 - commits:
@@ -7750,7 +7786,7 @@
 - commits:
     - subject: Add TC41 - Test Persistent Logging
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2d98518d7913fcbcbab2532221e7e5f841a485be
 - commits:
@@ -7761,7 +7797,7 @@
 - commits:
     - subject: Add TC09 - Normal provisioning without deltas
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 816ce4e122aa603ea799f3203d59d2252cd8c136
 - commits:
@@ -7772,7 +7808,7 @@
 - commits:
     - subject: Add TC10 - Adding deltas to a running supervisor
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4f8b110a2c8e221fe2f9c61139363d1a798fa571
 - commits:
@@ -7783,7 +7819,7 @@
 - commits:
     - subject: Add TC11 - Provisioning a device with deltas already enabled
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4bc7b4e4f5466d8a30ed569c127d558642e7ef50
 - commits:
@@ -7794,7 +7830,7 @@
 - commits:
     - subject: Bugfixes
 - commits:
-    - ? body
+    - body: null
 - version: 1.19.3
 - date: 2019-04-08T13:59:49Z
 - commits:
@@ -7810,7 +7846,7 @@
 - commits:
     - subject: "README.md: Add documentation on running the framework"
 - commits:
-    - ? body
+    - body: null
 - version: 1.19.2
 - date: 2019-04-01T14:24:29Z
 - commits:
@@ -7839,7 +7875,7 @@
 - commits:
     - subject: Update README
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 09e5f29332abb80c9c13a65385b1a31ec59b4dfd
 - commits:
@@ -7850,7 +7886,7 @@
 - commits:
     - subject: Move base images to stretch to include required package versions
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9ce6d3d8844cc069ca709a8844dd016334836f2c
 - commits:
@@ -7877,7 +7913,7 @@
 - commits:
     - subject: Enable prettier and reconfigure eslint to cope with our pretier
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a1f9ed0d39a1a39aca0be58d51563aca8ab7fa58
 - commits:
@@ -7888,7 +7924,7 @@
 - commits:
     - subject: Revert to standard require style
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ec338409b1672cb2a39bc332440899ce848e1508
 - commits:
@@ -7899,7 +7935,7 @@
 - commits:
     - subject: Use etcher-sdk when writing images
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7ed8939d0414637281678e91f6344cc69a3b040d
 - commits:
@@ -7927,7 +7963,7 @@
 - commits:
     - subject: Provide image locally to the docker container
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 73088e45574225bcd329c6e464d6d8fa78b4ada7
 - commits:
@@ -7938,7 +7974,7 @@
 - commits:
     - subject: Extract version from the image itself
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8cffa15c74e6e9de5a70081436a8d003a6a9ddc0
 - commits:
@@ -7949,7 +7985,7 @@
 - commits:
     - subject: Ignore node_module from docker context
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 57d7ba5316eb1094d7f9f4b9215dc7a102e08932
 - commits:
@@ -7960,7 +7996,7 @@
 - commits:
     - subject: Move to fp instance of lodash for clear syntax
 - commits:
-    - ? body
+    - body: null
 - version: 1.19.0
 - date: 2019-01-10T16:22:59Z
 - commits:
@@ -8038,7 +8074,7 @@
 - commits:
     - subject: Clean package.json dependencies
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b0073e9ec00975e777f25b5b65529696b9669bb8
 - commits:
@@ -8049,7 +8085,7 @@
 - commits:
     - subject: Pass suite location directly to the framework
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.8
 - date: 2018-12-11T15:39:25Z
 - commits:
@@ -8065,7 +8101,7 @@
 - commits:
     - subject: Change the order of the tests
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.7
 - date: 2018-12-10T08:34:28Z
 - commits:
@@ -8081,7 +8117,7 @@
 - commits:
     - subject: Add test case to move device between applications
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.6
 - date: 2018-11-30T07:19:40Z
 - commits:
@@ -8098,7 +8134,7 @@
     - subject: Fix balena component for enabling delta due to providing a new
         component, sync
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9c52f10555135f1fea3b2a6e7fae7ed599783896
 - commits:
@@ -8113,7 +8149,7 @@
     - subject: Fix balena component for bluetooth testing due to providing a new
         component, sync
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c322f1be6e301d3b22ab5316a39dd1d1717daa51
 - commits:
@@ -8124,7 +8160,7 @@
 - commits:
     - subject: Update reload supervisor test to accept resin and balena images
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.5
 - date: 2018-11-28T22:29:02Z
 - commits:
@@ -8137,7 +8173,7 @@
 - commits:
     - subject: Provide search and replace function for files
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8d92a0fbce2f957184590a3fad05cc947952a3d6
 - commits:
@@ -8148,7 +8184,7 @@
 - commits:
     - subject: Fix syntax error when accesing object
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e75605002fc3475795836549272aecca357f2bf6
 - commits:
@@ -8159,7 +8195,7 @@
 - commits:
     - subject: Provide another resinio component, sync
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7663a9d52a14802bdf62f500ff17284d7770b12c
 - commits:
@@ -8221,7 +8257,7 @@
 - commits:
     - subject: Update os-file-format test due to balena rename
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0ecb68485009eaaddfd930857f59710b2494349b
 - commits:
@@ -8235,7 +8271,7 @@
 - commits:
     - subject: Update device-reportOsVersion test due to balena rename
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.2
 - date: 2018-11-07T09:32:10Z
 - commits:
@@ -8251,7 +8287,7 @@
 - commits:
     - subject: Use internal balena-requests for API calls
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.1
 - date: 2018-11-05T14:54:48Z
 - commits:
@@ -8267,7 +8303,7 @@
 - commits:
     - subject: Make request native so we can extract more data on failures
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 36eeac0b33b7ea4a97fbb96dcd7416938a5a72e4
 - commits:
@@ -8278,7 +8314,7 @@
 - commits:
     - subject: Refactor for redability
 - commits:
-    - ? body
+    - body: null
 - version: 1.18.0
 - date: 2018-10-30T15:11:26Z
 - commits:
@@ -8294,7 +8330,7 @@
 - commits:
     - subject: The big rename from Resin.io to Balena
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8024ae39eac76e399730b27ec9f1a44a7bcd7f07
 - commits:
@@ -8308,7 +8344,7 @@
 - commits:
     - subject: Update package.json for new resin-semver release
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.12
 - date: 2018-10-25T11:49:34Z
 - commits:
@@ -8321,7 +8357,7 @@
 - commits:
     - subject: Now that we properly check SSH states, retries should not be necessary
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 71d8f0f7b5ffd82124508e137be430d72079c57e
 - commits:
@@ -8349,7 +8385,7 @@
 - commits:
     - subject: To send escape sequences correctly we need to inherit stdin
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 58d0ef1e1f0714064bc344e3b5462c3d67403776
 - commits:
@@ -8360,7 +8396,7 @@
 - commits:
     - subject: We are looking for images from staging not production
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.11
 - date: 2018-10-25T10:38:58Z
 - commits:
@@ -8376,7 +8412,7 @@
 - commits:
     - subject: Update package.json for new resin-semver release
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.10
 - date: 2018-10-18T15:48:14Z
 - commits:
@@ -8392,7 +8428,7 @@
 - commits:
     - subject: Parameterize worker as a top level option
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.9
 - date: 2018-10-17T14:44:47Z
 - commits:
@@ -8423,7 +8459,7 @@
 - commits:
     - subject: Semi-automate the bluetooth test
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.8
 - date: 2018-10-17T11:39:18Z
 - commits:
@@ -8439,7 +8475,7 @@
 - commits:
     - subject: Fix etcher progress bar
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.7
 - date: 2018-10-17T09:18:21Z
 - commits:
@@ -8452,7 +8488,7 @@
 - commits:
     - subject: Check only on the definition of interactive tests not on a specific value
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e47ef5e565c23c3bcd39890417f4a759d878e190
 - commits:
@@ -8466,7 +8502,7 @@
 - commits:
     - subject: Allow the use of variables that contain whitespaces
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 14369428b15a671cfc3b549af7c79018b83ae88f
 - commits:
@@ -8480,7 +8516,7 @@
 - commits:
     - subject: Fix semi-tests due to update of submodule contracts
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.6
 - date: 2018-10-12T13:58:16Z
 - commits:
@@ -8496,7 +8532,7 @@
 - commits:
     - subject: Update contracts submodule
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: fc954a7bb45bc8820b0d0b2cf16f3b06d7387dbe
 - commits:
@@ -8510,7 +8546,7 @@
 - commits:
     - subject: Update tests to latest changes from submodule contracts
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.5
 - date: 2018-10-12T13:16:35Z
 - commits:
@@ -8526,7 +8562,7 @@
 - commits:
     - subject: Factor out common push code
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.4
 - date: 2018-10-12T12:22:45Z
 - commits:
@@ -8560,7 +8596,7 @@
 - commits:
     - subject: Fix wrong variable name
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e590d6ad708423346056f74e48d2b2a43bcd1cae
 - commits:
@@ -8571,7 +8607,7 @@
 - commits:
     - subject: Fix exit code when first script fails
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.3
 - date: 2018-10-11T14:49:08Z
 - commits:
@@ -8587,7 +8623,7 @@
 - commits:
     - subject: Fix hostapp update to work on updating from old version to new
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.2
 - date: 2018-10-11T13:57:20Z
 - commits:
@@ -8603,7 +8639,7 @@
 - commits:
     - subject: Name ssh key label same as the application name
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.1
 - date: 2018-10-11T13:21:49Z
 - commits:
@@ -8619,7 +8655,7 @@
 - commits:
     - subject: Provide build status badge
 - commits:
-    - ? body
+    - body: null
 - version: 1.17.0
 - date: 2018-10-11T12:41:45Z
 - commits:
@@ -8651,7 +8687,7 @@
 - commits:
     - subject: Refactor code to accomodate for the testbot worker
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.11
 - date: 2018-10-08T21:36:26Z
 - commits:
@@ -8683,7 +8719,7 @@
 - commits:
     - subject: Fix delta due to resin-sdk changes
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.9
 - date: 2018-10-08T12:55:02Z
 - commits:
@@ -8699,7 +8735,7 @@
 - commits:
     - subject: Revamp the README and remove outdated information
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.8
 - date: 2018-10-08T12:30:47Z
 - commits:
@@ -8715,7 +8751,7 @@
 - commits:
     - subject: Automate resin-progress test
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.7
 - date: 2018-10-08T11:53:29Z
 - commits:
@@ -8731,7 +8767,7 @@
 - commits:
     - subject: Automate supervisor update through the api
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.6
 - date: 2018-10-04T23:19:58Z
 - commits:
@@ -8744,7 +8780,7 @@
 - commits:
     - subject: Trim ssh output
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e930c4fb44627a6763bd61c3cfa247ca55a35d8b
 - commits:
@@ -8758,7 +8794,7 @@
 - commits:
     - subject: Automate supervisor update testcase
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.5
 - date: 2018-10-04T23:12:15Z
 - commits:
@@ -8771,7 +8807,7 @@
 - commits:
     - subject: Allow exception to bubble up
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 55e881682dc22f5ee26bdf8652c7de3602764780
 - commits:
@@ -8782,7 +8818,7 @@
 - commits:
     - subject: Fix ssh output
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9f974afe36419791170a55bfc11d96b16cea4ad5
 - commits:
@@ -8815,7 +8851,7 @@
 - commits:
     - subject: Retry SSH connection if connection drops internally
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.3
 - date: 2018-10-04T14:25:25Z
 - commits:
@@ -8828,7 +8864,7 @@
 - commits:
     - subject: Remove circleci from Project
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ae8527475c55f87ca3153753dcc073499552ee98
 - commits:
@@ -8842,7 +8878,7 @@
 - commits:
     - subject: When runnning in a CI do not allocate a tty 1
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0d82ba43f97d518407a79d7260bacba4b3b9a40d
 - commits:
@@ -8864,7 +8900,7 @@
 - commits:
     - subject: Waiting for the proper implementation of push-container
 - commits:
-    - ? body
+    - body: null
 - version: 1.16.2
 - date: 2018-09-20T14:59:03Z
 - commits:
@@ -8915,7 +8951,7 @@
 - commits:
     - subject: Add test to check the device reports the hostOS version
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.13
 - date: 2018-09-01T11:14:38Z
 - commits:
@@ -8955,7 +8991,7 @@
 - commits:
     - subject: Test supervisor update through the API
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.12
 - date: 2018-08-24T13:46:55Z
 - commits:
@@ -8971,7 +9007,7 @@
 - commits:
     - subject: Switch to resin-semver module
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.11
 - date: 2018-08-21T14:51:34Z
 - commits:
@@ -8987,7 +9023,7 @@
 - commits:
     - subject: Use COPY rather than ADD in Dockerfile
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.10
 - date: 2018-08-20T13:40:48Z
 - commits:
@@ -9000,7 +9036,7 @@
 - commits:
     - subject: Bump resin-sdk to v10.0.4
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5330acfb72ac6e40b9148b304a7e896da158ed4f
 - commits:
@@ -9014,7 +9050,7 @@
 - commits:
     - subject: To creat an application takes an object argument
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b411eb2a889faa6946cedc2b9f8bb37f06a10425
 - commits:
@@ -9069,7 +9105,7 @@
 - commits:
     - subject: "Fix: ResinCI configure"
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.7
 - date: 2018-06-29T11:49:51Z
 - commits:
@@ -9085,7 +9121,7 @@
 - commits:
     - subject: Getting device OS config requires resinOS version now
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 670a60eeea940295e257cb595a43fff7cf5c7fd0
 - commits:
@@ -9096,7 +9132,7 @@
 - commits:
     - subject: Use proper device key we registrate a device
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.6
 - date: 2018-06-01T17:25:00Z
 - commits:
@@ -9160,7 +9196,7 @@
 - commits:
     - subject: Use API keys instead of authenticating with credentials
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: cefe908500aeb62a782e85576fcd7396fa740542
 - commits:
@@ -9171,7 +9207,7 @@
 - commits:
     - subject: Fix pensieve output
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b1d2cbc442b30190dcd6f00201b78a52c2830a0e
 - commits:
@@ -9182,7 +9218,7 @@
 - commits:
     - subject: Bugfixes
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.2
 - date: 2018-05-02T15:54:02Z
 - commits:
@@ -9198,7 +9234,7 @@
 - commits:
     - subject: Add pensieve backend to publish test results
 - commits:
-    - ? body
+    - body: null
 - version: 1.15.1
 - date: 2018-05-02T00:47:22Z
 - commits:
@@ -9245,7 +9281,7 @@
 - commits:
     - subject: Add test to check image filename format
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8e924b75521309f194a831fd1b73a8d589d0199b
 - commits:
@@ -9259,7 +9295,7 @@
 - commits:
     - subject: Visual fixes for semi-tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5290cbec0dcc3849ce8b417b918d80af42b9ee80
 - version: 1.14.0
@@ -9277,7 +9313,7 @@
 - commits:
     - subject: Refactor graphics semi-tests
 - commits:
-    - ? body
+    - body: null
 - version: 1.13.0
 - date: 2018-04-20T18:32:03Z
 - commits:
@@ -9293,7 +9329,7 @@
 - commits:
     - subject: Refactor supervisor semi-tests
 - commits:
-    - ? body
+    - body: null
 - version: 1.12.0
 - date: 2018-04-20T16:32:56Z
 - commits:
@@ -9309,7 +9345,7 @@
 - commits:
     - subject: Refactor resinhup semi-tests
 - commits:
-    - ? body
+    - body: null
 - version: 1.11.0
 - date: 2018-04-20T15:40:50Z
 - commits:
@@ -9338,7 +9374,7 @@
 - commits:
     - subject: Add function to get the dashboard URL of the device
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a83212c5c823b23d3e8d90957d4d151dfd26c5fa
 - commits:
@@ -9352,7 +9388,7 @@
 - commits:
     - subject: Refactor development experience semi-tests
 - commits:
-    - ? body
+    - body: null
 - version: 1.9.0
 - date: 2018-04-17T14:47:12Z
 - commits:
@@ -9368,7 +9404,7 @@
 - commits:
     - subject: Enable interactive tests using a config env var
 - commits:
-    - ? body
+    - body: null
 - version: 1.8.0
 - date: 2018-04-16T13:37:59Z
 - commits:
@@ -9384,7 +9420,7 @@
 - commits:
     - subject: Add semi multicontainer test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: cf1fed2aa9b3ace9b76b493d63e569afac3918bc
 - commits:
@@ -9395,7 +9431,7 @@
 - commits:
     - subject: Various fixes
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ee756db51c6b33648ae9f92928675e0a1a65bc1f
 - commits:
@@ -9406,7 +9442,7 @@
 - commits:
     - subject: Remove trailing characters
 - commits:
-    - ? body
+    - body: null
 - version: 1.7.3
 - date: 2018-04-13T10:01:35Z
 - commits:
@@ -9432,7 +9468,7 @@
 - commits:
     - subject: Merge branch 'master' into parallel_fix
 - commits:
-    - ? body
+    - body: null
 - version: 1.7.2
 - date: 2018-04-12T23:28:04Z
 - commits:
@@ -9458,7 +9494,7 @@
 - commits:
     - subject: Merge branch 'master' into ignore-version-commits
 - commits:
-    - ? body
+    - body: null
 - version: 1.7.1
 - date: 2018-04-12T19:16:05Z
 - commits:
@@ -9471,7 +9507,7 @@
 - commits:
     - subject: Bump resin-sdk to support multi-contianer architecture
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4af65f943a0633827c05b502a8eb934b89b7c6cc
 - commits:
@@ -9482,7 +9518,7 @@
 - commits:
     - subject: Increse no output timeout
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f38e16685ec97f4a09f4736aee3c932534507946
 - commits:
@@ -9507,7 +9543,7 @@
 - commits:
     - subject: Adapt code to the new multi-contianer architecture
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: aa764ecf353208cffc24711fee86f97c9addeae7
 - commits:
@@ -9518,7 +9554,7 @@
 - commits:
     - subject: Provide way to wait for the completion of progress
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 1825f172be5baccbf6ebb6b6032afb698c7ab9e6
 - commits:
@@ -9529,7 +9565,7 @@
 - commits:
     - subject: Remove superfluous async definitions
 - commits:
-    - ? body
+    - body: null
 - version: 1.7.0
 - date: 2018-03-27T14:06:04Z
 - commits:
@@ -9545,7 +9581,7 @@
 - commits:
     - subject: Wifi credentials were not parsed
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 76d886f16c33676dbae0be33b59a1ce073c09611
 - commits:
@@ -9559,7 +9595,7 @@
 - commits:
     - subject: Refactor semi-tests on bluetooth
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3d9ddf7e36c3448e078bdb9347c25eec9cdf2d88
 - commits:
@@ -9573,7 +9609,7 @@
 - commits:
     - subject: Refactor semi-test that depends on device-type
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 1baf40ed2b79cdf0e7e0266907ed8cc28c2ccbb5
 - commits:
@@ -9587,7 +9623,7 @@
 - commits:
     - subject: Refactor semi-test that enters and syncs application
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 3af8f66e25f1b1c081403d8ab613af7498c40b8a
 - commits:
@@ -9601,7 +9637,7 @@
 - commits:
     - subject: Refactor semi-test on supervisor
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 46a883500a71a2ce2a6fbda926ec0c69ca1a869b
 - commits:
@@ -9615,7 +9651,7 @@
 - commits:
     - subject: Refactor semi-test that tests the kernel boot logo and the splash screen
 - commits:
-    - ? body
+    - body: null
 - version: 1.6.0
 - date: 2018-03-16T10:24:28Z
 - commits:
@@ -9631,7 +9667,7 @@
 - commits:
     - subject: Provision device with deltas enabled
 - commits:
-    - ? body
+    - body: null
 - version: 1.5.2
 - date: 2018-03-15T14:52:09Z
 - commits:
@@ -9665,7 +9701,7 @@
 - commits:
     - subject: Remove Resin CLI prepare instructions
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 989dbfbe0a494503af937cb5a605d9d8a7d9f3fa
 - commits:
@@ -9673,7 +9709,7 @@
 - commits:
     - subject: Merge branch 'master' into remove-cli-mentions
 - commits:
-    - ? body
+    - body: null
 - version: 1.5.0
 - date: 2018-03-06T10:11:55Z
 - commits:
@@ -9686,7 +9722,7 @@
 - commits:
     - subject: Remove duplicate teardown code
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d96513dfb5e7a08355d660e90b66e1df13452c6a
 - commits:
@@ -9697,7 +9733,7 @@
 - commits:
     - subject: Fix bugs in Makefile
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: dae366ceb1be174095e57a8a2f08984d338d2f2b
 - commits:
@@ -9708,7 +9744,7 @@
 - commits:
     - subject: Do not expand the version variable
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d25263982f5684e631805e42b3375bd4c0ec9f13
 - commits:
@@ -9747,7 +9783,7 @@
 - commits:
     - subject: Merge branch 'master' into hostapps_update
 - commits:
-    - ? body
+    - body: null
 - version: 1.4.3
 - date: 2018-03-02T19:17:05Z
 - commits:
@@ -9763,7 +9799,7 @@
 - commits:
     - subject: Dynamically pass environment to Docker
 - commits:
-    - ? body
+    - body: null
 - version: 1.4.2
 - date: 2018-03-02T18:38:46Z
 - commits:
@@ -9779,7 +9815,7 @@
 - commits:
     - subject: Make the teardown function robust to flaky network
 - commits:
-    - ? body
+    - body: null
 - version: 1.4.1
 - date: 2018-03-02T17:10:30Z
 - commits:
@@ -9795,7 +9831,7 @@
 - commits:
     - subject: Fix wifi configuration support
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 71120a9e0464acf6abeda8289e70aab01ab7df89
 - commits:
@@ -9803,7 +9839,7 @@
 - commits:
     - subject: Merge branch 'master' into wifi_support
 - commits:
-    - ? body
+    - body: null
 - version: 1.4.0
 - date: 2018-03-02T16:29:23Z
 - commits:
@@ -9830,7 +9866,7 @@
 - commits:
     - subject: Add logout call to the SDK
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ccb64292f24b04601db98a90089faf08bd6f1392
 - commits:
@@ -9896,7 +9932,7 @@
     - subject: Do not share application name between tests, so we can run test
         instances in parallel
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 97d9896b937124d6ecb11f2c141f3a7366145d89
 - commits:
@@ -9910,7 +9946,7 @@
 - commits:
     - subject: Integrate ESLint
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9d9f74a4a73a6467cae5d141541f6ff77efa084e
 - commits:
@@ -9924,7 +9960,7 @@
 - commits:
     - subject: Run tests serially
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ac52ab642e9297f83761e2c45f756da3498ca7d7
 - commits:
@@ -9958,7 +9994,7 @@
 - commits:
     - subject: Make temporary directory configurable using an env var
 - commits:
-    - ? body
+    - body: null
 - version: 1.3.0
 - date: 2018-02-19T14:48:50Z
 - commits:
@@ -9990,7 +10026,7 @@
 - commits:
     - subject: Include semi-manual test cases from TestLodge
 - commits:
-    - ? body
+    - body: null
 - version: 1.1.0
 - date: 2018-02-14T17:53:01Z
 - commits:
@@ -10006,7 +10042,7 @@
 - commits:
     - subject: Stop Ava to abort test on a single failure
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 620c067ba586e5c77db0ee0aee6ce095becb65c8
 - commits:
@@ -10020,7 +10056,7 @@
 - commits:
     - subject: Allow user confirmation through IPC on serial mode
 - commits:
-    - ? body
+    - body: null
 - version: 1.0.8
 - date: 2018-02-08T23:23:56Z
 - commits:
@@ -10076,7 +10112,7 @@
 - commits:
     - subject: Integrate ssh util with various components
 - commits:
-    - ? body
+    - body: null
 - version: 1.0.5
 - date: 2018-02-06T14:40:42Z
 - commits:
@@ -10108,7 +10144,7 @@
 - commits:
     - subject: Upgrade SDK to bypass API bug with older versions
 - commits:
-    - ? body
+    - body: null
 - version: 1.0.3
 - date: 2018-01-24T18:10:16Z
 - commits:
@@ -10124,7 +10160,7 @@
 - commits:
     - subject: Push application test should not run in parallell with other ones
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5057facfca2bfee970070265d9bf6b8de3fb4d30
 - commits:
@@ -10138,7 +10174,7 @@
 - commits:
     - subject: Fix typo
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: a603ee5cc5900d0028e6821c85ac804e52a09564
 - commits:
@@ -10170,7 +10206,7 @@
 - commits:
     - subject: Make our framework aware when it runs inside a CI engine.
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: ba9adf27ff7789ce914c8f52e454bcc80244368d
 - commits:
@@ -10197,7 +10233,7 @@
 - commits:
     - subject: Include lint configuration
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 49be09945ad69a49d9a416b923991044b1cb64ab
 - commits:
@@ -10208,7 +10244,7 @@
 - commits:
     - subject: Add rule to check coding style
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f9fbe34c4077f4c20ecf21eefcaaab9c76ba36e2
 - commits:
@@ -10222,7 +10258,7 @@
 - commits:
     - subject: Make circleci use our own build configuration
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4ac4dee919f1c0462d2b03f740a3bc8b4199fd2b
 - commits:
@@ -10256,7 +10292,7 @@
 - commits:
     - subject: Remove dollarsign in lint command instructions
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f965e887f34aae7ec6d00733a3ef79511de53d52
 - commits:
@@ -10270,7 +10306,7 @@
 - commits:
     - subject: Add a basic README
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 69ab43d2221f38f42e6f2e68973eecf760fe1747
 - commits:
@@ -10284,7 +10320,7 @@
 - commits:
     - subject: Bridge device type environment variable to Docker container
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2958b684e69a98f9cfa3dc6f342431faea7ca0ad
 - commits:
@@ -10312,7 +10348,7 @@
 - commits:
     - subject: Fix various TypeScript related issues
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 461bfe71cf8c7dabaeedc0044ee51ae3970e1591
 - commits:
@@ -10326,7 +10362,7 @@
 - commits:
     - subject: Add source code license blocks
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f57a4430eb65f5bc73417fa425dffa674e84c1b3
 - commits:
@@ -10337,7 +10373,7 @@
 - commits:
     - subject: Enable correct tests
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2c51258de5e0e7a7e7f262bcf5626c6101f84626
 - commits:
@@ -10351,7 +10387,7 @@
 - commits:
     - subject: Add qemux86-64 support
 - commits:
-    - ? body
+    - body: null
 - version: 1.0.1
 - date: 2017-11-29T14:13:26Z
 - commits:
@@ -10367,7 +10403,7 @@
 - commits:
     - subject: Ava does not support t.context in before blocks
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 8452f7b7954544e56e3c2c5bd3a210e1c4b6d980
 - commits:
@@ -10427,7 +10463,7 @@
 - commits:
     - subject: Use a locally scoped temporary directory
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9fd7228f88012e8f0915d3421a3591bac7735163
 - commits:
@@ -10441,7 +10477,7 @@
 - commits:
     - subject: Minor logging improvements
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 22bd5f73a8765c1becf0c96fa6171156b9bd540f
 - commits:
@@ -10455,7 +10491,7 @@
 - commits:
     - subject: Unmount drive before opening it in Etcher writer
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 565f05c70691b1961209ddf78089bfdb1e341e5f
 - commits:
@@ -10469,7 +10505,7 @@
 - commits:
     - subject: Get all options from environment variables
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 2ea280edfe5455b9457454d7c0b49cbfa56271f5
 - commits:
@@ -10483,7 +10519,7 @@
 - commits:
     - subject: Add missing percentage to Etcher writer logs
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 7d8011fb8a03a611cc4916fa4b3c49aec8c5a4d6
 - commits:
@@ -10491,7 +10527,7 @@
 - commits:
     - subject: Merge branch 'master' into writer-percentage
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e3350001ee7414c7d5a49884fc90c1ae101f3de2
 - commits:
@@ -10505,7 +10541,7 @@
 - commits:
     - subject: Log provisioning process to stdout
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 1027c19086593b976d05a8f2d2e10abe248da580
 - commits:
@@ -10519,7 +10555,7 @@
 - commits:
     - subject: Pipe to progress stream when downloading OS
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 1ce78c5ba46fc338daccb72f0f8ebbcf3d902567
 - commits:
@@ -10533,7 +10569,7 @@
 - commits:
     - subject: Various fixes to make everything run fine on TypeScript
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4fe7c62a3bc6e4d097214b8a88c8f436e4d25e09
 - commits:
@@ -10547,7 +10583,7 @@
 - commits:
     - subject: Start using TypeScript async/await
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: c49599b9b2cfb8fcf4c5f946b759b1404bbaf375
 - commits:
@@ -10561,7 +10597,7 @@
 - commits:
     - subject: Expand .gitignore
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 34c4171c75e0c1bc5ff3c462cdebfd43235cddb9
 - commits:
@@ -10578,7 +10614,7 @@
 - commits:
     - subject: Switch to TypeScript
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: e27229fa46cabb6cec18437f04d81531cd9505d3
 - commits:
@@ -10616,7 +10652,7 @@
 - commits:
     - subject: Configure repository for VersionBot integration
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0b11577e98ff5fd4192acc7ba63345d83f149fbc
 - commits:
@@ -10627,7 +10663,7 @@
 - commits:
     - subject: "Dockerfile: Fix docker build the image correctly"
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: be24697ac9b16258471930b74464b24c1c7ed6f0
 - commits:
@@ -10638,7 +10674,7 @@
 - commits:
     - subject: Use credentials instead of session token to authenticate
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: edd8f0af4bdc0b3bf41815e6181e67b23a41052b
 - commits:
@@ -10652,7 +10688,7 @@
 - commits:
     - subject: Switch to the Ava test framework
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 816f15844f74fa81ec8beb305af44ea17cfad150
 - commits:
@@ -10663,7 +10699,7 @@
 - commits:
     - subject: Rename src/ to lib/
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9d24de6bd41ae7eb84c769424926b6ccb4bc5648
 - commits:
@@ -10674,7 +10710,7 @@
 - commits:
     - subject: Simplify test hierarchy
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f6b5e9822d3969adbee5ff575b677042b53cff60
 - commits:
@@ -10685,7 +10721,7 @@
 - commits:
     - subject: Get rid of the global assetDir variable
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: aa1c8c4b87af0e3fa9193cb4673a8e7bf228fe43
 - commits:
@@ -10709,7 +10745,7 @@
 - commits:
     - subject: Unify provisioning code in main.js
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: edece33dcff2a5e7d1128640c44f7d06d8fc6566
 - commits:
@@ -10731,7 +10767,7 @@
 - commits:
     - subject: Move resinOS image configuration routines to components/resinos
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: d4ba2374820de4259bd550c3240b7ced8ecbb09f
 - commits:
@@ -10761,7 +10797,7 @@
 - commits:
     - subject: Add resin-image-fs as a package.json dependency
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 62aa23bd69b2c20a4406063f4d6ebae0c84458b6
 - commits:
@@ -10772,7 +10808,7 @@
 - commits:
     - subject: Get rid of node-lkl
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0b35b62ec4560433aab7a37947b747c0f28b31e8
 - commits:
@@ -10783,7 +10819,7 @@
 - commits:
     - subject: Add .editorconfig file
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: b1be96dbbd843d5eb599fce5428b836676e8d3cc
 - commits:
@@ -10794,7 +10830,7 @@
 - commits:
     - subject: Inline provisioning functions
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 087860e883065b2e92c34171747321b376f3be3a
 - commits:
@@ -10805,7 +10841,7 @@
 - commits:
     - subject: Get rid of global.assetDir in image.js
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 74e4879b2f0aa0bd9c807222922f6f6d72712b4b
 - commits:
@@ -10816,7 +10852,7 @@
 - commits:
     - subject: Get rid of mocha.opts and setup.js
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 6461314005b2e6e872a7a2ea83d04e1d461dd16a
 - commits:
@@ -10827,7 +10863,7 @@
 - commits:
     - subject: Remove unused resin-cli-form dependency
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 5864fd03416eaccffdfe682d0ec9cf228f3bb276
 - commits:
@@ -10838,7 +10874,7 @@
 - commits:
     - subject: Minor updates to package.json
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 4f5658b36015ce61b6ee588a5fad4633f55e253c
 - commits:
@@ -10849,7 +10885,7 @@
 - commits:
     - subject: Add the actual running command for tests on circleCI
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 94ff22c3c52c9f803ca1c7a774470154e5b61f78
 - commits:
@@ -10882,7 +10918,7 @@
 - commits:
     - subject: Remove most global variables
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f0e1f26d2a8e08395b4b8b8c5b71b9b754e8cfde
 - commits:
@@ -10926,7 +10962,7 @@
 - commits:
     - subject: test
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: f0b04dbbbfa965488ed8b437fbf8711a2046fac2
 - commits:
@@ -10937,7 +10973,7 @@
 - commits:
     - subject: Bump resin-sdk to v7.0.0
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 9ff8587ed0b27609ab300402658a72db8d889271
 - commits:
@@ -10948,7 +10984,7 @@
 - commits:
     - subject: Fix resin.models.os.getConfig to work properly
 - commits:
-    - ? body
+    - body: null
 - commits:
     - hash: 0af684fbcf126a4b78f8b89cdbdc68bfe0c0ae5f
 - commits:
@@ -10992,4 +11028,4 @@
 - commits:
     - subject: Initial testing framework
 - commits:
-    - ? body
+    - body: null
