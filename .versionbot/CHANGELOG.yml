@@ -1,4 +1,18 @@
 - commits:
+    - subject: use gzip to save space on worker
+      hash: f23ee878ff98a7f109cfc8c42fd71f9ddaeda150
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.6.11
+  title: ""
+  date: 2022-12-14T21:02:40.450Z
+- commits:
     - subject: Prevent e2e tests on closed events
       hash: 2ba986adda71d7cdb1f3900227ef5a0d1b88dec7
       body: ""
