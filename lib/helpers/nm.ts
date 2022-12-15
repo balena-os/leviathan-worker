@@ -64,7 +64,7 @@ class NetworkManager {
 			connection: {
 				id: new dbus.Variant('s', NetworkManager.generateId()),
 				type: new dbus.Variant('s', '802-3-ethernet'),
-				autoconnect: new dbus.Variant('b', false),
+				autoconnect: new dbus.Variant('b', true),
 			},
 			ipv4: { method: new dbus.Variant('s', method) },
 			ipv6: { method: new dbus.Variant('s', 'ignore') },
