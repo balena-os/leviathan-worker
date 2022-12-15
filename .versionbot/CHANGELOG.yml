@@ -1,4 +1,18 @@
 - commits:
+    - subject: fix wired ethernet for flasher images
+      hash: c6efc50ef4a7ac9529a30022aaa45d5e9376e4a4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.6.11
+  title: ""
+  date: 2022-12-15T15:37:42.966Z
+- commits:
     - subject: Prevent e2e tests on closed events
       hash: 2ba986adda71d7cdb1f3900227ef5a0d1b88dec7
       body: ""
