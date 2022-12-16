@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add make config to e2e suite to dump merged compose files
+      hash: ba34b9707ee99cb2727e21d65cb9f2915d0b5ab6
+      body: |
+        This can be useful to visualize in the logs what env vars
+        were set, what worker image was pulled, etc.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.6.12
+  title: ""
+  date: 2022-12-16T15:57:27.343Z
+- commits:
     - subject: fix wired ethernet for flasher images
       hash: c6efc50ef4a7ac9529a30022aaa45d5e9376e4a4
       body: ""
