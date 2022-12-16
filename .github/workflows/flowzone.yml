@@ -120,7 +120,9 @@ jobs:
       #   run: #TODO
       
       - name: Run test suite
-        run: make test
+        run: |
+          make config
+          make test
 
       - uses: actions/upload-artifact@v3
         with:
