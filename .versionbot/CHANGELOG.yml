@@ -1,4 +1,24 @@
 - commits:
+    - subject: "qemu: add internal/external storage"
+      hash: 8f88c73051022498a5a9a647beb8d3e9bc139f4f
+      body: |
+        Allow for booting works from external storage, with blank internal
+        storage available for flashing. This will enable flasher images to be
+        tested without unwrapping.
+
+        Also test flasher running from external media writing to MD arrays
+        instead of writing unwrapped images directly to assembled arrays.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.6.13
+  title: ""
+  date: 2022-12-19T15:58:20.101Z
+- commits:
     - subject: Add make config to e2e suite to dump merged compose files
       hash: ba34b9707ee99cb2727e21d65cb9f2915d0b5ab6
       body: |
