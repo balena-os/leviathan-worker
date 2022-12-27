@@ -95,6 +95,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		if (this.qemuOptions.firmware === undefined) {
 			this.qemuOptions.firmware = await this.findUEFIFirmware(
 				this.qemuOptions.architecture,
+				this.qemuOptions.secureBoot,
 			);
 			if (this.qemuOptions.firmware) {
 				console.log(
@@ -102,8 +103,12 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 						JSON.stringify(this.qemuOptions.firmware, null, 2),
 				);
 			} else {
+				const sbmsg = this.qemuOptions.secureBoot ? 'secureboot enabled ' : '';
+				const fwpkg = this.qemuOptions.architecture === 'x86_64' ? 'OVMF'
+					: this.qemuOptions.architecture === 'aarch64' ? 'AAVMF' : null;
+				const helpmsg = this.qemuOptions.secureBoot ? `, check that ${fwpkg} is installed`: '';
 				throw new Error(
-					'Unable to find UEFI firmware, check that OVMF/AAVMF is installed',
+					`Unable to find ${sbmsg}UEFI firmware${helpmsg}`,
 				);
 			}
 		}
@@ -253,24 +258,28 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 
 	private async findUEFIFirmware(
 		architecture: string,
+		secboot: boolean = false,
 	): Promise<undefined | { code: string; vars: string }> {
 		const searchPaths: {
-			[arch: string]: Array<{ code: string; vars: string }>;
+			[arch: string]: Array<{ code: string; secboot: string, vars: string }>;
 		} = {
 			x86_64: [
 				{
 					// alpine/debian/fedora/ubuntu
 					code: '/usr/share/OVMF/OVMF_CODE.fd',
+					secboot: '/usr/share/OVMF/OVMF_CODE.secboot.fd',
 					vars: '/usr/share/OVMF/OVMF_VARS.fd',
 				},
 				{
 					// alpine, qemu
 					code: '/usr/share/qemu/edk2-x86_64-code.fd',
+					secboot: '/usr/share/qemu/edk2-x86_64-secure-code.fd',
 					vars: '/usr/share/qemu/edk2-i386-vars.fd',
 				},
 				{
 					// archlinux
 					code: '/usr/share/ovmf/x64/OVMF_CODE.fd',
+					secboot: '/usr/share/ovmf/x64/OVMF_CODE.secboot.fd',
 					vars: '/usr/share/ovmf/x64/OVMF_VARS.fd',
 				},
 			],
@@ -278,16 +287,19 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				{
 					// alpine, ovmf
 					code: '/usr/share/OVMF/QEMU_EFI.fd',
+					secboot: '',
 					vars: '/usr/share/OVMF/QEMU_VARS.fd',
 				},
 				{
 					// alpine, qemu
 					code: '/usr/share/qemu/edk2-aarch64-code.fd',
+					secboot: '',
 					vars: '/usr/share/qemu/edk2-arm-vars.fd',
 				},
 				{
 					// fedora
 					code: '/usr/share/AAVMF/AAVMF_CODE.fd',
+					secboot: '',
 					vars: '/usr/share/AAVMF/AAVMF_CODE.fd',
 				},
 			],
@@ -298,7 +310,10 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			searchPaths[architecture].map((paths) => {
 				return fs.access(paths.code).then(() => {
 					return fs.access(paths.vars).then(() => {
-						return paths;
+						return {
+							code: secboot ? paths.secboot : paths.code,
+							vars: paths.vars,
+						};
 					});
 				});
 			}),
