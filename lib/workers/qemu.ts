@@ -429,7 +429,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				'-drive',
 				`if=pflash,format=raw,unit=1,file=${
 					this.qemuOptions.firmware!.vars
-				},readonly=on`,
+				}`,
 			],
 			aarch64: ['-bios', this.qemuOptions.firmware!.code],
 		};
