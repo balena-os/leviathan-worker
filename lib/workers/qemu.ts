@@ -377,6 +377,12 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			'-device', 'usb-storage,drive=ext0,bootindex=1',
 		];
 
+		const tpmArgs = [
+			'-chardev', `socket,id=chrtpm,path=/var/tpm0/swtpm.sock`,
+			'-tpmdev', 'emulator,id=tpm0,chardev=chrtpm',
+			'-device', 'tpm-tis,tpmdev=tpm0',
+		];
+
 		// Basic mapping of node process.arch to matching qemu target architecture
 		// This ensures we only enable KVM on compatible architectures
 		function kvmTargetCompatible(arch: string) {
@@ -431,6 +437,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		let args = baseArgs
 			.concat(internalStorageArgs)
 			.concat(options?.externalStorage ? externalStorageArgs : [])
+			.concat(this.qemuOptions.secureBoot ? tpmArgs : [])
 			.concat(archArgs[deviceArch])
 			.concat(networkArgs)
 			.concat(firmwareArgs[deviceArch])
@@ -444,6 +451,21 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			};
 
 			args = args.concat(gfxArgs[deviceArch]);
+		}
+
+		if (this.qemuOptions.secureBoot) {
+			// Wait for swtpm to become available
+			await new Promise((resolve, reject) => {
+				const interval = setInterval(
+					() => {
+						if (fs.existsSync('/var/tpm0/swtpm.sock')) {
+							clearInterval(interval);
+							resolve();
+						}
+					},
+					50
+				);
+			});
 		}
 
 		console.debug("QEMU args:\n", args);
