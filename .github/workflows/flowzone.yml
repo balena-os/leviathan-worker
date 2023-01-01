@@ -110,7 +110,9 @@ jobs:
           echo "WORKER_RELEASE=${commit}" >> $GITHUB_ENV
 
       - name: Copy suite config
-        run: cp -a ${{ env.SUITES }}/config.js ${{ env.WORKSPACE }}/config.js
+        run: |
+          cp -a ${{ env.SUITES }}/config.js ${{ env.WORKSPACE }}/config.js
+          sed -r 's|(bh\.cr/balena/leviathan-worker(-[^/]+)?)/.+|\1/${{ env.WORKER_RELEASE }}|' -i docker-compose.qemu.yml
 
       - name: Build leviathan images
         run: make build
