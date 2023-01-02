@@ -1,4 +1,22 @@
 - commits:
+    - subject: "e2e: substitute the worker release in the compose file"
+      hash: e375da31ba0ce659b23135e51d3bcdb77cb7799b
+      body: |
+        Use regex to set the worker release commit in the compose
+        file before running e2e tests.
+
+        This allows us to deprecate the WORKER_RELEASE env var.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.6.14
+  title: ""
+  date: 2023-01-02T15:00:56.013Z
+- commits:
     - subject: "qemu: add internal/external storage"
       hash: 8f88c73051022498a5a9a647beb8d3e9bc139f4f
       body: |
