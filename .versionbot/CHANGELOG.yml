@@ -1,4 +1,18 @@
 - commits:
+    - subject: add autokit worker
+      hash: dff6517454c51a748eab30734a86bd7504772001
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.7.0
+  title: ""
+  date: 2023-01-04T14:01:01.895Z
+- commits:
     - subject: "e2e: substitute the worker release in the compose file"
       hash: e375da31ba0ce659b23135e51d3bcdb77cb7799b
       body: |
