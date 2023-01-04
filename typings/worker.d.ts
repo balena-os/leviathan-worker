@@ -45,7 +45,7 @@ declare global {
 			readonly state: WorkerState;
 
 			/** Flash the attached drive (for example, with an OS image). */
-			flash(stream: Stream.Readable): Promise<void>;
+			flash(filename: string): Promise<void>;
 			/** Power on DUT. */
 			powerOn(): Promise<void>;
 			/** Power off DUT. */
