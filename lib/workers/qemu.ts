@@ -11,6 +11,9 @@ import { promisify } from 'util';
 const execProm = promisify(exec);
 import * as fp from 'find-free-port';
 
+const imagefs = require('balena-image-fs');
+const util = require('util');
+
 Bluebird.config({
 	cancellation: true,
 });
@@ -21,6 +24,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	private id: string;
 	private internalDisk: string;
 	private externalDisk: string;
+	private flasherImage: boolean;
 	private signalHandler: (signal: NodeJS.Signals) => Promise<void>;
 	private qemuProc: ChildProcess | null = null;
 	private dnsmasqProc: ChildProcess | null = null;
@@ -211,6 +215,34 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 					verify: true,
 				}).then(resolve);
 			});
+
+			const bootPartition = 1;
+			this.flasherImage = await imagefs.interact(
+				this.externalDisk,
+				bootPartition,
+				async (_fs: typeof fs) => {
+					return util.promisify(_fs.open)('/balena-image-flasher', 'r').then((fd: number) => {
+						return util.promisify(_fs.close)(fd).then(() => { return true });
+					}).catch((e: any) => {
+						if ('ENOENT'.includes(e.code))
+							return false;
+
+						throw new Error('Unexpected error while inspecting OS image: ${e}');
+					})
+				},
+			);
+
+			if (this.flasherImage) {
+				return new Promise((resolve, reject) => {
+					this.runQEMU({
+						externalStorage: true,
+						listeners: { onExit: resolve },
+					}).catch(e => {
+						console.log(`Error running flasher: ${e}`);
+						reject();
+					});
+				});
+			}
 		} finally {
 			if (this.qemuOptions.forceRaid) {
 				await execProm(`mdadm --stop ${arrayDevice}`);
@@ -273,7 +305,12 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		);
 	}
 
-	public async powerOn(): Promise<void> {
+	private async runQEMU(
+		options?: {
+			listeners?: { onExit?: (...args: any[]) => void; };
+			externalStorage?: boolean;
+		}
+	): Promise<void> {
 		let vncport = null;
 		let qmpPort = null;
 
@@ -378,7 +415,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		const qmpArgs = ['-qmp', `tcp:localhost:${qmpPort},server,nowait`];
 		let args = baseArgs
 			.concat(internalStorageArgs)
-			.concat(externalStorageArgs)
+			.concat(options?.externalStorage ? externalStorageArgs : [])
 			.concat(archArgs[deviceArch])
 			.concat(networkArgs)
 			.concat(firmwareArgs[deviceArch])
@@ -397,14 +434,19 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		console.debug("QEMU args:\n", args);
 
 		return new Promise((resolve, reject) => {
-			let options = {};
+			let spawnOptions = {};
 			if (this.qemuOptions.debug) {
-				options = { stdio: 'inherit' };
+				spawnOptions = { stdio: 'inherit' };
 			} else {
-				options = { stdio: 'ignore' };
+				spawnOptions = { stdio: 'ignore' };
 			}
 
-			this.qemuProc = spawn(`qemu-system-${deviceArch}`, args, options);
+			this.qemuProc = spawn(`qemu-system-${deviceArch}`, args, spawnOptions);
+
+			if (options?.listeners?.onExit !== undefined) {
+				this.qemuProc.once('exit', options!.listeners!.onExit!);
+			}
+
 			this.qemuProc.on('exit', (code, signal) => {
 				reject(new Error(`QEMU exited with code ${code}`));
 			});
@@ -414,6 +456,14 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 
 			resolve();
 		});
+	}
+
+	public async powerOn(): Promise<void> {
+		// If the source media is a flasher image, we expect the OS to install to
+		// the internal disk, and we disconnect the external disk after flashing.
+		// If the media is *not* a flasher, we want to boot externally, so leave
+		// the disk attached.
+		return this.runQEMU({externalStorage: !this.flasherImage});
 	}
 
 	public async powerOff(): Promise<void> {
