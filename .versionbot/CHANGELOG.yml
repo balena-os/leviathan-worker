@@ -1,4 +1,20 @@
 - commits:
+    - subject: "qemu: run flasher image in flash()"
+      hash: ea7890af6c2d8e3884ae20b30c77f708561da9c5
+      body: |
+        Instead of expecting a raw image to be written to disk, detect and run
+        the flasher image in QEMU.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.7.1
+  title: ""
+  date: 2023-01-05T00:30:58.429Z
+- commits:
     - subject: add autokit worker
       hash: dff6517454c51a748eab30734a86bd7504772001
       body: ""
