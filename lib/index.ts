@@ -8,6 +8,7 @@ import { resolveLocalTarget } from './helpers';
 import { TestBotWorker } from './workers/testbot';
 import QemuWorker from './workers/qemu';
 import { AutokitWorker } from './workers/autokit';
+import { ManualWorker } from './workers/manual';
 import { Contract } from '../typings/worker';
 
 import { Stream } from 'stream';
@@ -24,7 +25,7 @@ const balena = getSdk({
 	apiUrl: 'https://api.balena-cloud.com/',
 });
 
-const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker | typeof AutokitWorker> = {
+const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker | typeof AutokitWorker | typeof ManualWorker > = {
 	testbot_hat: TestBotWorker,
 	qemu: QemuWorker,
 	autokit: AutokitWorker
