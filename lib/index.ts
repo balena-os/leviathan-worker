@@ -28,7 +28,8 @@ const balena = getSdk({
 const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker | typeof AutokitWorker | typeof ManualWorker > = {
 	testbot_hat: TestBotWorker,
 	qemu: QemuWorker,
-	autokit: AutokitWorker
+	autokit: AutokitWorker,
+	manual: ManualWorker
 };
 
 const balenaLockPath = process.env.BALENA_APP_LOCK_PATH?.replace('.lock', '');
