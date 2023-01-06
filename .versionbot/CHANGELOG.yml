@@ -1,4 +1,28 @@
 - commits:
+    - subject: add manual worker to dict
+      hash: 0662d581c2fb19252a384ee08241db0b961074e2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add manual worker
+      hash: 121cb2a8561de19566280972c7cdb74d6902a3b5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.7.2
+  title: ""
+  date: 2023-01-06T10:51:02.817Z
+- commits:
     - subject: "qemu: run flasher image in flash()"
       hash: ea7890af6c2d8e3884ae20b30c77f708561da9c5
       body: |
