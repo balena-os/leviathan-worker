@@ -1,4 +1,43 @@
 - commits:
+    - subject: "qemu: disable readonly property on firmware vars"
+      hash: 908a9c768fc9d52fbf5bdeb91b68a03b0c079f39
+      body: |
+        This enables write access to vars file, which allows the flasher image
+        to configure EFI vars, as well as enroll secureboot keys.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "qemu: enable emulated software TPM"
+      hash: 5fbf6836bf58082694f333215bbe286e41bf11cd
+      body: |
+        Required for testing full disk encryption
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "qemu: enable booting with secureboot firmware"
+      hash: ecedaf45d90ca73680249d34dacb4130a6bff117
+      body: |
+        Allow booting with secureboot enabled OVMF firmware, and introduce a
+        variable to enable secureboot.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.7.2
+  title: ""
+  date: 2023-01-18T00:12:24.727Z
+- commits:
     - subject: "qemu: run flasher image in flash()"
       hash: ea7890af6c2d8e3884ae20b30c77f708561da9c5
       body: |
