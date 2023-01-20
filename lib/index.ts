@@ -88,6 +88,7 @@ async function setup(
 	const jsonParser = bodyParser.json();
 	const app = express();
 	const httpServer = http.createServer(app);
+	httpServer.keepAliveTimeout = 0;
 
 	const proxy: { proc?: ChildProcess; kill: () => void } = {
 		kill: () => {
@@ -366,9 +367,11 @@ async function setup(
 				await pipeline(
 					req,
 					imageStream,
-					fileStream
-				)
-
+					fileStream,
+				).catch((error)=>{
+					console.log(error)
+				})		
+			
 				console.log(`attempting to flash...`)
 				await worker.flash(FILENAME);
 			} catch (e) {

@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@balena/autokit": "^1.0.6",
-    "@balena/testbot": "^1.9.25",
+    "@balena/testbot": "^1.9.26",
     "@types/bluebird": "^3.5.25",
     "balena-sdk": "^16.12.1",
     "bluebird": "^3.5.3",
