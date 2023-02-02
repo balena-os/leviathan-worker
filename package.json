@@ -31,6 +31,7 @@
     "test": "test"
   },
   "dependencies": {
+    "@balena/autokit": "^1.0.6",
     "@balena/testbot": "^1.9.25",
     "@types/bluebird": "^3.5.25",
     "@types/config": "0.0.34",
