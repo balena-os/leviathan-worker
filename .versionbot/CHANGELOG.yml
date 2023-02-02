@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit to 1.0.6
+      hash: 0900f8e0e18e4be2a9be0b17416f042ee7b91b25
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.7.3
+  title: ""
+  date: 2023-02-02T18:05:16.102Z
+- commits:
     - subject: "qemu: disable readonly property on firmware vars"
       hash: 908a9c768fc9d52fbf5bdeb91b68a03b0c079f39
       body: |
