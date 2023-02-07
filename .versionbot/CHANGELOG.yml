@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove deprecated tests from worker"
+      hash: 43707b22f91712d3399a62125b50c1fd746ed7ba
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.7.6
+  title: ""
+  date: 2023-02-07T22:42:14.326Z
+- commits:
     - subject: "patch: Remove config NPM package"
       hash: 2f146fca9ccfa23eaf3a51e1fdab410e01f20aa1
       body: ""
