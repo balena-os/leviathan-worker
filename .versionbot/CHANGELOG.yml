@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove autohat firmware files"
+      hash: efa6385b286cda131038af4fd35e094041c08fc8
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.7.4
+  title: ""
+  date: 2023-02-07T10:27:35.843Z
+- commits:
     - subject: bump autokit to 1.0.6
       hash: 0900f8e0e18e4be2a9be0b17416f042ee7b91b25
       body: ""
