@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove config NPM package"
+      hash: 2f146fca9ccfa23eaf3a51e1fdab410e01f20aa1
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.7.5
+  title: ""
+  date: 2023-02-07T20:05:01.381Z
+- commits:
     - subject: "patch: Remove autohat firmware files"
       hash: efa6385b286cda131038af4fd35e094041c08fc8
       body: ""
