@@ -54,7 +54,7 @@
     "@types/node": "^10.12.18",
     "@types/proper-lockfile": "^4.1.2",
     "@types/request-promise": "^4.1.42",
-    "@types/uuid": "^3.4.4",
+    "@types/tar-fs": "^1.16.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "typescript": "^3.2.4"
