@@ -1,9 +1,9 @@
-import * as config from 'config';
+import config from '../lib/config';
 import setup from '../lib/index';
 import { getRuntimeConfiguration } from '../lib/helpers';
 
 (async function (): Promise<void> {
-	const port: number = config.get('worker.port');
+	const port = config.worker.port;
 
 	const runtimeConfiguration = await getRuntimeConfiguration();
 	const app = await setup(runtimeConfiguration);

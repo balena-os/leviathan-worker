@@ -1,6 +1,6 @@
 import * as Bluebird from 'bluebird';
 import { spawn } from 'child_process';
-import * as config from 'config';
+import config from '../config';
 import * as sdk from 'etcher-sdk';
 import { forEach, isEmpty, isObject } from 'lodash';
 import * as mdns from 'multicast-dns';
@@ -188,12 +188,12 @@ export function resolveLocalTarget(target: string): PromiseLike<string> {
 }
 
 export async function getRuntimeConfiguration(): Promise<Leviathan.RuntimeConfiguration> {
-	const runtimeConfiguration: any = config.get('worker.runtimeConfiguration');
+	const runtimeConfiguration: any = config.worker.runtimeConfiguration;
 
 	if (
 		runtimeConfiguration.network == null ||
 		(runtimeConfiguration.network.wired == null &&
-			runtimeConfiguration.network.Wireless == null)
+			runtimeConfiguration.network.wireless == null)
 	) {
 		throw new Error('No network configuration provided');
 	}

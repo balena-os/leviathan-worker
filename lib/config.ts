@@ -1,4 +1,4 @@
-module.exports = {
+export const config = {
 	worker: {
 		port: process.env.WORKER_PORT || 80,
 		runtimeConfiguration: {
@@ -34,3 +34,5 @@ module.exports = {
 		},
 	},
 };
+
+export default config
