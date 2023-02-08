@@ -16,7 +16,7 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { readFile, createReadStream, createWriteStream } from 'fs-extra';
+import { readFile, createWriteStream } from 'fs-extra';
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
 
@@ -325,7 +325,7 @@ async function setup(
 				}
 				clearTimeout(heartbeatTimeout);
 				for (const tunnel of tunnels) {
-					process.kill(tunnel.pid);
+					process.kill(tunnel.pid!);
 				}
 				res.send('OK');
 			} catch (e) {

@@ -15,7 +15,7 @@ import { getRuntimeConfiguration } from '../lib/helpers';
 		const address = server.address();
 
 		if (typeof address !== 'string') {
-			console.log(`Worker http listening on port ${address.port}`);
+			console.log(`Worker http listening on port ${address!.port}`);
 		} else {
 			console.log(`Worker listening at path ${address}`);
 		}

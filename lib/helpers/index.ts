@@ -112,7 +112,7 @@ export async function manageHandlers(
 }
 
 export function getIpFromIface(iface: string): string {
-	const ifaces = networkInterfaces();
+	const ifaces: any = networkInterfaces();
 
 	for (const dev in ifaces) {
 		if (dev === iface) {
@@ -139,11 +139,11 @@ export function resolveLocalTarget(target: string): PromiseLike<string> {
 			const sockets: any[] = [];
 
 			for (const interfaces of Object.values(networkInterfaces())) {
-				for (const ni of interfaces) {
+				interfaces?.forEach(ni => {
 					if (ni.family === 'IPv4') {
 						sockets.push(mdns({ interface: ni.address }));
 					}
-				}
+				})
 			}
 
 			if (sockets.length === 0) {
