@@ -1,5 +1,4 @@
 import { EventEmitter } from 'events';
-import { StatusCodeError } from 'request-promise/errors';
 import { Readable } from 'stream';
 
 interface Contract {
