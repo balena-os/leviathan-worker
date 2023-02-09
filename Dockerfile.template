@@ -1,6 +1,6 @@
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:18.12-run AS build-base
+FROM balenalib/${BALENA_ARCH}-alpine-node:12.19-run AS build-base
 
 WORKDIR /usr/app
 
@@ -27,7 +27,7 @@ FROM build-base as node-prod
 # install locked production dependencies
 RUN npm ci --production
 
-FROM balenalib/${BALENA_ARCH}-alpine:3.17-run
+FROM balenalib/${BALENA_ARCH}-alpine:3.12-run
 
 WORKDIR /usr/app
 
@@ -36,7 +36,7 @@ ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
 # ovmf is only packaged for x86_64 and aarch64 so ignore failures on arm
 # hadolint ignore=DL3018
 RUN apk add --no-cache \
-  nodejs=~18.12 \
+  nodejs=~12.22 \
   openssh-client \
   bluez \
   socat \
