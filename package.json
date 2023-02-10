@@ -28,35 +28,38 @@
   },
   "dependencies": {
     "@balena/autokit": "^1.0.6",
-    "@balena/testbot": "^1.9.26",
-    "@types/bluebird": "^3.5.38",
-    "balena-sdk": "^16.32.3",
-    "bluebird": "^3.7.2",
-    "body-parser": "^1.20.1",
-    "dbus-next": "^0.10.2",
-    "etcher-sdk": "^7.4.8",
-    "express": "^4.18.2",
+    "@balena/testbot": "^1.9.25",
+    "@types/bluebird": "^3.5.25",
+    "balena-sdk": "^16.12.1",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "dbus-next": "^0.8.1",
+    "etcher-sdk": "^7.1.0",
+    "express": "^4.16.4",
     "find-free-port": "^2.0.0",
-    "fs-extra": "^11.1.0",
-    "lodash": "^4.17.21",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.11",
     "multicast-dns": "git+https://github.com/balena-io-modules/multicast-dns#listen-on-all-interfaces",
     "mz": "^2.7.0",
     "proper-lockfile": "^4.1.2",
     "tar-fs": "^2.1.1"
   },
   "devDependencies": {
-    "@balena/lint": "^6.2.1",
-    "@types/bluebird-retry": "^0.11.5",
-    "@types/express": "^4.17.17",
-    "@types/fs-extra": "^11.0.1",
-    "@types/lodash": "^4.14.191",
-    "@types/mz": "2.7.4",
-    "@types/node": "^18.13.0",
+    "@balena/lint": "^6.2.0",
+    "@types/bluebird-retry": "^0.11.2",
+    "@types/express": "^4.16.1",
+    "@types/fs-extra": "^8.0.0",
+    "@types/lodash": "^4.14.120",
+    "@types/mz": "0.0.32",
+    "@types/node": "^10.12.18",
     "@types/proper-lockfile": "^4.1.2",
-    "@types/tar-fs": "^2.0.1",
-    "typescript": "^4.9.5"
+    "@types/request-promise": "^4.1.42",
+    "@types/tar-fs": "^1.16.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "typescript": "^3.2.4"
   },
   "engines": {
-    "node": "18"
+    "node": "12"
   }
 }

@@ -455,7 +455,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 
 		if (this.qemuOptions.secureBoot) {
 			// Wait for swtpm to become available
-			await new Promise<void>((resolve, reject) => {
+			await new Promise((resolve, reject) => {
 				const interval = setInterval(
 					() => {
 						if (fs.existsSync('/var/tpm0/swtpm.sock')) {
