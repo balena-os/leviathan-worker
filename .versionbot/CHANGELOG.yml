@@ -1,4 +1,14 @@
 - commits:
+    - subject: 'patch: Revert "Upgrade dependencies to node v18"'
+      hash: b7f73fac34fc2f9415b9603fcc8fbd343aa1972b
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 2.8.1
+  title: ""
+  date: 2023-02-10T13:57:45.751Z
+- commits:
     - subject: "minor: Update dependencies & node version v18"
       hash: b0197af0670cde6fbd172686af358e874e00bd75
       body: ""
