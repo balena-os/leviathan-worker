@@ -3,6 +3,12 @@ modprobe sg
 
 eval $(ssh-agent)
 
+rm  -R /var/run/docker || true
+rm /var/run/docker.sock || true
+rm /var/run/docker.pid || true
+dockerd &
+sleep 5
+
 if [ "${WORKER_TYPE}" != "qemu" ]; then
 	exec node ./build/bin
 fi
