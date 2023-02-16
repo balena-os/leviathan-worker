@@ -22,11 +22,6 @@ COPY bin ./bin
 # build typescript
 RUN npm run build
 
-FROM build-base as node-prod
-
-# install locked production dependencies
-RUN npm ci --production
-
 FROM balenalib/${BALENA_ARCH}-alpine:3.12-run
 
 WORKDIR /usr/app
@@ -59,8 +54,8 @@ RUN mkdir -p /etc/qemu \
   && echo "allow all" > /etc/qemu/bridge.conf \
   && chmod 0640 /etc/qemu/bridge.conf
 
-COPY --from=node-prod /usr/app/package.json ./
-COPY --from=node-prod /usr/app/node_modules ./node_modules
+COPY --from=node-dev /usr/app/package.json ./
+COPY --from=node-dev /usr/app/node_modules ./node_modules
 COPY --from=node-dev /usr/app/build ./build
 
 COPY entry.sh entry.sh
