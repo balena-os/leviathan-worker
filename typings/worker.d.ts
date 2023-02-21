@@ -55,6 +55,8 @@ declare global {
 			teardown(signal?: NodeJS.Signals): Promise<void>;
 			/** Set up the specified network environment. */
 			network(configuration): Promise<void>;
+			/** Set up OS image, includes download, configure and preload */
+			setupImage(configuration): Promise<void>;
 			/** Control HDMI capture process. */
 			captureScreen(action: 'start' | 'stop'): Promise<void | Readable>;
 			/** Returns relevant information about the worker to be used in tests */
@@ -68,14 +70,14 @@ declare global {
 				deviceType: string;
 			};
 			network?:
-				| {
-						wireless: string;
-						wired?: string;
-				  }
-				| {
-						wireless?: string;
-						wired: string;
-				  };
+			| {
+				wireless: string;
+				wired?: string;
+			}
+			| {
+				wireless?: string;
+				wired: string;
+			};
 			screen?: { VNC: { host: string; port: string }; HDMI: { dev: number } };
 			screenCapture?: boolean;
 			qemu?: QemuOptions;

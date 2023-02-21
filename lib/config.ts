@@ -4,6 +4,7 @@ export const config = {
 		runtimeConfiguration: {
 			worker: {
 				workdir: process.env.WORKDIR || '/tmp',
+				imageName: process.env.IMG_NAME || 'image.img',
 				deviceType: process.env.WORKER_TYPE || 'testbot_hat',
 			},
 			screenCapture: process.env.SCREEN_CAPTURE === 'true',
