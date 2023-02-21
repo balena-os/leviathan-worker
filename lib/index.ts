@@ -200,6 +200,23 @@ async function setup(
 			}
 		},
 	);
+	app.post(
+		'/dut/image',
+		jsonParser,
+		async (
+			req: express.Request,
+			res: express.Response,
+			next: express.NextFunction,
+		) => {
+			try {
+				await worker.setupImage(req.body);
+				res.send('OK');
+			} catch (err) {
+				console.error(err);
+				next(err);
+			}
+		},
+	);
 	app.get(
 		'/dut/ip',
 		jsonParser,
