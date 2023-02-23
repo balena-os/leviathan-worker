@@ -60,6 +60,6 @@
     "typescript": "^3.2.4"
   },
   "engines": {
-    "node": "12"
+    "node": ">=16.0.0"
   }
 }
