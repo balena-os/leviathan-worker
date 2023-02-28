@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update node and deps to v16
+      hash: 4a76b1fdc616efaadaedb491dd54f69d4f8bfe74
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.0
+  title: ""
+  date: 2023-02-28T00:29:38.002Z
+- commits:
     - subject: 'patch: Revert "Upgrade dependencies to node v18"'
       hash: b7f73fac34fc2f9415b9603fcc8fbd343aa1972b
       body: ""
