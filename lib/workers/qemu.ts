@@ -22,6 +22,7 @@ const dutSerialPath = '/reports/dut-serial.txt';
 
 class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	private id: string;
+	private macaddr: string;
 	private internalDisk: string;
 	private externalDisk: string;
 	private flasherImage: boolean;
@@ -42,6 +43,8 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		super();
 
 		this.id = `${Math.random().toString(36).substring(2, 10)}`;
+		this.macaddr = '52:54:00:XX:XX:XX'.replace(/XX/g,
+			(_) => Math.random().toString(16).slice(-2));
 
 		if (options != null) {
 			this.externalDisk =
@@ -407,7 +410,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		};
 		const networkArgs = [
 			'-net',
-			'nic,model=e1000',
+			`nic,model=e1000,macaddr=${this.macaddr}`,
 			'-net',
 			`bridge,br=${this.bridgeName}`,
 		];
