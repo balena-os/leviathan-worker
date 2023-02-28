@@ -1,4 +1,22 @@
 - commits:
+    - subject: "qemu: randomize mac addr"
+      hash: 8856eeb40164b4b408eac8aced8c3a36b7463d23
+      body: |
+        QEMU defaults to a static MAC address of 52:52:00:12:34:56. This can
+        cause conflicts when multiple workers are running on the same machine.
+
+        Randomize the MAC to prevent networking conflicts.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.1
+  title: ""
+  date: 2023-02-28T16:44:24.191Z
+- commits:
     - subject: Update node and deps to v16
       hash: 4a76b1fdc616efaadaedb491dd54f69d4f8bfe74
       body: ""
