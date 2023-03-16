@@ -365,9 +365,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			'-m',
 			this.qemuOptions.memory,
 			'-smp',
-			this.qemuOptions.cpus,
-			'-serial',
-			`file:${dutSerialPath}`,
+			this.qemuOptions.cpus
 		];
 
 		const internalStorageArgs = [
@@ -443,6 +441,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			.concat(this.qemuOptions.secureBoot ? tpmArgs : [])
 			.concat(archArgs[deviceArch])
 			.concat(networkArgs)
+			.concat(debugArgs)
 			.concat(firmwareArgs[deviceArch])
 			.concat(qmpArgs);
 
