@@ -243,8 +243,9 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			if (this.flasherImage) {
 				return new Promise((resolve, reject) => {
 					this.runQEMU({
-						externalStorage: true,
 						listeners: { onExit: resolve },
+						internalStorage: this.qemuOptions.internalStorage,
+						externalStorage: this.qemuOptions.externalStorage,
 					}).catch(e => {
 						console.log(`Error running flasher: ${e}`);
 						reject();
@@ -326,6 +327,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	private async runQEMU(
 		options?: {
 			listeners?: { onExit?: (...args: any[]) => void; };
+			internalStorage?: boolean;
 			externalStorage?: boolean;
 		}
 	): Promise<void> {
@@ -438,7 +440,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		};
 		const qmpArgs = ['-qmp', `tcp:localhost:${qmpPort},server,nowait`];
 		let args = baseArgs
-			.concat(internalStorageArgs)
+			.concat(options?.internalStorage ? internalStorageArgs : [])
 			.concat(options?.externalStorage ? externalStorageArgs : [])
 			.concat(this.qemuOptions.secureBoot ? tpmArgs : [])
 			.concat(archArgs[deviceArch])
@@ -499,11 +501,11 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	}
 
 	public async powerOn(): Promise<void> {
-		// If the source media is a flasher image, we expect the OS to install to
-		// the internal disk, and we disconnect the external disk after flashing.
-		// If the media is *not* a flasher, we want to boot externally, so leave
-		// the disk attached.
-		return this.runQEMU({externalStorage: !this.flasherImage});
+		return this.runQEMU(
+			{
+				internalStorage: this.qemuOptions.internalStorage,
+				externalStorage: this.qemuOptions.externalStorage
+			});
 	}
 
 	public async powerOff(): Promise<void> {
