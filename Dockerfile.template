@@ -43,10 +43,10 @@ RUN apk add --no-cache \
   libusb-dev dbus-dev eudev-dev \
   gstreamer-tools gst-plugins-base gst-plugins-bad gst-plugins-good \
   bridge bridge-utils iproute2 dnsmasq iptables \
-  qemu-img qemu-system-x86_64 qemu-system-aarch64 \
+  qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
   mdadm util-linux
-  
+
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community || true
 
