@@ -46,6 +46,8 @@ RUN apk add --no-cache \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 \
   python3 py3-pip py3-setuptools \
   mdadm util-linux
+
+RUN apk add --no-cache aavmf || true
   
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community || true
