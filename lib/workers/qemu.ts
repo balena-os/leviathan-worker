@@ -262,6 +262,12 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				await execProm(`mdadm --stop ${arrayDevice}`);
 				await execProm(`losetup -d ${loopDevice}`);
 			}
+			if (this.flasherImage && this.qemuOptions.internalStorage && this.qemuOptions.externalStorage) {
+				// Remove external disk after programming internal one as EFI boot
+				// is not changed for QEMU
+				console.log(`Removing external disk`)
+				this.qemuOptions.externalStorage = false;
+			}
 		}
 	}
 
