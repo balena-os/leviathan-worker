@@ -429,7 +429,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			'-smp',
 			this.qemuOptions.cpus,
 			'-serial',
-			`file:${dutSerialPath}`,
+			'pty',
 		];
 
 		const internalStorageArgs = [
@@ -535,7 +535,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			if (this.qemuOptions.debug) {
 				spawnOptions = { stdio: 'inherit' };
 			} else {
-				spawnOptions = { stdio: 'ignore' };
+				spawnOptions = { stdio: 'pipe' };
 			}
 
 			this.qemuProc = spawn(`qemu-system-${deviceArch}`, args, spawnOptions);
@@ -544,6 +544,9 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				this.qemuProc.once('exit', options!.listeners!.onExit!);
 			}
 
+			this.qemuProc.stdout.on('data', (data) => {
+				console.log(`QEMU stdout: ${data}`)
+			});
 			this.qemuProc.on('exit', (code, signal) => {
 				reject(new Error(`QEMU exited with code ${code}`));
 			});

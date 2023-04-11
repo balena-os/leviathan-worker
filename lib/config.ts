@@ -11,6 +11,10 @@ export const config = {
 				wired: process.env.NETWORK_WIRED_INTERFACE || 'eth1',
 				wireless: process.env.NETWORK_WIRELESS_INTERFACE || 'wlan0',
 			},
+			serial: {
+				baudRate: process.env.BAUD_RATE || 115200,
+				path: process.env.SERIAL_PATH || '/dev/pts/0'
+			},
 			qemu: {
 				architecture: process.env.QEMU_ARCH || 'x86_64',
 				cpus: process.env.QEMU_CPUS || '4',

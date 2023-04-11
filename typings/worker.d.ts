@@ -79,6 +79,7 @@ declare global {
 						wired: string;
 				  };
 			screen?: { VNC: { host: string; port: string }; HDMI: { dev: number } };
+			serial: {baudRate: number, path: string}
 			screenCapture?: boolean;
 			qemu?: QemuOptions;
 		}
