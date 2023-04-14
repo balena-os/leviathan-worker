@@ -18,6 +18,8 @@ export const config = {
 				debug: process.env.QEMU_DEBUG || false,
 				forceRaid: process.env.QEMU_FORCE_RAID || false,
 				secureBoot: process.env.QEMU_SECUREBOOT || false,
+				internalStorage: process.env.QEMU_INTERNAL_STORAGE? ['1','true'].includes(process.env.QEMU_INTERNAL_STORAGE as string) : true,
+				externalStorage: process.env.QEMU_EXTERNAL_STORAGE? ['1','true'].includes(process.env.QEMU_EXTERNAL_STORAGE as string) : true,
 				network: {
 					autoconfigure: true,
 					bridgeName: process.env.QEMU_BRIDGE_NAME || null,

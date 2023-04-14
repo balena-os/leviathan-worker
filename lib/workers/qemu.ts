@@ -4,10 +4,14 @@ import * as sdk from 'etcher-sdk';
 import { EventEmitter } from 'events';
 import { fs } from 'mz';
 import { join } from 'path';
+import { basename } from 'path';
+import { dirname } from 'path';
 import * as Stream from 'stream';
 import { manageHandlers } from '../helpers';
 import ScreenCapture from '../helpers/graphics';
 import { promisify } from 'util';
+import * as net from 'net';
+const qmp = require("@balena/node-qmp");
 const execProm = promisify(exec);
 import * as fp from 'find-free-port';
 
@@ -243,8 +247,10 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			if (this.flasherImage) {
 				return new Promise((resolve, reject) => {
 					this.runQEMU({
-						externalStorage: true,
 						listeners: { onExit: resolve },
+						internalStorage: this.qemuOptions.internalStorage,
+						externalStorage: this.qemuOptions.externalStorage,
+						exitOnReset: !this.qemuOptions.internalStorage
 					}).catch(e => {
 						console.log(`Error running flasher: ${e}`);
 						reject();
@@ -255,6 +261,12 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			if (this.qemuOptions.forceRaid) {
 				await execProm(`mdadm --stop ${arrayDevice}`);
 				await execProm(`losetup -d ${loopDevice}`);
+			}
+			if (this.flasherImage && this.qemuOptions.internalStorage && this.qemuOptions.externalStorage) {
+				// Remove external disk after programming internal one as EFI boot
+				// is not changed for QEMU
+				console.log(`Removing external disk`)
+				this.qemuOptions.externalStorage = false;
 			}
 		}
 	}
@@ -323,10 +335,53 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		);
 	}
 
+	private async assertFileExists(filePath: string, timeout: number) {
+		return new Promise( (resolve, reject) => {
+			let timer = setTimeout( () => {
+				watcher.close();
+				reject(new Error(`Timed out waiting on ${filePath}`))
+			}, timeout);
+			fs.access(filePath, fs.constants.R_OK, (err) => {
+				if (!err) {
+					clearTimeout(timer);
+					watcher.close();
+					resolve();
+				}
+			})
+			let dir = dirname(filePath);
+			let bname = basename(filePath);
+			let watcher = fs.watch( dir, (eventType: string, filename: string) => {
+				if (eventType === 'rename' && filename === bname) {
+					clearTimeout(timer);
+					watcher.close();
+					resolve();
+				}
+			})
+		})
+	}
+
+	private async killOnReset(ipc: string | number) {
+			const client = new qmp.Client();
+			client.connect(ipc);
+			client.on('ready', () => {
+				client.execute('query-status').then((status: string) => {
+					console.debug(`Machine ${status}`);
+				}).then(() => {
+					console.log(`waiting on reset`)
+					client.on('reset', (timestamp: object, event: string, data: object) => {
+						console.log('Virtual machine reset - killing emulator');
+						this.qemuProc!.kill();
+					});
+				});
+			});
+		}
+
 	private async runQEMU(
 		options?: {
 			listeners?: { onExit?: (...args: any[]) => void; };
+			internalStorage?: boolean;
 			externalStorage?: boolean;
+			exitOnReset?: boolean;
 		}
 	): Promise<void> {
 		let vncport = null;
@@ -436,9 +491,9 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			],
 			aarch64: ['-bios', this.qemuOptions.firmware!.code],
 		};
-		const qmpArgs = ['-qmp', `tcp:localhost:${qmpPort},server,nowait`];
+		const qmpArgs = ['-qmp', `unix:/tmp/qmp.sock,server,wait=off`];
 		let args = baseArgs
-			.concat(internalStorageArgs)
+			.concat(options?.internalStorage ? internalStorageArgs : [])
 			.concat(options?.externalStorage ? externalStorageArgs : [])
 			.concat(this.qemuOptions.secureBoot ? tpmArgs : [])
 			.concat(archArgs[deviceArch])
@@ -494,16 +549,32 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				reject(err);
 			});
 
+			// Flasher images that install into internal disk will shutdown by themselves
+			// Flasher images that install into the booting disk will reboot so we need to
+			// power off the QEMU device so the flashing completes
+			if ( options?.exitOnReset && this.qemuProc != null && !this.qemuProc!.killed ) {
+				const protocol = qmpArgs[1].substring(0,qmpArgs[1].indexOf(':'));
+				const ipc = qmpArgs[1].substring(qmpArgs[1].indexOf(':') + 1,qmpArgs[1].indexOf(','));
+				const timeoutinSecs = 10
+
+				if ( protocol === 'unix') {
+					this.assertFileExists(ipc, timeoutinSecs * 1000).then( () => {
+							return this.killOnReset(ipc)
+					})
+				} else {
+					console.log(`Unknown protocol ${protocol}`);
+				}
+			}
 			resolve();
-		});
-	}
+		}
+	)}
 
 	public async powerOn(): Promise<void> {
-		// If the source media is a flasher image, we expect the OS to install to
-		// the internal disk, and we disconnect the external disk after flashing.
-		// If the media is *not* a flasher, we want to boot externally, so leave
-		// the disk attached.
-		return this.runQEMU({externalStorage: !this.flasherImage});
+		return this.runQEMU(
+			{
+				internalStorage: this.qemuOptions.internalStorage,
+				externalStorage: this.qemuOptions.externalStorage
+			});
 	}
 
 	public async powerOff(): Promise<void> {

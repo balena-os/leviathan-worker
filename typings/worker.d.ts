@@ -28,6 +28,8 @@ declare global {
 			},
 			forceRaid: boolean;
 			secureBoot: boolean;
+			internalStorage: boolean;
+			externalStorage: boolean;
 			network: {
 				autoconfigure: boolean;
 				bridgeName: string;
