@@ -122,11 +122,13 @@ jobs:
       #   run: #TODO
       
       - name: Run test suite
+        id: run-suite
         run: |
           make config
-          make test
+          make test || exit 1
 
       - uses: actions/upload-artifact@v3
+        if: steps.run-suite.conclusion == 'success'
         with:
           name: reports-${{ env.WORKER_TYPE }}-${{ env.DEVICE_TYPE }}
           path: ${{ env.REPORTS }}
