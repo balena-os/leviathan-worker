@@ -1,4 +1,62 @@
 - commits:
+    - subject: "flowzone: return error if test suite fails"
+      hash: b28ed06824365303018c55ae25f9fa4e3f126ba5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "qemu: remove external disk after programming internal"
+      hash: 68a62f73fa37b5afbdb47860aaa405572f8bf52d
+      body: |
+        When both internal and external disks are defined, the flasher will
+        program the internal disk and then create a new EFI boot entry for the
+        internal disk and configure to boot from it.
+
+        However, modifying the EFI boot list is not working for QEMU, so we
+        still need to disconnect the external disk after programming in order to
+        boot from the internal.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "qemu: poweroff the emulator on reset"
+      hash: 8eecd3e4953ba7658ee78c281bf5b8887f029f0d
+      body: >
+        When flashing, QEMU is expected to shutdown the device and exit. However,
+
+        when using the installer migrator, there is no shutdown. This change allows
+
+        to specify an emulator shutdown after a reset event.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "qemu: support configuring storage availability"
+      hash: bf6b6823fc041e4db4310d0da79f3e471eac027c
+      body: |
+        This is useful to boot with only an external disk, for example to test
+        the installer migrator.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 2.9.2
+  title: ""
+  date: 2023-04-14T18:54:03.555Z
+- commits:
     - subject: "qemu: randomize mac addr"
       hash: 8856eeb40164b4b408eac8aced8c3a36b7463d23
       body: |
