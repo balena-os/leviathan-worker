@@ -1,4 +1,18 @@
 - commits:
+    - subject: "stop crash when using networkWireless: true"
+      hash: 66960fe83ca159d98bf8072a735bcf61d9114437
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.3
+  title: ""
+  date: 2023-04-24T16:07:21.817Z
+- commits:
     - subject: "flowzone: return error if test suite fails"
       hash: b28ed06824365303018c55ae25f9fa4e3f126ba5
       body: ""
@@ -29,7 +43,8 @@
     - subject: "qemu: poweroff the emulator on reset"
       hash: 8eecd3e4953ba7658ee78c281bf5b8887f029f0d
       body: >
-        When flashing, QEMU is expected to shutdown the device and exit. However,
+        When flashing, QEMU is expected to shutdown the device and exit.
+        However,
 
         when using the installer migrator, there is no shutdown. This change allows
 
@@ -6071,8 +6086,8 @@
     - subject: Remove unused jenkins download type
 - commits:
     - body: >-
-        We currently don't use the jenkins download type (and don't plan to use it
-        as is).
+        We currently don't use the jenkins download type (and don't plan to use
+        it as is).
 
         This also removes unzip package dependency with security problems.
 - commits:
@@ -6738,8 +6753,8 @@
         value
 - commits:
     - body: >-
-        Allow for `-p` option, where we can print the whole output to console.log
-        regardless
+        Allow for `-p` option, where we can print the whole output to
+        console.log regardless
 
         of the runtime display; usefull for CI/CD.
 - commits:
