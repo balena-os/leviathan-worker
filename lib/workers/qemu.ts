@@ -14,6 +14,7 @@ import * as net from 'net';
 const qmp = require("@balena/node-qmp");
 const execProm = promisify(exec);
 import * as fp from 'find-free-port';
+import { Supported } from '../helpers/nm';
 
 const imagefs = require('balena-image-fs');
 const util = require('util');
@@ -698,9 +699,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		});
 	}
 
-	public async network(configuration: {
-		wired?: { nat: boolean };
-	}): Promise<void> {
+	public async network(configuration: Supported['configuration']): Promise<void> {
 		/* Network configuration, including creating a bridge, setting iptables
 		 * rules, and running a DHCP server, requires privileges. This can all be
 		 * done easily in a container, but would otherwise necessitate running the
