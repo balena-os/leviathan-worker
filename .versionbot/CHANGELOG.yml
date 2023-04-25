@@ -1,4 +1,33 @@
 - commits:
+    - subject: "qemu: remove deprecated virtio-gpu-pci device"
+      hash: 5f01cc44046a3fd0b270e29424d0a6e090f86eb8
+      body: |
+        qemu-system-aarch64 removed the virtio-gpu-pci device, and it's no
+        longer required for vnc displays, so remove it
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "Dockerfile: install qemu-system-arm"
+      hash: c39280167894de2c8707542730598fe543081705
+      body: |
+        After upgrading the alpine base image, the AAVMF vars file is no longer
+        installed by the qemu-system-aarch64 package, but rather
+        qemu-system-arm.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.4
+  title: ""
+  date: 2023-04-25T17:44:56.946Z
+- commits:
     - subject: "stop crash when using networkWireless: true"
       hash: 66960fe83ca159d98bf8072a735bcf61d9114437
       body: ""
