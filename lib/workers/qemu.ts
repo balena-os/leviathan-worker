@@ -177,6 +177,11 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	public async flash(filename: string): Promise<void> {
 		await this.powerOff();
 
+		// Remove existing disk images
+		for (let f of [this.internalDisk, this.externalDisk]) {
+				if (fs.existsSync(f)) fs.unlinkSync(f);
+		}
+
 		// Copy firmware vars file to runtime location
 		//
 		// This allows the guest to write firmware vars including boot order and
