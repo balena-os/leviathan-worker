@@ -30,6 +30,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	private macaddr: string;
 	private internalDisk: string;
 	private externalDisk: string;
+	get runtimeFirmwareVars() { return `/tmp/edk2-vars-${this.id}.fd`; }
 	private flasherImage: boolean;
 	private signalHandler: (signal: NodeJS.Signals) => Promise<void>;
 	private qemuProc: ChildProcess | null = null;
@@ -175,6 +176,17 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 
 	public async flash(filename: string): Promise<void> {
 		await this.powerOff();
+
+		// Remove existing disk images
+		for (let f of [this.internalDisk, this.externalDisk]) {
+				if (fs.existsSync(f)) fs.unlinkSync(f);
+		}
+
+		// Copy firmware vars file to runtime location
+		//
+		// This allows the guest to write firmware vars including boot order and
+		// secure boot vars while allowing tests to reset these vars by reflashing
+		fs.copyFileSync(this.qemuOptions.firmware!.vars, this.runtimeFirmwareVars);
 
 		await execProm(`truncate -s 8G ${this.internalDisk} ${this.externalDisk}`);
 		const loopDevice = this.qemuOptions.forceRaid
@@ -487,7 +499,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				},readonly=on`,
 				'-drive',
 				`if=pflash,format=raw,unit=1,file=${
-					this.qemuOptions.firmware!.vars
+					this.runtimeFirmwareVars
 				}`,
 			],
 			aarch64: ['-bios', this.qemuOptions.firmware!.code],
