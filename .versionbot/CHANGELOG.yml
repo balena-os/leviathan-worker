@@ -1,4 +1,45 @@
 - commits:
+    - subject: "qemu: remove disk images before flashing"
+      hash: a3a3e4894ffcd473bf84a96342e1e032cf49af7d
+      body: |
+        truncate will create a sparsely allocated image, but won't remove the
+        contents of an existing image, which can result in the internal media
+        being booted again instead of the external flasher media
+
+        Unlink the disk images before sparsely allocating them to ensure we
+        start flashing with empty disks.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "qemu: erase firmware vars on flash"
+      hash: 166f2b68f509f68471d580e016d5468ee904a0dc
+      body: |
+        Guests may write persistent variables to firmware in cases such as
+        changing the boot order or configuring secure boot keys. These variables
+        are backed by a file configured as part of pflash, typically shipped
+        with edk2.
+
+        When reflashing, variables may need to be reset, or previous
+        configuration may stop the flashing process, such as secure boot
+        rejecting the signature of the flasher's bootloader.
+
+        Copy the edk2 vars file from the usr directory to a runtime location,
+        allowing the flash method to reset this backing file.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.5
+  title: ""
+  date: 2023-04-28T23:48:14.460Z
+- commits:
     - subject: "qemu: remove deprecated virtio-gpu-pci device"
       hash: 5f01cc44046a3fd0b270e29424d0a6e090f86eb8
       body: |
