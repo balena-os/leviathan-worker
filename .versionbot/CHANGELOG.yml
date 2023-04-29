@@ -1,4 +1,43 @@
 - commits:
+    - subject: "qemu: flash: don't remove external disk after flashing"
+      hash: 7e629f2a7d330dfb12e2230d43dee20540785f56
+      body: |
+        Secure boot tests reflash the internal storage after tampering with
+        verified boot files, and so we need to have the flasher media connected
+        to the guest as the external drive even after the internal drive is
+        flashed for the first time.
+
+        This snippet was intended to be used for testing the migrator, which
+        essentially boots and flashes to a single disk, but a race condition in
+        unlocking USB attached storage devices is currently blocking the
+        migrator from being used.
+
+        Disable removal of the external disk after the first flash.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+    - subject: "qemu: remove bootindex from external disk"
+      hash: 4f5df46da279e9137aa235ef8ce3b27ff58fbb49
+      body: |
+        This property appears to alter the behavior of the automatic boot device
+        selection of OVMF in such a way that the internal disk is no longer
+        booted as expected automatically after flashing with the external disk
+        still attached. Remove it.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.6
+  title: ""
+  date: 2023-04-29T00:28:00.243Z
+- commits:
     - subject: "qemu: remove disk images before flashing"
       hash: a3a3e4894ffcd473bf84a96342e1e032cf49af7d
       body: |
