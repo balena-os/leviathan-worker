@@ -1,4 +1,18 @@
 - commits:
+    - subject: enable serial terminal interaction
+      hash: 8704955974722d46d90f0cdd1b7105b5653b52fa
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.7
+  title: ""
+  date: 2023-06-19T13:58:03.559Z
+- commits:
     - subject: "qemu: flash: don't remove external disk after flashing"
       hash: 7e629f2a7d330dfb12e2230d43dee20540785f56
       body: |
