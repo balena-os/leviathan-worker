@@ -1,4 +1,4 @@
-ARG BALENA_ARCH=%%BALENA_ARCH%%
+ARG BALENA_ARCH=generic-amd64
 
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run AS build-base
 
@@ -42,8 +42,8 @@ RUN apk add --no-cache \
   rsync \
   libusb-dev dbus-dev eudev-dev \
   gstreamer-tools gst-plugins-base gst-plugins-bad gst-plugins-good \
-  #bridge bridge-utils iproute2 dnsmasq iptables \
-  #qemu-img qemu-system-x86_64 qemu-system-aarch64 \
+  bridge bridge-utils iproute2 dnsmasq iptables \
+  qemu-img qemu-system-x86_64 qemu-system-aarch64 \
   python3 py3-pip py3-setuptools \
   mdadm util-linux
   

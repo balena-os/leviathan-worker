@@ -343,6 +343,7 @@ async function setup(
 	});
 	app.post(
 		'/dut/flash',
+		jsonParser,
 		async (req: express.Request, res: express.Response) => {
 			function onProgress(progress: multiWrite.MultiDestinationProgress): void {
 				res.write(`progress: ${JSON.stringify(progress)}`);
@@ -357,19 +358,11 @@ async function setup(
 				res.write('status: pending');
 			}, httpServer.keepAliveTimeout);
 
-			const FILENAME = '/data/os.img';
+			const FILENAME = req.body.path;
+			console.log(req.body)
+			console.log(`Flashing image on path ${FILENAME}`)
 			try {
-				worker.on('progress', onProgress);
-				const imageStream = createGunzip();
-				const fileStream = createWriteStream(FILENAME);
-				console.log(`Streaming image to file...`)
-				await pipeline(
-					req,
-					imageStream,
-					fileStream
-				)
-
-				console.log(`attempting to flash...`)
+				//worker.on('progress', onProgress);
 				await worker.flash(FILENAME);
 			} catch (e) {
 				if (e instanceof Error) {
