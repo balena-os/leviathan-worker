@@ -19,6 +19,7 @@ const execSync = util.promisify(exec);
 import { readFile, createReadStream, createWriteStream } from 'fs-extra';
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
+import * as serialTerminal from '@balena/node-serial-terminal';
 
 const balena = getSdk({
 	apiUrl: 'https://api.balena-cloud.com/',
@@ -449,6 +450,28 @@ async function setup(
 			res.send(data);
 		});
 	});
+
+	app.post(
+		'/dut/serial/exec',
+		jsonParser,
+		async (
+			req: express.Request,
+			res: express.Response,
+			next: express.NextFunction,
+		) => {
+			try {
+				let output = await serialTerminal.exec(
+					runtimeConfiguration.serial.path,
+					runtimeConfiguration.serial.baudRate,
+					req.body.cmd
+				);
+				res.send(output);
+			} catch (err) {
+				console.error(err);
+				next(err);
+			}
+		},
+	);
 
 	return app;
 }
