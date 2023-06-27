@@ -21,7 +21,7 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
             video: process.env.VIDEO || 'linuxVideo',
 			serial: process.env.SERIAL || 'dummySerial',
             usbBootPort: process.env.USB_BOOT_PORT || '4',
-			digitalRelay: process.env.DIGITAL_RELAY || 'usbRelay'
+			digitalRelay: process.env.DIGITAL_RELAY || 'dummyPower'
         }
 
 		this.autoKit = new Autokit(autokitConfig);
