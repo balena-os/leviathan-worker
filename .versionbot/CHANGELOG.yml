@@ -1,4 +1,18 @@
 - commits:
+    - subject: change defaults for autokit worker
+      hash: c347efc7c75312e59b757b8a502f3637d62975d6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.8
+  title: ""
+  date: 2023-06-27T14:53:02.120Z
+- commits:
     - subject: enable serial terminal interaction
       hash: 8704955974722d46d90f0cdd1b7105b5653b52fa
       body: ""
