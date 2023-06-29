@@ -22,7 +22,7 @@ import * as lockfile from 'proper-lockfile';
 import * as serialTerminal from '@balena/node-serial-terminal';
 
 const balena = getSdk({
-	apiUrl: 'https://api.balena-cloud.com/',
+	apiUrl: process.env.BALENA_API_URL,
 });
 
 const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker | typeof AutokitWorker> = {
