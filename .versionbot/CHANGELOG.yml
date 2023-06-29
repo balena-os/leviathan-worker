@@ -1,4 +1,18 @@
 - commits:
+    - subject: use balena api env var instead of hard-coding
+      hash: 69340044edd101740f38dfaa7829e1db6a949021
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.9
+  title: ""
+  date: 2023-06-29T14:53:20.307Z
+- commits:
     - subject: change defaults for autokit worker
       hash: c347efc7c75312e59b757b8a502f3637d62975d6
       body: ""
