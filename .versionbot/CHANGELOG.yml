@@ -1,4 +1,18 @@
 - commits:
+    - subject: set default if no API URL provided
+      hash: fa13695c24d328aa5e06b71908313f3d1f3be7a0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.10
+  title: ""
+  date: 2023-07-07T13:36:03.575Z
+- commits:
     - subject: use balena api env var instead of hard-coding
       hash: 69340044edd101740f38dfaa7829e1db6a949021
       body: ""
