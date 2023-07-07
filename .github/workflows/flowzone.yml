@@ -78,7 +78,7 @@ jobs:
         with:
           submodules: true
           repository: balena-os/leviathan
-          ref: master
+          ref: ryan/makefile-code
 
       - name: Get worker release
         env:
