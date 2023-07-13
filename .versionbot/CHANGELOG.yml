@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump testbot-sdk to 1.9.27
+      hash: 444341826666a1c904eb97a1ede448d041f8a2fc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.11
+  title: ""
+  date: 2023-07-13T11:38:13.197Z
+- commits:
     - subject: set default if no API URL provided
       hash: fa13695c24d328aa5e06b71908313f3d1f3be7a0
       body: ""
