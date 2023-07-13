@@ -44,6 +44,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	private bridgeAddress: string;
 	private bridgeName: string;
 	private dhcpRange: string;
+	private dutLogStream: Stream.Writable | null = null;
 
 	constructor(options: Leviathan.RuntimeConfiguration) {
 		super();
@@ -428,8 +429,10 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			this.qemuOptions.memory,
 			'-smp',
 			this.qemuOptions.cpus,
-			'-serial',
-			'pty',
+			'-chardev',
+			`pty,id=char0,logfile=${dutSerialPath},signal=off`,
+			'-serial', 
+			'chardev:char0'
 		];
 
 		const internalStorageArgs = [
@@ -532,12 +535,8 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 
 		return new Promise((resolve, reject) => {
 			let spawnOptions = {};
-			if (this.qemuOptions.debug) {
-				spawnOptions = { stdio: 'inherit' };
-			} else {
-				spawnOptions = { stdio: 'pipe' };
-			}
-
+			spawnOptions = { stdio: 'pipe' };
+			
 			this.qemuProc = spawn(`qemu-system-${deviceArch}`, args, spawnOptions);
 
 			if (options?.listeners?.onExit !== undefined) {
@@ -588,6 +587,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				// don't return until the process is dead
 				this.qemuProc.on('exit', resolve);
 				this.qemuProc.kill();
+				this.dutLogStream?.end();
 			} else {
 				resolve();
 			}
