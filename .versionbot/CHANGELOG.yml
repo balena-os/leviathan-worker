@@ -1,4 +1,18 @@
 - commits:
+    - subject: "qemu: write serial TX to file again"
+      hash: 54cc2ffbcd41ff951805e1313309357a75e594db
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.12
+  title: ""
+  date: 2023-07-13T12:23:31.608Z
+- commits:
     - subject: bump testbot-sdk to 1.9.27
       hash: 444341826666a1c904eb97a1ede448d041f8a2fc
       body: ""
