@@ -440,6 +440,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		];
 
 		const externalStorageArgs = [
+			'-nodefaults',
 			'-drive', `format=raw,file=${this.externalDisk},if=none,id=ext0`,
 			'-device', 'qemu-xhci',
 			'-device', 'usb-storage,drive=ext0',
