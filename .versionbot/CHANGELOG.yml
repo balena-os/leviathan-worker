@@ -1,4 +1,23 @@
 - commits:
+    - subject: "workers/qemu: start qemu without default interfaces"
+      hash: 1628b1bc6ff8562ed1d0c1d82fd2a08480843a0b
+      body: |
+        Remove default interfaces like CDROMs, floppy disk and other to avoid
+        boot order problems and guarantee the system boots with only one block
+        disk so the migration is always performed.
+
+        Fixes balena-os/balena-generic/#265
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 2.9.13
+  title: ""
+  date: 2023-07-19T08:05:09.348Z
+- commits:
     - subject: "qemu: write serial TX to file again"
       hash: 54cc2ffbcd41ff951805e1313309357a75e594db
       body: ""
