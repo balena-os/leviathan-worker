@@ -31,6 +31,7 @@ runs:
 
     - name: Describe git state
       id: git_describe
+      shell: bash
       run: |
         describe="$(git describe HEAD --tags --always)"
         semver="$(npx -q -y -- semver -c -l "${describe}")"
@@ -38,6 +39,7 @@ runs:
 
     - name: Update balenaMachine docker-compose.yml
       id: update-compose
+      shell: bash
       run: |
         sed -r 's|build: .|image: bh\.cr/balena/leviathan-worker-${BALENA_ARCH:-amd64}/${{ steps.git_describe.outputs.semver }} |' -i docker-compose.yml
         cat docker-compose.yml
