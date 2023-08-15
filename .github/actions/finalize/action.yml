@@ -35,7 +35,7 @@ runs:
       run: |
         describe="$(git describe HEAD --tags --always)"
         semver="$(npx -q -y -- semver -c -l "${describe}")"
-         echo "semver=${semver}" >> $GITHUB_OUTPUT
+        echo "semver=${semver}" >> $GITHUB_OUTPUT
 
     - name: Update balenaMachine docker-compose.yml
       id: update-compose
@@ -43,6 +43,7 @@ runs:
       run: |
         sed -r 's|build: .|image: bh\.cr/balena/leviathan-worker-${BALENA_ARCH:-amd64}/${{ steps.git_describe.outputs.semver }} |' -i docker-compose.yml
         cat docker-compose.yml
+        sleep 30
 
     - name: Deploy to balenaMachine
       uses: balena-io/deploy-to-balena-action@master
