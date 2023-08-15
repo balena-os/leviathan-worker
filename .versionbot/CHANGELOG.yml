@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Delay balenaMachine push to finalize releases"
+      hash: b01170c78e3c6a221cce2621f3cb9ab7e1e2f113
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.9.16
+  title: ""
+  date: 2023-08-15T21:35:16.394Z
+- commits:
     - subject: "patch: Add shell to finalize action"
       hash: 5d55ea8064d0681c4541f4e0a26445a8f1b2b988
       body: ""
