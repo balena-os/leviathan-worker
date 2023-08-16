@@ -137,8 +137,6 @@ jobs:
     # prevent duplicate workflows and only allow one `pull_request` or `pull_request_target` for
     # internal or external contributions respectively
     if: |
-      (github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request') ||
-      (github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'pull_request_target') &&
       github.event.action == 'closed' &&
       github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
@@ -167,5 +165,4 @@ jobs:
           balena_token: ${{ secrets.BALENAMACHINE_API_KEY }}
           fleet: balena/testbot-rig
           environment: 'bm.balena-dev.com'
-          debug: true 
           source: .
