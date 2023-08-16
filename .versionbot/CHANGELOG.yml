@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add debug to balenaMachine balena push"
+      hash: 970aca41a386a9948e7087db26ec06926c2c6c96
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.9.17
+  title: ""
+  date: 2023-08-16T06:05:33.329Z
+- commits:
     - subject: "patch: Delay balenaMachine push to finalize releases"
       hash: b01170c78e3c6a221cce2621f3cb9ab7e1e2f113
       body: ""
