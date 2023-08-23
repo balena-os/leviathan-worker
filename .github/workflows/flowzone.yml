@@ -42,6 +42,12 @@ jobs:
       BALENACLOUD_ORG: testbot
       BALENACLOUD_API_KEY: ${{ secrets.BALENA_TESTBOT_TOKEN }}
       BALENACLOUD_APP_NAME: balena/testbot-rig
+      BALENACLOUD_API_URL: balena-cloud.com
+      ENVIRONMENT: ${{ matrix.ENVIRONMENT }}
+      BALENAMACHINE_API_KEY: ${{ secrets.BALENAMACHINE_API_KEY }}
+      BALENAMACHINE_API_URL: bm.balena-dev.com
+      BALENACLOUD_SSH_URL: ssh.devices.bm.balena-dev.com
+      BALENACLOUD_SSH_PORT: 222
       QEMU_CPUS: 1
       QEMU_MEMORY: 1G
       WORKER_TYPE: ${{ matrix.WORKER_TYPE }}
@@ -64,7 +70,8 @@ jobs:
             WORKER_APP_ID: "1941514" # balena/leviathan-worker-amd64
           - DEVICE_TYPE: generic-aarch64
             WORKER_TYPE: qemu
-            WORKER_APP_ID: "1941514" # balena/leviathan-worker-amd64
+            WORKER_APP_ID: "1941514" # balena/leviathan-worker-aarch64
+          #  Commented because testbot devices aren't available to test worker releases
           # - DEVICE_TYPE: raspberrypi3
           #   WORKER_TYPE: testbot
           #   WORKER_APP_ID: "1941517" # balena/leviathan-worker-armv7hf
@@ -132,34 +139,55 @@ jobs:
           name: reports-${{ env.WORKER_TYPE }}-${{ env.DEVICE_TYPE }}
           path: ${{ env.REPORTS }}
   
-   balenamachine-push:
+  balenamachine-push:
     needs: [flowzone]
-
-    # prevent duplicate workflows and only allow one `pull_request` or `pull_request_target` for
-    # internal or external contributions respectively
-    if: |
-      (github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request') ||
-      (github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'pull_request_target') &&
-      github.event.action == 'closed'
     runs-on: ubuntu-22.04
-    
+
     steps:
       - uses: actions/checkout@v3
-      - name: Describe git state
-        id: git_describe
-        shell: bash
+      - name: Get worker release
+        env:
+          ENVIRONMENT: "balena-cloud.com"
+          VERSION: "v6"
+          WORKER_APP_ID: "1941517" # balena/leviathan-worker-armv7hf in balenaCloud
+          TAG_KEY: "balena-ci-commit-sha"
+          TAG_VALUE: ${{ github.event.pull_request.head.sha }}
         run: |
-          describe="$(git describe HEAD --tags --always)"
-          semver="$(npx -q -y -- semver -c -l "${describe}")"
-          echo "semver=${semver}" >> $GITHUB_OUTPUT
+          url=()
+          url+=("https://api.${{ env.ENVIRONMENT }}/${{ env.VERSION }}/release")
+          url+=("?\$filter=")
+          url+=("(belongs_to__application%20eq%20${{ env.WORKER_APP_ID }})")
+          url+=("%20and%20")
+          url+=("(")
+          url+=("(status%20eq%20%27success%27)")
+          url+=("%20and%20")
+          url+=("(release_tag/any(rt:(rt/tag_key%20eq%20%27${{ env.TAG_KEY }}%27)%20and%20(rt/value%20eq%20%27${{ env.TAG_VALUE }}%27)))")
+          url+=(")")
+
+          url+=("&\$orderby=created_at%20desc")
+          url+=("&\$select=commit")
+          url+=("&\$top=1")
+
+          commit="$(IFS= ; curl -fsSL -X GET "${url[*]}" \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer ${{ secrets.BALENA_API_KEY_PUSH }}" | jq -r '.d[].commit')"
+
+          test -n "${commit}" || exit 1
+          echo "WORKER_RELEASE=${commit}" >> $GITHUB_ENV
 
       - name: Update balenaMachine docker-compose.yml
-        id: update-compose
         shell: bash
         run: |
-          sed -r 's|build: .|image: bh\.cr/balena/leviathan-worker-${BALENA_ARCH:-amd64}/${{ steps.git_describe.outputs.semver }} |' -i docker-compose.yml
+          sed -r 's|build: .|image: bh\.cr/balena/leviathan-worker-armv7hf/${{ env.WORKER_RELEASE }} |' -i docker-compose.yml
           cat docker-compose.yml
-          sleep 30
+
+      # - name: Describe git state
+      #   id: git_describe
+      #   shell: bash
+      #   run: |
+      #     describe="$(git describe HEAD --tags --always)"
+      #     semver="$(npx -q -y -- semver -c -l "${describe}")"
+      #     echo "semver=${semver}" >> $GITHUB_OUTPUT
 
       - name: Deploy to balenaMachine
         uses: balena-io/deploy-to-balena-action@master
@@ -167,5 +195,4 @@ jobs:
           balena_token: ${{ secrets.BALENAMACHINE_API_KEY }}
           fleet: balena/testbot-rig
           environment: 'bm.balena-dev.com'
-          debug: true 
           source: .
