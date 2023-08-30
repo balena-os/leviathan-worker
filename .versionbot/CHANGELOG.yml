@@ -1,4 +1,28 @@
 - commits:
+    - subject: add lib dependencies
+      hash: 167cc3020770f3fa5b0aca8e55c6546e7a54f89d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: enable alternative sd mux
+      hash: 118439af08da9eb1e50908ce54788a954966bdae
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.21
+  title: ""
+  date: 2023-08-30T13:37:17.605Z
+- commits:
     - subject: bump autokit sdk to 1.0.10
       hash: 97b31fc7193b7bfd56400eac552892314c6526e1
       body: ""
