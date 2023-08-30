@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: Deploy draft releases to BM"
+      hash: 71431cdd20104a6c556f9cdfbfd00f4eb5ec77eb
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+    - subject: "patch: Merge new action with Flowzone"
+      hash: 1907c0445063e552f75818944247d5aca29469e0
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.9.19
+  title: ""
+  date: 2023-08-30T10:00:28.801Z
+- commits:
     - subject: "patch: Create new action for balenamachine push"
       hash: 18ecef7d9bdebcfbfb33da71a3b8b6cfe2731d7e
       body: ""
