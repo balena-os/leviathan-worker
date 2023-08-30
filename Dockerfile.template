@@ -5,7 +5,7 @@ FROM balenalib/${BALENA_ARCH}-alpine-node:16-run AS build-base
 WORKDIR /usr/app
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base git linux-headers eudev-dev
+RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev
 
 COPY package*.json ./
 
@@ -26,6 +26,10 @@ FROM build-base as node-prod
 
 # install locked production dependencies
 RUN npm ci --production
+
+# build sdwire sdmux tooling
+RUN git clone https://git.tizen.org/cgit/tools/testlab/sd-mux &&\
+  mkdir sd-mux/build && cd sd-mux/build && cmake ../ && make
 
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run
 
@@ -61,6 +65,9 @@ RUN mkdir -p /etc/qemu \
 COPY --from=node-prod /usr/app/package.json ./
 COPY --from=node-prod /usr/app/node_modules ./node_modules
 COPY --from=node-dev /usr/app/build ./build
+
+# Copy sdwire sdmux binary
+COPY  --from=node-prod /usr/app/sd-mux/build/src/sd-mux-ctrl /usr/local/sbin/sd-mux-ctrl
 
 COPY entry.sh entry.sh
 
