@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit sdk to 1.0.10
+      hash: 97b31fc7193b7bfd56400eac552892314c6526e1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.20
+  title: ""
+  date: 2023-08-30T11:53:53.476Z
+- commits:
     - subject: "patch: Deploy draft releases to BM"
       hash: 71431cdd20104a6c556f9cdfbfd00f4eb5ec77eb
       body: ""
