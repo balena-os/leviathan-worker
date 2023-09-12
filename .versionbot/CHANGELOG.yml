@@ -1,4 +1,38 @@
 - commits:
+    - subject: bump autokit sdk to 1.0.13
+      hash: 166122217e89d8b07f4fd860d7e278ad355febce
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: pin base image tag
+      hash: dd7ac647871dfb14e5c27ad868ed3ec09456fc0b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add crelay support
+      hash: 581b42bd83d8f1b245fbe846b5633c801a4506ae
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.22
+  title: ""
+  date: 2023-09-12T15:51:04.386Z
+- commits:
     - subject: add lib dependencies
       hash: 167cc3020770f3fa5b0aca8e55c6546e7a54f89d
       body: ""
