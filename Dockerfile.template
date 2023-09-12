@@ -1,6 +1,6 @@
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:16-run AS build-base
+FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811 AS build-base
 
 WORKDIR /usr/app
 
@@ -34,7 +34,7 @@ RUN git clone https://git.tizen.org/cgit/tools/testlab/sd-mux &&\
 RUN git clone https://github.com/balena-io-hardware/crelay.git && \
   cd crelay/src && make [DRV_CONRAD=n] [DRV_SAINSMART=n] [DRV_HIDAPI=n] && make install
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:16-run
+FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
 
 WORKDIR /usr/app
 
@@ -73,9 +73,8 @@ COPY --from=node-dev /usr/app/build ./build
 COPY  --from=node-prod /usr/app/sd-mux/build/src/sd-mux-ctrl /usr/local/sbin/sd-mux-ctrl
 
 # Copy crelay binary
-COPY --from=node-prod /usr/app/crelay/src /usr/local/bin/crelay
-#DEBUG
-RUN crelay
+COPY --from=node-prod /usr/app/crelay/src/crelay /usr/local/bin/crelay
+RUN chmod +x /usr/local/bin/crelay
 
 COPY entry.sh entry.sh
 
