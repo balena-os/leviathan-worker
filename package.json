@@ -27,7 +27,7 @@
     "bin": "bin"
   },
   "dependencies": {
-    "@balena/autokit": "^1.0.10",
+    "@balena/autokit": "^1.0.13-build-ryan-crelay-d58c070ca03fcacabe509ad1d69d5d3593d3b517-1",
     "@balena/node-qmp": "^0.0.5",
     "@balena/node-serial-terminal": "^0.0.2",
     "@balena/testbot": "^1.9.27",

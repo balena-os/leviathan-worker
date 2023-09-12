@@ -5,8 +5,7 @@ FROM balenalib/${BALENA_ARCH}-alpine-node:16-run AS build-base
 WORKDIR /usr/app
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev
-
+RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev hidapi-dev
 COPY package*.json ./
 
 FROM build-base as node-dev
@@ -31,6 +30,10 @@ RUN npm ci --production
 RUN git clone https://git.tizen.org/cgit/tools/testlab/sd-mux &&\
   mkdir sd-mux/build && cd sd-mux/build && cmake ../ && make
 
+# install Crelay tooling
+RUN git clone https://github.com/balena-io-hardware/crelay.git && \
+  cd crelay/src && make [DRV_CONRAD=n] [DRV_SAINSMART=n] [DRV_HIDAPI=n] && make install
+
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run
 
 WORKDIR /usr/app
@@ -49,7 +52,7 @@ RUN apk add --no-cache \
   bridge bridge-utils iproute2 dnsmasq iptables \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
-  mdadm util-linux libftdi1-dev popt-dev
+  mdadm util-linux libftdi1-dev popt-dev hidapi-dev
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community || true
@@ -68,6 +71,11 @@ COPY --from=node-dev /usr/app/build ./build
 
 # Copy sdwire sdmux binary
 COPY  --from=node-prod /usr/app/sd-mux/build/src/sd-mux-ctrl /usr/local/sbin/sd-mux-ctrl
+
+# Copy crelay binary
+COPY --from=node-prod /usr/app/crelay/src /usr/local/bin/crelay
+#DEBUG
+RUN crelay
 
 COPY entry.sh entry.sh
 
