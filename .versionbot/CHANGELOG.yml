@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit to 1.0.14
+      hash: 65753e7b17a89d3e0a2db4e848c8c7f11517a408
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.23
+  title: ""
+  date: 2023-09-14T09:57:52.353Z
+- commits:
     - subject: bump autokit sdk to 1.0.13
       hash: 166122217e89d8b07f4fd860d7e278ad355febce
       body: ""
