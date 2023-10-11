@@ -1,4 +1,28 @@
 - commits:
+    - subject: bump autokit to 1.0.15 for jetson flashing
+      hash: 72a89af63fbbeb2c2d76c3fc392349b8c8c0f8df
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add docker in docker
+      hash: 9247ae3fdeb32621d5b506f8d97b1f670f1c33e1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.24
+  title: ""
+  date: 2023-10-11T13:16:04.572Z
+- commits:
     - subject: bump autokit to 1.0.14
       hash: 65753e7b17a89d3e0a2db4e848c8c7f11517a408
       body: ""
