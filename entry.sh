@@ -3,7 +3,14 @@ modprobe sg
 
 eval $(ssh-agent)
 
+# Only start docker in docker if not using the qemu worker
 if [ "${WORKER_TYPE}" != "qemu" ]; then
+	rm -rf /var/run/docker 2>/dev/null || true
+	rm -f /var/run/docker.sock 2>/dev/null || true
+	rm -f /var/run/docker.pid 2>/dev/null || true
+
+	dockerd &
+
 	exec node ./build/bin
 fi
 

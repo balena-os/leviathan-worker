@@ -2,6 +2,7 @@ version: '2.1'
 volumes:
   core-storage:
   reports-storage:
+  docker: 
 services:
   worker:
     privileged: true
@@ -12,10 +13,13 @@ services:
     volumes:
       - 'core-storage:/data'
       - 'reports-storage:/reports'
+      - docker:/var/lib/docker
+    tmpfs:
+      - /tmp
+      - /var/log
     environment:
       - UDEV=1
     labels:
       io.balena.features.dbus: '1'
-      io.balena.features.balena-socket: '1'
       io.balena.features.balena-api: '1'
       io.balena.features.kernel-modules: '1'
