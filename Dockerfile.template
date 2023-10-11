@@ -34,6 +34,10 @@ RUN git clone https://git.tizen.org/cgit/tools/testlab/sd-mux &&\
 RUN git clone https://github.com/balena-io-hardware/crelay.git && \
   cd crelay/src && make [DRV_CONRAD=n] [DRV_SAINSMART=n] [DRV_HIDAPI=n] && make install
 
+# install jetson-flash tooling
+RUN git clone https://github.com/balena-os/jetson-flash.git && \
+  cd jetson-flash && git checkout v0.5.56
+
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
 
 WORKDIR /usr/app
@@ -52,7 +56,10 @@ RUN apk add --no-cache \
   bridge bridge-utils iproute2 dnsmasq iptables \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
-  mdadm util-linux libftdi1-dev popt-dev hidapi-dev
+  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker
+
+# fail if binaries are missing or won't run
+RUN dockerd --version && docker --version
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community || true
@@ -75,6 +82,9 @@ COPY  --from=node-prod /usr/app/sd-mux/build/src/sd-mux-ctrl /usr/local/sbin/sd-
 # Copy crelay binary
 COPY --from=node-prod /usr/app/crelay/src/crelay /usr/local/bin/crelay
 RUN chmod +x /usr/local/bin/crelay
+
+# Copy jetson-flash
+COPY --from=node-prod /usr/app/jetson-flash/ /usr/app/jetson-flash
 
 COPY entry.sh entry.sh
 
