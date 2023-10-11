@@ -80,7 +80,7 @@ jobs:
           #   WORKER_APP_ID: "1941515" # balena/leviathan-worker-aarch64
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
         with:
           submodules: true
           repository: balena-os/leviathan
@@ -133,7 +133,7 @@ jobs:
           make config
           make test || exit 1
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         if: steps.run-suite.conclusion == 'success'
         with:
           name: reports-${{ env.WORKER_TYPE }}-${{ env.DEVICE_TYPE }}
@@ -144,7 +144,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - name: Get worker release
         env:
           ENVIRONMENT: "balena-cloud.com"
