@@ -18,7 +18,7 @@ export const config = {
 			qemu: {
 				architecture: process.env.QEMU_ARCH || 'x86_64',
 				cpus: process.env.QEMU_CPUS || '4',
-				memory: process.env.QEMU_MEMORY || '512M',
+				memory: process.env.QEMU_MEMORY || '2G',
 				debug: process.env.QEMU_DEBUG || false,
 				forceRaid: process.env.QEMU_FORCE_RAID || false,
 				secureBoot: process.env.QEMU_SECUREBOOT || false,
