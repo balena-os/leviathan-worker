@@ -89,6 +89,9 @@ async function setup(
 	const jsonParser = bodyParser.json();
 	const app = express();
 	const httpServer = http.createServer(app);
+	httpServer.headersTimeout = 0;
+	httpServer.timeout = 0
+	httpServer.keepAliveTimeout = 0; 
 
 	const proxy: { proc?: ChildProcess; kill: () => void } = {
 		kill: () => {
@@ -142,7 +145,7 @@ async function setup(
 		) => {
 			const timer = setInterval(() => {
 				res.write('status: pending');
-			}, httpServer.keepAliveTimeout);
+			}, 5000);
 
 			try {
 				await worker.powerOn();
@@ -345,6 +348,10 @@ async function setup(
 	app.post(
 		'/dut/flash',
 		async (req: express.Request, res: express.Response) => {
+
+			res.setTimeout(0);
+			console.log(`http keepalive timeout is ${httpServer.keepAliveTimeout}`)
+			console.log(`http headertimeout is ${httpServer.headersTimeout}`);
 			function onProgress(progress: multiWrite.MultiDestinationProgress): void {
 				res.write(`progress: ${JSON.stringify(progress)}`);
 			}
