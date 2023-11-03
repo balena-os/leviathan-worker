@@ -363,7 +363,7 @@ async function setup(
 
 			const timer = setInterval(() => {
 				res.write('status: pending');
-			}, httpServer.keepAliveTimeout);
+			}, 5000);
 
 			const FILENAME = '/data/os.img';
 			try {
