@@ -1,4 +1,28 @@
 - commits:
+    - subject: remove node 20 from supported engines
+      hash: 42d51688882da4290b07a5c3d8871fc15542b789
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: remove http server timeouts on flash endpoint
+      hash: 7de4ed5d22957f5704a877c352dc87185ea33dbf
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.25
+  title: ""
+  date: 2023-11-08T14:45:22.618Z
+- commits:
     - subject: bump autokit to 1.0.15 for jetson flashing
       hash: 72a89af63fbbeb2c2d76c3fc392349b8c8c0f8df
       body: ""
