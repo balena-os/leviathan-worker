@@ -3,6 +3,9 @@ modprobe sg
 
 eval $(ssh-agent)
 
+rm -R /data/image-parts || true
+mkdir /data/image-parts || true
+
 # Only start docker in docker if not using the qemu worker
 if [ "${WORKER_TYPE}" != "qemu" ]; then
 	rm -rf /var/run/docker 2>/dev/null || true

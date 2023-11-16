@@ -16,10 +16,16 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { readFile, createReadStream, createWriteStream } from 'fs-extra';
+import { readFile, createReadStream, createWriteStream, readdir, unlink, rename, stat} from 'fs-extra';
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
 import * as serialTerminal from '@balena/node-serial-terminal';
+import * as splitFile from 'split-file';
+import { Stats } from 'fs';
+const readdirSync = util.promisify(readdir);
+const unlinkSync = util.promisify(unlink);
+const renameSync = util.promisify(rename);
+const statSync = util.promisify(stat);
 
 const balena = getSdk({
 	apiUrl: process.env.BALENA_API_URL || 'https://api.balena-cloud.com/',
@@ -337,6 +343,82 @@ async function setup(
 			}
 		},
 	);
+	
+	app.post(
+		'/dut/flash',
+		jsonParser,
+		async (
+			req: express.Request,
+			res: express.Response,
+			next: express.NextFunction,
+		 ) => {
+
+			res.setTimeout(0);
+			res.writeHead(202, {
+				'Content-Type': 'text/event-stream',
+				Connection: 'keep-alive',
+			});
+
+			const timer = setInterval(() => {
+				res.write('flashing');
+			}, 5000);
+
+			const FILENAME = '/data/os.img';
+			try{
+				// merge or not merge?
+				// get the files
+				let files = await readdir(`/data/image-parts`);
+				console.log(files)
+				for(let i in files){
+					files[i] = join(`/data/image-parts`, files[i]);
+				}
+				console.log(files)
+				if(req.body.merge){
+					// merge `/data/image-parts
+					const fileStats = await Promise.all(files.map(async (file) => {
+						const stat: any = await statSync(file);
+						return {
+						  file,
+						  stat,
+						};
+					  }));
+
+					// Sort files based on their creation time (birthtime)
+					const sortedFiles = fileStats.sort((a, b) => a.stat.birthtime.getTime() - b.stat.birthtime.getTime());
+
+					// Extract the file names in the sorted order
+					const sortedFileNames = sortedFiles.map((fileStat) => fileStat.file);
+					console.log(sortedFileNames)
+					// you must give the files in the correct order - so do it in order or brithtime
+
+					await splitFile.mergeFiles(sortedFileNames, FILENAME);
+					console.log(`Files merged!`)
+					// console.log(`WAITING`)
+					// Swhile(true){}
+					// remove parts
+					for(let file of files){
+						await unlinkSync(file);
+					}
+					console.log(`Removed File parts`)
+				}
+
+				console.log(`attempting to flash...`)
+				await worker.flash(FILENAME);
+				clearInterval(timer);
+				res.send('OK');
+				
+			} catch (e) {
+				if (e instanceof Error) {
+					console.log(e)
+					res.write(`error: ${e.message}`);
+				}
+			} finally {
+				res.end();
+				clearInterval(timer);
+			}
+		},
+	);
+
 	app.use(function (
 		err: Error,
 		_req: express.Request,
@@ -345,10 +427,13 @@ async function setup(
 	) {
 		res.status(500).send(err.message);
 	});
+
+	let count = 0
 	app.post(
-		'/dut/flash',
+		'/sendImage',
 		async (req: express.Request, res: express.Response) => {
 
+			count++;
 			res.setTimeout(0);
 			console.log(`http keepalive timeout is ${httpServer.keepAliveTimeout}`)
 			console.log(`http headertimeout is ${httpServer.headersTimeout}`);
@@ -365,7 +450,9 @@ async function setup(
 				res.write('status: pending');
 			}, 5000);
 
-			const FILENAME = '/data/os.img';
+			//const id = `${Math.random().toString(36).substring(2, 10)}`
+			const FILENAME = `/data/image-parts/os.img.sf-part${count}`;
+
 			try {
 				worker.on('progress', onProgress);
 				const imageStream = createGunzip();
@@ -376,9 +463,6 @@ async function setup(
 					imageStream,
 					fileStream
 				)
-
-				console.log(`attempting to flash...`)
-				await worker.flash(FILENAME);
 			} catch (e) {
 				if (e instanceof Error) {
 					console.log(e)

@@ -32,6 +32,7 @@
     "@balena/node-serial-terminal": "^0.0.2",
     "@balena/testbot": "^1.9.27",
     "@types/bluebird": "^3.5.25",
+    "@types/split-file": "^2.3.3",
     "balena-sdk": "^16.12.1",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
@@ -44,6 +45,7 @@
     "multicast-dns": "git+https://github.com/balena-io-modules/multicast-dns#listen-on-all-interfaces",
     "mz": "^2.7.0",
     "proper-lockfile": "^4.1.2",
+    "split-file": "^2.3.0",
     "tar-fs": "^2.1.1"
   },
   "devDependencies": {
