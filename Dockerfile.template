@@ -56,7 +56,7 @@ RUN apk add --no-cache \
   bridge bridge-utils iproute2 dnsmasq iptables \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
-  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker
+  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker gzip
 
 # fail if binaries are missing or won't run
 RUN dockerd --version && docker --version

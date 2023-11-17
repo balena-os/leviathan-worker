@@ -344,42 +344,33 @@ async function setup(
 	});
 	app.post(
 		'/dut/flash',
+		jsonParser,
 		async (req: express.Request, res: express.Response) => {
-			function onProgress(progress: multiWrite.MultiDestinationProgress): void {
-				res.write(`progress: ${JSON.stringify(progress)}`);
-			}
+			// this still seems to be needed to keep the connection alive
+			const timer = setInterval(() => {
+				res.write('status: pending');
+			}, 5000)
 
 			res.writeHead(202, {
 				'Content-Type': 'text/event-stream',
 				Connection: 'keep-alive',
 			});
-
-			const timer = setInterval(() => {
-				res.write('status: pending');
-			}, httpServer.keepAliveTimeout);
-
-			const FILENAME = '/data/os.img';
+			let FILENAME = req.body.filename;
 			try {
-				worker.on('progress', onProgress);
-				const imageStream = createGunzip();
-				const fileStream = createWriteStream(FILENAME);
-				console.log(`Streaming image to file...`)
-				await pipeline(
-					req,
-					imageStream,
-					fileStream
-				)
+				if(FILENAME.includes(`.gz`)){
+					console.log(`Unzipping file`)
+					await execSync(`gunzip -f ${FILENAME}`)
+					FILENAME = FILENAME.replace(/\.gz$/, '');
+				}
 
-				console.log(`attempting to flash...`)
+				console.log(`attempting to flash ${FILENAME}...`);
 				await worker.flash(FILENAME);
+
 			} catch (e) {
 				if (e instanceof Error) {
 					console.log(e)
-					res.write(`error: ${e.message}`);
 				}
 			} finally {
-				worker.removeListener('progress', onProgress);
-				res.write('status: done');
 				res.end();
 				clearInterval(timer);
 			}
