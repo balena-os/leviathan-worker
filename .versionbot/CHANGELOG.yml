@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit to 1.0.17 and use latest jetson-flash
+      hash: dced3d1502412b9e54c74f52a2bf183b0fae93d0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.26
+  title: ""
+  date: 2023-12-04T10:34:45.005Z
+- commits:
     - subject: remove node 20 from supported engines
       hash: 42d51688882da4290b07a5c3d8871fc15542b789
       body: ""
