@@ -342,40 +342,110 @@ async function setup(
 	) {
 		res.status(500).send(err.message);
 	});
+	// app.post(
+	// 	'/dut/flash',
+	// 	jsonParser,
+	// 	async (req: express.Request, res: express.Response) => {
+	// 		// this still seems to be needed to keep the connection alive while doing the flashing of DUT storage media
+	// 		const timer = setInterval(() => {
+	// 			res.write('status: pending');
+	// 		}, 5000)
+
+	// 		res.writeHead(202, {
+	// 			'Content-Type': 'text/event-stream',
+	// 			Connection: 'keep-alive',
+	// 		});
+	// 		let FILENAME = req.body.filename;
+
+
+	// 		// how do we make this backward compatible - for older versions of core it will still try to stream the image over the req object
+	// 		try {
+	// 			if(FILENAME.includes(`.gz`)){
+	// 				console.log(`Unzipping file`)
+	// 				// is the original unzipped file removed?
+	// 				await execSync(`gunzip -f ${FILENAME}`)
+	// 				FILENAME = FILENAME.replace(/\.gz$/, '');
+	// 			}
+
+	// 			console.log(`attempting to flash ${FILENAME}...`);
+	// 			await worker.flash(FILENAME);
+
+	// 		// if there is an error , currently this error is not propogated to core... this is bad as tests will try to continue
+	// 		} catch (e) {
+	// 			if (e instanceof Error) {
+	// 				console.log(e)
+	// 			}
+	// 		} finally {
+	// 			res.end();
+	// 			clearInterval(timer);
+	// 		}
+	// 	},
+	// );
+
 	app.post(
 		'/dut/flash',
-		jsonParser,
 		async (req: express.Request, res: express.Response) => {
-			// this still seems to be needed to keep the connection alive
 			const timer = setInterval(() => {
 				res.write('status: pending');
-			}, 5000)
+			}, 5000);
 
 			res.writeHead(202, {
 				'Content-Type': 'text/event-stream',
 				Connection: 'keep-alive',
 			});
-			let FILENAME = req.body.filename;
-			try {
-				if(FILENAME.includes(`.gz`)){
-					console.log(`Unzipping file`)
-					await execSync(`gunzip -f ${FILENAME}`)
-					FILENAME = FILENAME.replace(/\.gz$/, '');
+
+			// Check if the content type is JSON
+			if (req.is('application/json')) {
+				// Handle JSON request
+				try {
+					console.log(req.body);
+					let FILENAME = req.body.filename;
+					if(FILENAME.includes(`.gz`)){
+						console.log(`Unzipping file`)
+						// is the original unzipped file removed?
+						await execSync(`gunzip -f ${FILENAME}`)
+						FILENAME = FILENAME.replace(/\.gz$/, '');
+					}
+					console.log(`Handling JSON request to flash ${FILENAME}...`);
+					await worker.flash(FILENAME);
+					res.status(200).send('JSON request processed successfully');
+					clearInterval(timer);
+				} catch (e) {
+					console.error(e);
+					res.status(500).send('Internal Server Error');
+					clearInterval(timer);
 				}
+			} else {
+				// Handle file upload
+				function onProgress(progress: multiWrite.MultiDestinationProgress): void {
+					res.write(`progress: ${JSON.stringify(progress)}`);
+				}
+				const FILENAME = '/data/os.img';
+				try {
+					worker.on('progress', onProgress);
+					const imageStream = createGunzip();
+					const fileStream = createWriteStream(FILENAME);
+					console.log(`Streaming image to file...`)
+					await pipeline(
+						req,
+						imageStream,
+						fileStream
+					)
 
-				console.log(`attempting to flash ${FILENAME}...`);
-				await worker.flash(FILENAME);
-
-			} catch (e) {
-				if (e instanceof Error) {
+					console.log(`attempting to flash...`)
+					await worker.flash(FILENAME);
+				} catch (e) {
 					console.log(e)
+					res.write(`error: ${e.message}`);
+				} finally {
+					worker.removeListener('progress', onProgress);
+					res.write('status: done');
+					res.end();
+					clearInterval(timer);
 				}
-			} finally {
-				res.end();
-				clearInterval(timer);
 			}
-		},
-	);
+			},
+	  );
 
 	app.get('/heartbeat', async (req: express.Request, res: express.Response) => {
 		try {
