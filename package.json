@@ -27,7 +27,7 @@
     "bin": "bin"
   },
   "dependencies": {
-    "@balena/autokit": "^1.0.15",
+    "@balena/autokit": "^1.0.18",
     "@balena/node-qmp": "^0.0.5",
     "@balena/node-serial-terminal": "^0.0.2",
     "@balena/testbot": "^1.9.27",
@@ -62,6 +62,6 @@
     "typescript": "^3.2.4"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.0.0 <20"
   }
 }

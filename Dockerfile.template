@@ -36,7 +36,11 @@ RUN git clone https://github.com/balena-io-hardware/crelay.git && \
 
 # install jetson-flash tooling
 RUN git clone https://github.com/balena-os/jetson-flash.git && \
-  cd jetson-flash && git checkout v0.5.56
+  cd jetson-flash && git checkout master
+
+# install jetson-flash tooling
+RUN git clone https://github.com/balena-os/iot-gate-imx8plus-flashtools.git && \
+  cd iot-gate-imx8plus-flashtools && git checkout master
 
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
 
@@ -56,13 +60,13 @@ RUN apk add --no-cache \
   bridge bridge-utils iproute2 dnsmasq iptables \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
-  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker gzip
+  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker git screen
 
 # fail if binaries are missing or won't run
 RUN dockerd --version && docker --version
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache uhubctl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community || true
+RUN apk add --no-cache uhubctl || true
 
 RUN pip3 install usbsdmux
 
@@ -85,6 +89,10 @@ RUN chmod +x /usr/local/bin/crelay
 
 # Copy jetson-flash
 COPY --from=node-prod /usr/app/jetson-flash/ /usr/app/jetson-flash
+
+# Copy IOT-GATE flash
+COPY --from=node-prod /usr/app/iot-gate-imx8plus-flashtools /usr/app/iot-gate-imx8plus-flashtools
+
 
 COPY entry.sh entry.sh
 
