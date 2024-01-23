@@ -4,6 +4,10 @@ FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811 AS build-base
 
 WORKDIR /usr/app
 
+# DEbugging steps : PLEASE REMOVE
+RUN cat /etc/apk/repositories
+RUN apk update 
+
 # hadolint ignore=DL3018
 RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev hidapi-dev
 COPY package*.json ./
