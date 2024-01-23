@@ -33,19 +33,19 @@ FROM build-base as node-prod
 RUN npm ci --production
 
 # build sdwire sdmux tooling
-RUN git clone --depth 1 https://github.com/emaste/sd-mux.git &&\
+RUN GIT_TRACE_CURL=true git clone --depth 1 https://github.com/emaste/sd-mux.git 2>&1 >/dev/null | head -n 5 &&\
   mkdir sd-mux/build && cd sd-mux/build && cmake ../ && make
 
 # install Crelay tooling
-RUN git clone https://github.com/balena-io-hardware/crelay.git && \
+RUN GIT_TRACE_CURL=true git clone https://github.com/balena-io-hardware/crelay.git 2>&1 >/dev/null | head -n 5 && \
   cd crelay/src && make [DRV_CONRAD=n] [DRV_SAINSMART=n] [DRV_HIDAPI=n] && make install
 
 # install jetson-flash tooling
-RUN git clone https://github.com/balena-os/jetson-flash.git && \
+RUN GIT_TRACE_CURL=true git clone https://github.com/balena-os/jetson-flash.git 2>&1 >/dev/null | head -n 5 && \
   cd jetson-flash && git checkout master
 
 # install jetson-flash tooling
-RUN git clone https://github.com/balena-os/iot-gate-imx8plus-flashtools.git && \
+RUN GIT_TRACE_CURL=true git clone https://github.com/balena-os/iot-gate-imx8plus-flashtools.git 2>&1 >/dev/null | head -n 5 && \
   cd iot-gate-imx8plus-flashtools && git checkout master
 
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
