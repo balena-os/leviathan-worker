@@ -22,6 +22,7 @@ jobs:
     with:
       balena_slugs:
         balena/testbot-rig,
+        balena/testbot-personal,
         balena/leviathan-worker-amd64,
         balena/leviathan-worker-aarch64,
         balena/leviathan-worker-armv7hf
@@ -70,6 +71,9 @@ jobs:
           - DEVICE_TYPE: generic-aarch64
             WORKER_TYPE: qemu
             WORKER_APP_ID: "1941514" # balena/leviathan-worker-aarch64
+          - DEVICE_TYPE: raspberrypi3
+            WORKER_TYPE: testbot
+            WORKER_APP_ID: "1941517" # balena/leviathan-worker-armv7hf
           #  Commented because testbot devices aren't available to test worker releases
           # - DEVICE_TYPE: raspberrypi3
           #   WORKER_TYPE: testbot
