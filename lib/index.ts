@@ -459,6 +459,24 @@ async function setup(
 	});
 
 	app.post(
+		'/dut/keyboard',
+		jsonParser,
+		async (
+			req: express.Request,
+			res: express.Response,
+			next: express.NextFunction,
+		) => {
+			try {
+				await worker.keyboardPress(req.body.key);
+				res.send('OK');
+			} catch (err) {
+				console.error(err);
+				next(err);
+			}
+		},
+	);
+
+	app.post(
 		'/dut/serial/exec',
 		jsonParser,
 		async (

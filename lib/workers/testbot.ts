@@ -207,6 +207,10 @@ class TestBotWorker extends EventEmitter implements Leviathan.Worker {
 		}
 	}
 
+	public async keyboardPress(key: string): Promise<void> {
+		throw new Error(`Keyboard presses not currently supported on this worker`)
+	}
+
 	public async teardown(signal?: NodeJS.Signals): Promise<void> {
 		console.log('Performing teardown...');
 		try {

@@ -24,7 +24,8 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
 				port: process.env.USB_BOOT_PORT || '4',
 				location: process.env.USB_BOOT_PORT_LOC || '1-1'
 			},
-			digitalRelay: process.env.DIGITAL_RELAY || 'dummyPower'
+			digitalRelay: process.env.DIGITAL_RELAY || 'dummyPower',
+			keyboard: process.env.KEYBOARD || 'dummyKeyboard'
         }
 
 		this.autoKit = new Autokit(autokitConfig);
@@ -108,6 +109,10 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
 				process.kill(process.pid, signal);
 			}
 		}
+	}
+
+	public async keyboardPress(key: string): Promise<void>{
+		await this.autoKit.keyboard.pressKey(key);
 	}
 }
 

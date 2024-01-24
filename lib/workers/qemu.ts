@@ -798,6 +798,10 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				return this.screenCapturer.stopCapture();
 		}
 	}
+
+	public async keyboardPress(key: string): Promise<void> {
+		throw new Error(`Keyboard presses not currently supported on this worker`)
+	}
 }
 
 export default QemuWorker;
