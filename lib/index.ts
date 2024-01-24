@@ -20,6 +20,7 @@ import { readFile, createReadStream, createWriteStream } from 'fs-extra';
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
 import * as serialTerminal from '@balena/node-serial-terminal';
+import { fs } from 'mz';
 
 const balena = getSdk({
 	apiUrl: process.env.BALENA_API_URL || 'https://api.balena-cloud.com/',
@@ -467,6 +468,7 @@ async function setup(
 			next: express.NextFunction,
 		) => {
 			try {
+				console.log(`Trying to press: ${req.body.key}`)
 				await worker.keyboardPress(req.body.key);
 				res.send('OK');
 			} catch (err) {
@@ -497,6 +499,48 @@ async function setup(
 			}
 		},
 	);
+
+	app.get(
+        '/dut/liveStream',
+        async (
+            _req: express.Request,
+            res: express.Response,
+            next: express.NextFunction,
+        ) => {
+            res.writeHead(200, {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0',
+                Pragma: 'no-cache',
+                Connection: 'close',
+                'Content-Type': 'multipart/x-mixed-replace; boundary=FRAME'
+            });
+            // Send a MJPEG stream of the files in autoKit.video.captureFolder
+			const CAPTURE_PATH = join(
+				runtimeConfiguration.worker.workdir,
+				'capture',
+			);
+			await worker.captureScreen('start');
+            const fileWatcher = fs.watch(CAPTURE_PATH, (event, filename) => {
+                if(!filename.endsWith('.jpg')) return;
+                fs.readFile(`${CAPTURE_PATH}/${filename}`, (err, data) => {
+                    if(!err) {
+                        res.write('--FRAME\r\n', 'ascii');
+                        res.write(`Content-Type: image/jpeg\r\nContent-Length: ${data.length}\r\n\r\n`, 'ascii');
+                        res.write(data, 'binary');
+                        res.write('\r\n', 'ascii');
+                    }
+                });
+            });
+            _req.on("close", async function() {
+				await worker.captureScreen('stop');
+                fileWatcher.close();
+            });
+
+            _req.on("end", async function() {
+				await worker.captureScreen('stop');
+                fileWatcher.close();
+            });
+        },
+    );
 
 	return app;
 }
