@@ -1,4 +1,18 @@
 - commits:
+    - subject: update autokit to 1.0.19
+      hash: d445a5b5cda9f3beecbfebe9e0865658458d5bf2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.28
+  title: ""
+  date: 2024-01-25T15:11:18.407Z
+- commits:
     - subject: add iot-gate devices
       hash: dc9fa727a4caae39f9de58ee016fddd06b72f0d9
       body: ""
