@@ -26,14 +26,16 @@ FROM build-base as node-prod
 # install locked production dependencies
 RUN npm ci --production
 
+FROM debian:bookworm-20231218 as ovmf
+RUN apt-get update \
+  && apt-get install ovmf
+
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
 
 WORKDIR /usr/app
 
 ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
 
-# ovmf is only packaged for x86_64 and aarch64 so ignore failures on arm
-# hadolint ignore=DL3018
 RUN apk add --no-cache \
   openssh-client \
   bluez \
@@ -45,6 +47,8 @@ RUN apk add --no-cache \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
   mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker git screen
+
+COPY --from=ovmf /usr/share/OVMF /usr/share/OVMF
 
 # fail if binaries are missing or won't run
 RUN dockerd --version && docker --version
