@@ -1,4 +1,20 @@
 - commits:
+    - subject: Install OVMF from debian
+      hash: b98c165b0f4127d81a54814614dc4260c744de3c
+      body: |
+        Fixes bug in Alpine's OVMF binaries that causes firmware to not measure
+        data during boot into TPM PCRs.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.30
+  title: ""
+  date: 2024-01-29T22:34:51.473Z
+- commits:
     - subject: remove all git clones from dockerfile
       hash: 5b54b8d2588502c32dc3910c976648510ea287b8
       body: ""
