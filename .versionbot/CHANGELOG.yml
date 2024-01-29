@@ -1,4 +1,18 @@
 - commits:
+    - subject: remove all git clones from dockerfile
+      hash: 5b54b8d2588502c32dc3910c976648510ea287b8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.29
+  title: ""
+  date: 2024-01-29T17:34:39.376Z
+- commits:
     - subject: update autokit to 1.0.19
       hash: d445a5b5cda9f3beecbfebe9e0865658458d5bf2
       body: ""
