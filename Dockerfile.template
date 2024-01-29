@@ -26,22 +26,6 @@ FROM build-base as node-prod
 # install locked production dependencies
 RUN npm ci --production
 
-# build sdwire sdmux tooling
-RUN git clone https://git.tizen.org/cgit/tools/testlab/sd-mux &&\
-  mkdir sd-mux/build && cd sd-mux/build && cmake ../ && make
-
-# install Crelay tooling
-RUN git clone https://github.com/balena-io-hardware/crelay.git && \
-  cd crelay/src && make [DRV_CONRAD=n] [DRV_SAINSMART=n] [DRV_HIDAPI=n] && make install
-
-# install jetson-flash tooling
-RUN git clone https://github.com/balena-os/jetson-flash.git && \
-  cd jetson-flash && git checkout master
-
-# install jetson-flash tooling
-RUN git clone https://github.com/balena-os/iot-gate-imx8plus-flashtools.git && \
-  cd iot-gate-imx8plus-flashtools && git checkout master
-
 FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
 
 WORKDIR /usr/app
@@ -79,19 +63,6 @@ RUN mkdir -p /etc/qemu \
 COPY --from=node-prod /usr/app/package.json ./
 COPY --from=node-prod /usr/app/node_modules ./node_modules
 COPY --from=node-dev /usr/app/build ./build
-
-# Copy sdwire sdmux binary
-COPY  --from=node-prod /usr/app/sd-mux/build/src/sd-mux-ctrl /usr/local/sbin/sd-mux-ctrl
-
-# Copy crelay binary
-COPY --from=node-prod /usr/app/crelay/src/crelay /usr/local/bin/crelay
-RUN chmod +x /usr/local/bin/crelay
-
-# Copy jetson-flash
-COPY --from=node-prod /usr/app/jetson-flash/ /usr/app/jetson-flash
-
-# Copy IOT-GATE flash
-COPY --from=node-prod /usr/app/iot-gate-imx8plus-flashtools /usr/app/iot-gate-imx8plus-flashtools
 
 
 COPY entry.sh entry.sh
