@@ -28,7 +28,10 @@ import * as Stream from 'stream';
 import { manageHandlers } from '../helpers';
 import ScreenCapture from '../helpers/graphics';
 import NetworkManager, { Supported } from '../helpers/nm';
+import { exec } from 'child_process';
+import * as util from 'util';
 
+const execSync = util.promisify(exec);
 // TODO: Consider moving network and screen capture logic to testbot SDK.
 
 const dutSerialPath = '/reports/dut-serial.txt';
@@ -164,6 +167,10 @@ class TestBotWorker extends EventEmitter implements Leviathan.Worker {
 
 	public async network(configuration: Supported['configuration']) {
 		console.log('Start network setup');
+
+		// enable port forwarding - in case a test disabled it previously and did not tear down
+		await execSync('echo 1 > /proc/sys/net/ipv4/ip_forward');
+
 		if (this.networkCtl == null) {
 			throw new Error('Network not configured on this worker. Ignoring...');
 		}

@@ -16,11 +16,10 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { readFile, createReadStream, createWriteStream } from 'fs-extra';
+import { readFile, createReadStream, createWriteStream, watch } from 'fs-extra';
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
 import * as serialTerminal from '@balena/node-serial-terminal';
-import { fs } from 'mz';
 
 const balena = getSdk({
 	apiUrl: process.env.BALENA_API_URL || 'https://api.balena-cloud.com/',
@@ -519,9 +518,9 @@ async function setup(
 				'capture',
 			);
 			await worker.captureScreen('start');
-            const fileWatcher = fs.watch(CAPTURE_PATH, (event, filename) => {
+            const fileWatcher = watch(CAPTURE_PATH, (event, filename) => {
                 if(!filename.endsWith('.jpg')) return;
-                fs.readFile(`${CAPTURE_PATH}/${filename}`, (err, data) => {
+                readFile(`${CAPTURE_PATH}/${filename}`, (err, data) => {
                     if(!err) {
                         res.write('--FRAME\r\n', 'ascii');
                         res.write(`Content-Type: image/jpeg\r\nContent-Length: ${data.length}\r\n\r\n`, 'ascii');
