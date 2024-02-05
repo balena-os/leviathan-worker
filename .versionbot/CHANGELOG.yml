@@ -1,4 +1,18 @@
 - commits:
+    - subject: add deploy to bm x86 rig
+      hash: 999c3bc64293edc33064f0f1e0d38cedbe13e5da
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.31
+  title: ""
+  date: 2024-02-05T11:59:58.323Z
+- commits:
     - subject: Install OVMF from debian
       hash: b98c165b0f4127d81a54814614dc4260c744de3c
       body: |
