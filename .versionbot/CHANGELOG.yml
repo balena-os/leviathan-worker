@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Deduplicate GitHub Action steps with matrix"
+      hash: 3b9954c10e9a94c87cdb07fc213796b9deae49d1
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.9.32
+  title: ""
+  date: 2024-02-05T13:20:13.775Z
+- commits:
     - subject: add deploy to bm x86 rig
       hash: 999c3bc64293edc33064f0f1e0d38cedbe13e5da
       body: ""
