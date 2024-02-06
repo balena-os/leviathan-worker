@@ -61,6 +61,7 @@ declare global {
 			captureScreen(action: 'start' | 'stop'): Promise<void | Readable>;
 			/** Returns relevant information about the worker to be used in tests */
 			diagnostics(): any;
+			keyboardPress(key: string): Promise<void>;
 		}
 
 		interface RuntimeConfiguration {

@@ -2,6 +2,11 @@ import { Autokit } from '@balena/autokit';
 import { EventEmitter } from 'events';
 import * as Stream from 'stream';
 import { manageHandlers } from '../helpers';
+import { exec as Exec } from 'child_process';
+import * as util from 'util';
+
+const exec = util.promisify(Exec);
+
 
 /** Worker implementation based on testbot. */
 class AutokitWorker extends EventEmitter implements Leviathan.Worker {
@@ -24,7 +29,8 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
 				port: process.env.USB_BOOT_PORT || '4',
 				location: process.env.USB_BOOT_PORT_LOC || '1-1'
 			},
-			digitalRelay: process.env.DIGITAL_RELAY || 'dummyPower'
+			digitalRelay: process.env.DIGITAL_RELAY || 'dummyPower',
+			keyboard: process.env.KEYBOARD || 'dummyKeyboard'
         }
 
 		this.autoKit = new Autokit(autokitConfig);
@@ -70,6 +76,9 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
     }) {
 		console.log('Start network setup');
 
+		// enable port forwarding - in case a test disabled it previously and did not tear down
+		await exec('echo 1 > /proc/sys/net/ipv4/ip_forward');
+
 		if (configuration.wireless != null) {
 			this.internalState.network = {
                 wireless: await this.autoKit.network.createWirelessNetwork(configuration.wireless.ssid, configuration.wireless.psk)
@@ -108,6 +117,10 @@ class AutokitWorker extends EventEmitter implements Leviathan.Worker {
 				process.kill(process.pid, signal);
 			}
 		}
+	}
+
+	public async keyboardPress(key: string): Promise<void>{
+		await this.autoKit.keyboard.pressKey(key);
 	}
 }
 
