@@ -1,4 +1,38 @@
 - commits:
+    - subject: enable port forwarding in network setup
+      hash: dceb0ec5d64065d78cb7d8bb5f69a8054990f766
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add video stream endpoint
+      hash: e5f52d957eae23e08e32c4a7cb31cbade005cd5b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: add keyboard emulation
+      hash: 0c49f469dd37a18287fa4ed0fe8fba71ff25acb4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.33
+  title: ""
+  date: 2024-02-06T12:12:40.753Z
+- commits:
     - subject: "patch: Deduplicate GitHub Action steps with matrix"
       hash: 3b9954c10e9a94c87cdb07fc213796b9deae49d1
       body: ""
