@@ -16,7 +16,9 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { readFile, createReadStream, createWriteStream, watch } from 'fs-extra';
+import { readFile, createReadStream, createWriteStream, watch, unlink as Unlink } from 'fs-extra';
+const unlink = util.promisify(Unlink);
+
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
 import * as serialTerminal from '@balena/node-serial-terminal';
@@ -365,20 +367,31 @@ async function setup(
 				res.write('status: pending');
 			}, 5000);
 
-			const FILENAME = '/data/os.img';
+			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
+			const UNZIPPED_IMAGE_PATH = '/data/os.img';
+
 			try {
 				worker.on('progress', onProgress);
-				const imageStream = createGunzip();
-				const fileStream = createWriteStream(FILENAME);
-				console.log(`Streaming image to file...`)
+				console.log(`Streaming image to temp file...`);
 				await pipeline(
 					req,
-					imageStream,
-					fileStream
+					createWriteStream(ZIPPED_IMAGE_PATH)
 				)
 
-				console.log(`attempting to flash...`)
-				await worker.flash(FILENAME);
+				// Do not unzip as part of the request pipeline as it can lead to exceeding public URL timeout
+				console.log(`Unzipping image....`);
+				await pipeline(
+					createReadStream(ZIPPED_IMAGE_PATH),
+					createGunzip(),
+					createWriteStream(UNZIPPED_IMAGE_PATH)
+				)
+
+				// Remove unzipped file to save space on low storage hosts like the fin
+				console.log(`Removing zipped image...`);
+				await unlink(ZIPPED_IMAGE_PATH)
+
+				console.log(`attempting to flash ${UNZIPPED_IMAGE_PATH}...`)
+				await worker.flash(UNZIPPED_IMAGE_PATH);
 			} catch (e) {
 				if (e instanceof Error) {
 					console.log(e)
