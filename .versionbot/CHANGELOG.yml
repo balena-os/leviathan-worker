@@ -1,4 +1,18 @@
 - commits:
+    - subject: unzip image after it is sent
+      hash: e9b08c6b884eff46948b6e9c44ec409b509accf7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.34
+  title: ""
+  date: 2024-02-08T09:08:23.687Z
+- commits:
     - subject: enable port forwarding in network setup
       hash: dceb0ec5d64065d78cb7d8bb5f69a8054990f766
       body: ""
