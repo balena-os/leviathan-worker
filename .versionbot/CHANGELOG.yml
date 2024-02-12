@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit to 1.0.24
+      hash: 80cb926a88fa01762bd3a8c3f558567f8709a272
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.36
+  title: ""
+  date: 2024-02-12T16:07:09.477Z
+- commits:
     - subject: add testbot-rig-partnerts to automated deploys
       hash: 76050c2c3fe621d24826f1686faf5f66ee12b001
       body: ""
