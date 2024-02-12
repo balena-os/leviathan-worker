@@ -1,4 +1,28 @@
 - commits:
+    - subject: add testbot-rig-partnerts to automated deploys
+      hash: 76050c2c3fe621d24826f1686faf5f66ee12b001
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: remove testbot-personal fleet from automated deploys
+      hash: 1ead7e4f2b1fbdd4314bb44fa2e843ed64fe9876
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.35
+  title: ""
+  date: 2024-02-12T14:14:50.162Z
+- commits:
     - subject: unzip image after it is sent
       hash: e9b08c6b884eff46948b6e9c44ec409b509accf7
       body: ""
