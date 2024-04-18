@@ -1,5 +1,6 @@
 #!/bin/sh
 modprobe sg
+modprobe ipt_comment
 
 eval $(ssh-agent)
 
