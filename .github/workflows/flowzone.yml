@@ -23,6 +23,7 @@ jobs:
       balena_slugs:
         balena/testbot-rig,
         balena/testbot-rig-partners,
+        balena/testbot-rig-partners-x86,
         balena/leviathan-worker-amd64,
         balena/leviathan-worker-aarch64,
         balena/leviathan-worker-armv7hf
