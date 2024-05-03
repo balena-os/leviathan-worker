@@ -41,14 +41,7 @@ jobs:
       REPORTS: ./reports
       WORKSPACE: ./workspace
       BALENACLOUD_ORG: testbot
-      BALENACLOUD_API_KEY: ${{ secrets.BALENA_TESTBOT_TOKEN }}
       BALENACLOUD_APP_NAME: balena/testbot-rig
-      BALENACLOUD_API_URL: balena-cloud.com
-      ENVIRONMENT: ${{ matrix.ENVIRONMENT }}
-      BALENAMACHINE_API_KEY: ${{ secrets.BALENAMACHINE_API_KEY }}
-      BALENAMACHINE_API_URL: bm.balena-dev.com
-      BALENACLOUD_SSH_URL: ssh.devices.bm.balena-dev.com
-      BALENACLOUD_SSH_PORT: 222
       QEMU_CPUS: 1
       QEMU_MEMORY: 1G
       WORKER_TYPE: ${{ matrix.WORKER_TYPE }}
@@ -66,12 +59,15 @@ jobs:
           - DEVICE_TYPE: genericx86-64-ext
             WORKER_TYPE: qemu
             WORKER_APP_ID: "1941514" # balena/leviathan-worker-amd64
+            ENVIRONMENT_URL: balena-cloud.com
           - DEVICE_TYPE: generic-amd64
             WORKER_TYPE: qemu
             WORKER_APP_ID: "1941514" # balena/leviathan-worker-amd64
+            ENVIRONMENT_URL: balena-cloud.com
           - DEVICE_TYPE: generic-aarch64
             WORKER_TYPE: qemu
             WORKER_APP_ID: "1941514" # balena/leviathan-worker-aarch64
+            ENVIRONMENT_URL: balena-cloud.com
           #  Commented because testbot devices aren't available to test worker releases
           # - DEVICE_TYPE: raspberrypi3
           #   WORKER_TYPE: testbot
@@ -87,15 +83,30 @@ jobs:
           repository: balena-os/leviathan
           ref: master
 
+      - name: Setup env variables for BalenaCloud
+        if: matrix.ENVIRONMENT_URL == 'balena-cloud.com'
+        run: |
+          echo "BALENACLOUD_API_KEY=${{ secrets.BALENA_TESTBOT_TOKEN }}" >> $GITHUB_ENV
+          echo "BALENACLOUD_API_URL=${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
+   
+      - name: Setup env variables for BalenaCloud
+        if: matrix.ENVIRONMENT_URL == 'bm.balena-dev.com'
+        run: |
+          echo "BALENACLOUD_API_KEY=${{ secrets.BALENAMACHINE_API_KEY  }}" >> $GITHUB_ENV
+          echo "BALENACLOUD_API_URL=${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
+          echo "BALENACLOUD_SSH_URL=ssh.devices.${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
+          echo "BALENACLOUD_SSH_PORT=222" >> $GITHUB_ENV
+
+
       - name: Get worker release
         env:
-          ENVIRONMENT: "balena-cloud.com"
+          ENVIRONMENT_URL: ${{ matrix.ENVIRONMENT_URL }}
           VERSION: "v6"
           TAG_KEY: "balena-ci-commit-sha"
           TAG_VALUE: ${{ github.event.pull_request.head.sha }}
         run: |
           url=()
-          url+=("https://api.${{ env.ENVIRONMENT }}/${{ env.VERSION }}/release")
+          url+=("https://api.${{ env.ENVIRONMENT_URL }}/${{ env.VERSION }}/release")
           url+=("?\$filter=")
           url+=("(belongs_to__application%20eq%20${{ matrix.WORKER_APP_ID }})")
           url+=("%20and%20")
@@ -160,13 +171,13 @@ jobs:
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - name: Get worker release
         env:
-          ENVIRONMENT: "balena-cloud.com"
+          ENVIRONMENT_URL: "balena-cloud.com"
           VERSION: "v6"
           TAG_KEY: "balena-ci-commit-sha"
           TAG_VALUE: ${{ github.event.pull_request.head.sha }}
         run: |
           url=()
-          url+=("https://api.${{ env.ENVIRONMENT }}/${{ env.VERSION }}/release")
+          url+=("https://api.${{ env.ENVIRONMENT_URL }}/${{ env.VERSION }}/release")
           url+=("?\$filter=")
           url+=("(belongs_to__application%20eq%20${{ matrix.WORKER_APP_ID }})")
           url+=("%20and%20")
