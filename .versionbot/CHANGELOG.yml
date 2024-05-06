@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add x86 partners fleet to deploy matrix"
+      hash: f12e9894aff53d5062d58eef8e1f0736552d84e3
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.9.38
+  title: ""
+  date: 2024-05-06T16:53:37.780Z
+- commits:
     - subject: bump autokit to v1.0.27 for Jetson AGX Xavier, Xavier NX SD and eMMC
         support
       hash: 3cbc8114648e0db9eb8b8d58fb3c13967508ba3c
