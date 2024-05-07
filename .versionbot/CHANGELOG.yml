@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit to 1.0.29
+      hash: 8656283217c53a7ce9a06fba132404e988acdc1e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.39
+  title: ""
+  date: 2024-05-07T11:25:28.380Z
+- commits:
     - subject: "patch: Add x86 partners fleet to deploy matrix"
       hash: f12e9894aff53d5062d58eef8e1f0736552d84e3
       body: ""
