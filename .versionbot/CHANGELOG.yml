@@ -1,4 +1,19 @@
 - commits:
+    - subject: "package: Bump autokit to v1.0.30"
+      hash: d5f641fa951a21df903a9add72d5c12c03abae5c
+      body: |
+        To include support for Seeed J3010 flashing
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.9.40
+  title: ""
+  date: 2024-06-05T15:04:21.464Z
+- commits:
     - subject: bump autokit to 1.0.29
       hash: 8656283217c53a7ce9a06fba132404e988acdc1e
       body: ""
