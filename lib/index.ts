@@ -347,6 +347,8 @@ async function setup(
 	) {
 		res.status(500).send(err.message);
 	});
+
+	// keep this for legacy core versions
 	app.post(
 		'/dut/flash',
 		async (req: express.Request, res: express.Response) => {
@@ -405,6 +407,40 @@ async function setup(
 			}
 		},
 	);
+
+	app.post(
+		'/dut/flashFromFile',
+		jsonParser,
+		async (req: express.Request, res: express.Response) => {
+			res.writeHead(202, {
+				'Content-Type': 'text/event-stream',
+				Connection: 'keep-alive',
+			});
+
+			const timer = setInterval(() => {
+				res.write('status: pending');
+			}, 5000);
+
+			
+			try {
+				let FILENAME = req.body.filename;
+				if(FILENAME.includes(`.gz`)){
+					console.log(`Unzipping file`)
+					console.log(await execSync(`gunzip -f ${FILENAME}`))
+					FILENAME = FILENAME.replace(/\.gz$/, '');
+				}
+				console.log(`Attempting to flash with file: ${FILENAME}...`);
+				await worker.flash(FILENAME);
+				clearInterval(timer);
+				res.end()
+			} catch (e) {
+				//TODO: respdond with error instead of just doing nothing
+				console.log(e);
+				clearInterval(timer);
+				res.end()
+			}
+		}
+	  );
 
 	app.get('/heartbeat', async (req: express.Request, res: express.Response) => {
 		try {
