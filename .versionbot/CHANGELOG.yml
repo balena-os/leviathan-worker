@@ -1,4 +1,50 @@
 - commits:
+    - subject: update node packages for node 18 compatibility
+      hash: 70be906908bc8c542e3e448674579c34e73ae2cb
+      body: >
+        this includes bumping node, typescript and other pacakges to be node 18
+        compatible
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: update qemu worker promises for node 18 + updated ts version
+      hash: 3f758e08de3345eefa6aff3511bd581f2ce01302
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: update tsconfig for node 18
+      hash: 0b56685af8978e0b34f7d956038528a8bb93caec
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+    - subject: update and simplify dockerfile for node 18
+      hash: 9127c34d77abca13de8e99af1a9025ad7db4e9dd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.41
+  title: ""
+  date: 2024-06-17T09:08:34.325Z
+- commits:
     - subject: "package: Bump autokit to v1.0.30"
       hash: d5f641fa951a21df903a9add72d5c12c03abae5c
       body: |
