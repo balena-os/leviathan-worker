@@ -17,7 +17,12 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
-		"types": []
+		"types": [],
+		"typeRoots": [
+			"typings",
+			"node_modules/@types"
+		  ],
+		"maxNodeModuleJsDepth": 0
 	},
 	"include": [
 		"./typings/*.d.ts",

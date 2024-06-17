@@ -1,36 +1,29 @@
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811 AS build-base
+FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.17 AS build-base
 
 WORKDIR /usr/app
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev hidapi-dev
-COPY package*.json ./
 
 FROM build-base as node-dev
-
-# install locked dev dependencies
-RUN npm ci
 
 COPY tsconfig.json ./
 COPY typings ./typings
 COPY lib ./lib
 COPY bin ./bin
 
+COPY package*.json ./
+RUN npm ci
 # build typescript
 RUN npm run build
-
-FROM build-base as node-prod
-
-# install locked production dependencies
-RUN npm ci --production
 
 FROM debian:bookworm-20231218 as ovmf
 RUN apt-get update \
   && apt-get install ovmf
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:16-run-20230811
+FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.17
 
 WORKDIR /usr/app
 
@@ -64,8 +57,8 @@ RUN mkdir -p /etc/qemu \
   && echo "allow all" > /etc/qemu/bridge.conf \
   && chmod 0640 /etc/qemu/bridge.conf
 
-COPY --from=node-prod /usr/app/package.json ./
-COPY --from=node-prod /usr/app/node_modules ./node_modules
+COPY --from=node-dev /usr/app/package.json ./
+COPY --from=node-dev /usr/app/node_modules ./node_modules
 COPY --from=node-dev /usr/app/build ./build
 
 

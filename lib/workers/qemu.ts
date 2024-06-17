@@ -344,7 +344,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 	}
 
 	private async assertFileExists(filePath: string, timeout: number) {
-		return new Promise( (resolve, reject) => {
+		return new Promise<void>( (resolve, reject) => {
 			let timer = setTimeout( () => {
 				watcher.close();
 				reject(new Error(`Timed out waiting on ${filePath}`))
@@ -519,7 +519,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 
 		if (this.qemuOptions.secureBoot) {
 			// Wait for swtpm to become available
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				const interval = setInterval(
 					() => {
 						if (fs.existsSync('/var/tpm0/swtpm.sock')) {
