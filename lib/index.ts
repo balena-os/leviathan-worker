@@ -91,9 +91,10 @@ async function setup(
 	const jsonParser = bodyParser.json();
 	const app = express();
 	const httpServer = http.createServer(app);
-	httpServer.headersTimeout = 0;
-	httpServer.timeout = 0
-	httpServer.keepAliveTimeout = 0; 
+	httpServer.headersTimeout = 0; // No timeout for headers
+	httpServer.timeout = 0; // No timeout for sockets
+	httpServer.keepAliveTimeout = 0; // No keep-alive timeout
+	httpServer.requestTimeout = 0; // No request timeout
 
 	const proxy: { proc?: ChildProcess; kill: () => void } = {
 		kill: () => {
@@ -351,7 +352,7 @@ async function setup(
 		'/dut/flash',
 		async (req: express.Request, res: express.Response) => {
 
-			res.setTimeout(0);
+			res.setTimeout(0); // Disable timeout for this route
 			console.log(`http keepalive timeout is ${httpServer.keepAliveTimeout}`)
 			console.log(`http headertimeout is ${httpServer.headersTimeout}`);
 			function onProgress(progress: multiWrite.MultiDestinationProgress): void {
