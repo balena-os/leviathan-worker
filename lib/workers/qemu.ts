@@ -358,7 +358,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			})
 			let dir = dirname(filePath);
 			let bname = basename(filePath);
-			let watcher = fs.watch( dir, (eventType: string, filename: string) => {
+			let watcher = fs.watch( dir, (eventType, filename) => {
 				if (eventType === 'rename' && filename === bname) {
 					clearTimeout(timer);
 					watcher.close();
@@ -544,7 +544,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 				this.qemuProc.once('exit', options!.listeners!.onExit!);
 			}
 
-			this.qemuProc.stdout.on('data', (data) => {
+			this.qemuProc.stdout?.on('data', (data) => {
 				console.log(`QEMU stdout: ${data}`)
 			});
 			this.qemuProc.on('exit', (code, signal) => {

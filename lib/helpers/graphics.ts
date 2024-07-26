@@ -48,10 +48,10 @@ export default class ScreenCapture {
 					shell: '/bin/bash',
 				},
 			);
-			this.proc.stdout.on('data', (data) => {
+			this.proc.stdout?.on('data', (data) => {
 				this.exit.details.stdout += `${data.toString('utf-8')}\n`;
 			});
-			this.proc.stderr.on('data', (data) => {
+			this.proc.stderr?.on('data', (data) => {
 				this.exit.details.stderr += `${data.toString('utf-8')}\n`;
 			});
 			this.proc.on('exit', (code) => {

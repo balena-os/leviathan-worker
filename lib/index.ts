@@ -94,6 +94,7 @@ async function setup(
 	httpServer.headersTimeout = 0;
 	httpServer.timeout = 0
 	httpServer.keepAliveTimeout = 0; 
+	httpServer.requestTimeout = 900000 ; //15 mins
 
 	const proxy: { proc?: ChildProcess; kill: () => void } = {
 		kill: () => {
@@ -331,7 +332,9 @@ async function setup(
 				}
 				clearTimeout(heartbeatTimeout);
 				for (const tunnel of tunnels) {
-					process.kill(tunnel.pid);
+					if(tunnel.pid){
+						process.kill(tunnel.pid);
+					}
 				}
 				res.send('OK');
 			} catch (e) {
@@ -351,16 +354,22 @@ async function setup(
 		'/dut/flash',
 		async (req: express.Request, res: express.Response) => {
 
-			res.setTimeout(0);
+			// res.setTimeout(0, () => {
+			// 	console.log("Res timed out!")
+			// });
+			// req.setTimeout(0 , () => {
+			// 	console.log("Req timed out!")
+			// });
 			console.log(`http keepalive timeout is ${httpServer.keepAliveTimeout}`)
 			console.log(`http headertimeout is ${httpServer.headersTimeout}`);
+			console.log(`http request timeout is ${httpServer.requestTimeout}`)
 			function onProgress(progress: multiWrite.MultiDestinationProgress): void {
 				res.write(`progress: ${JSON.stringify(progress)}`);
 			}
 
 			res.writeHead(202, {
 				'Content-Type': 'text/event-stream',
-				Connection: 'keep-alive',
+				'Connection': 'keep-alive',
 			});
 
 			const timer = setInterval(() => {
@@ -371,7 +380,6 @@ async function setup(
 			const UNZIPPED_IMAGE_PATH = '/data/os.img';
 
 			try {
-				worker.on('progress', onProgress);
 				console.log(`Streaming image to temp file...`);
 				await pipeline(
 					req,
@@ -393,15 +401,16 @@ async function setup(
 				console.log(`attempting to flash ${UNZIPPED_IMAGE_PATH}...`)
 				await worker.flash(UNZIPPED_IMAGE_PATH);
 			} catch (e) {
+				console.log(`got error`)
+				console.log(e)
 				if (e instanceof Error) {
-					console.log(e)
 					res.write(`error: ${e.message}`);
 				}
 			} finally {
-				worker.removeListener('progress', onProgress);
 				res.write('status: done');
+				console.log(`Finished`)
 				res.end();
-				clearInterval(timer);
+				//clearInterval(timer);
 			}
 		},
 	);
@@ -532,7 +541,7 @@ async function setup(
 			);
 			await worker.captureScreen('start');
             const fileWatcher = watch(CAPTURE_PATH, (event, filename) => {
-                if(!filename.endsWith('.jpg')) return;
+                if(!filename?.endsWith('.jpg')) return;
                 readFile(`${CAPTURE_PATH}/${filename}`, (err, data) => {
                     if(!err) {
                         res.write('--FRAME\r\n', 'ascii');

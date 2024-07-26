@@ -116,9 +116,11 @@ export function getIpFromIface(iface: string): string {
 
 	for (const dev in ifaces) {
 		if (dev === iface) {
-			for (const details of ifaces[dev]) {
-				if (details.family === 'IPv4') {
-					return details.address;
+			if(ifaces[dev] !== undefined){
+				for (const details of ifaces[dev] || []) {
+					if (details.family === 'IPv4') {
+						return details.address;
+					}
 				}
 			}
 		}
@@ -139,9 +141,11 @@ export function resolveLocalTarget(target: string): PromiseLike<string> {
 			const sockets: any[] = [];
 
 			for (const interfaces of Object.values(networkInterfaces())) {
-				for (const ni of interfaces) {
-					if (ni.family === 'IPv4') {
-						sockets.push(mdns({ interface: ni.address }));
+				if (interfaces){
+					for (const ni of interfaces) {
+						if (ni.family === 'IPv4') {
+							sockets.push(mdns({ interface: ni.address }));
+						}
 					}
 				}
 			}
