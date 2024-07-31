@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit to 1.0.34
+      hash: a6f3e554bd5fcd46aa52dffebd9429ecff48a68a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.42
+  title: ""
+  date: 2024-07-31T19:53:41.291Z
+- commits:
     - subject: update node packages for node 18 compatibility
       hash: 70be906908bc8c542e3e448674579c34e73ae2cb
       body: >
