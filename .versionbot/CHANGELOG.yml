@@ -1,4 +1,20 @@
 - commits:
+    - subject: update autokit to 1.0.37
+      hash: 5289030a84b9200697bfe5e5b8932d510a73b0ab
+      body: >
+        includes fixes for selecting wifi AP channel, updates for the
+        iot-gate-imx8 flashing tools and new linux gmbh revision
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+      nested: []
+  version: 2.9.43
+  title: ""
+  date: 2024-08-07T09:22:15.659Z
+- commits:
     - subject: bump autokit to 1.0.34
       hash: a6f3e554bd5fcd46aa52dffebd9429ecff48a68a
       body: ""
