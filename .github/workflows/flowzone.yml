@@ -81,7 +81,7 @@ jobs:
         with:
           submodules: true
           repository: balena-os/leviathan
-          ref: master
+          ref: ryan/makefile-code
 
       - name: Setup env variables for BalenaCloud
         if: matrix.ENVIRONMENT_URL == 'balena-cloud.com'
