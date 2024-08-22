@@ -9,6 +9,8 @@ import { TestBotWorker } from './workers/testbot';
 import QemuWorker from './workers/qemu';
 import { AutokitWorker } from './workers/autokit';
 import { Contract } from '../typings/worker';
+import * as multer from 'multer';
+import * as pump from 'pump';
 
 import { Stream } from 'stream';
 import { join } from 'path';
@@ -18,6 +20,7 @@ const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
 import { readFile, createReadStream, createWriteStream, watch, unlink as Unlink } from 'fs-extra';
 const unlink = util.promisify(Unlink);
+import * as fs from 'fs'
 
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
@@ -553,6 +556,53 @@ async function setup(
             });
         },
     );
+
+	const storage = multer.diskStorage({
+		destination: function (req, file, cb) {
+		  cb(null, './uploads');
+		},
+		filename: function (req, file, cb) {
+		  cb(null, file.originalname);
+		}
+	});
+	const upload = multer({ storage: storage });
+	const CHUNKS_DIR = '/tmp/chunks';
+	app.post('/upload/chunk', upload.single('file'), async (req, res) => {
+		const { file, body: { totalChunks, currentChunk } } = req;
+		const chunkFilename = `os.img.${currentChunk}`;
+		const chunkPath = `${CHUNKS_DIR}/${chunkFilename}`;
+		if(file){
+			try {
+				await fs.promises.rename(file.path, chunkPath);
+			} catch (err){
+				console.error('Error moving chunk file:', err);
+				res.status(500).send('Error uploading chunk');
+			}
+
+			if (+currentChunk === +totalChunks) {
+				// All chunks have been uploaded, assemble them into a single file
+				assembleChunks(file.originalname, totalChunks)
+					.then(() => res.send('File uploaded successfully'))
+					.catch((err) => {
+						console.error('Error assembling chunks:', err);
+						res.status(500).send('Error assembling chunks');
+					});
+			} else {
+				res.send('Chunk uploaded successfully');
+			}
+		} else {
+			res.status(500).send('No filename provided');
+		}
+	});
+	async function assembleChunks(filename: string, totalChunks: number) {
+		const writer = createWriteStream(`/data/${filename}`);
+		for (let i = 1; i <= totalChunks; i++) {
+			const chunkPath = `${CHUNKS_DIR}/${filename}.${i}`;
+			const reader = createReadStream(chunkPath);
+			await pipeline(reader, writer);
+			await fs.promises.unlink(chunkPath);
+		}
+	}
 
 	return app;
 }
