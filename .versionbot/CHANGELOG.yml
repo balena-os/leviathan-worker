@@ -1,4 +1,20 @@
 - commits:
+    - subject: Extend renovate config from balena-io
+      hash: 3b79bcb353eaf5eae0dbdc4ca9c5daaf1a159aa4
+      body: |
+        The config shared by balena-os is tuned for yocto-device-type
+        repositories and not appropriate for generic and nodeJS repos.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.9.44
+  title: ""
+  date: 2024-09-11T23:06:14.866Z
+- commits:
     - subject: update autokit to 1.0.37
       hash: 5289030a84b9200697bfe5e5b8932d510a73b0ab
       body: >
