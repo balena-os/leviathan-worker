@@ -1,4 +1,19 @@
 - commits:
+    - subject: Install kmod from alpine repositories with zstd module support
+      hash: 4a40d6f89196862a9b5fc03599690b486f10dfe2
+      body: |
+        balenaOS 6 and later enables module zstd module compression by default
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 2.9.45
+  title: ""
+  date: 2024-09-12T07:06:41.476Z
+- commits:
     - subject: Extend renovate config from balena-io
       hash: 3b79bcb353eaf5eae0dbdc4ca9c5daaf1a159aa4
       body: |
