@@ -7,7 +7,7 @@ WORKDIR /usr/app
 # hadolint ignore=DL3018
 RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev hidapi-dev
 
-FROM build-base as node-dev
+FROM build-base AS node-dev
 
 COPY tsconfig.json ./
 COPY typings ./typings
@@ -19,7 +19,7 @@ RUN npm ci
 # build typescript
 RUN npm run build
 
-FROM debian:bookworm-20231218 as ovmf
+FROM debian:bookworm-20231218 AS ovmf
 RUN apt-get update \
   && apt-get install ovmf
 
@@ -29,6 +29,7 @@ WORKDIR /usr/app
 
 ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
 
+# hadolint ignore=DL3018
 RUN apk add --no-cache \
   openssh-client \
   bluez \
@@ -39,7 +40,13 @@ RUN apk add --no-cache \
   bridge bridge-utils iproute2 dnsmasq iptables \
   qemu-img qemu-system-x86_64 qemu-system-aarch64 qemu-system-arm \
   python3 py3-pip py3-setuptools \
-  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker git screen
+  mdadm util-linux libftdi1-dev popt-dev hidapi-dev ca-certificates docker git screen \
+  kmod
+
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+
+# check if zstd compressed modules are supported
+RUN kmod -V | grep '+ZSTD'
 
 COPY --from=ovmf /usr/share/OVMF /usr/share/OVMF
 
