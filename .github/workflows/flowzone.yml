@@ -77,7 +77,7 @@ jobs:
           #   WORKER_APP_ID: "1941515" # balena/leviathan-worker-aarch64
 
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           submodules: true
           repository: balena-os/leviathan
@@ -168,7 +168,7 @@ jobs:
             FLEET_NAME: "balena/testbot-rig-x86"
 
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Get worker release
         env:
           ENVIRONMENT_URL: "balena-cloud.com"
