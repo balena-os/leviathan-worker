@@ -1,4 +1,17 @@
 - commits:
+    - subject: Delete old renovate.json
+      hash: ab91d5f1b97ebed2bf12db09932a40c71bd15e31
+      body: |
+        A new one was added in the .github directory
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+      nested: []
+  version: 2.9.46
+  title: ""
+  date: 2024-09-16T15:07:04.167Z
+- commits:
     - subject: Install kmod from alpine repositories with zstd module support
       hash: 4a40d6f89196862a9b5fc03599690b486f10dfe2
       body: |
