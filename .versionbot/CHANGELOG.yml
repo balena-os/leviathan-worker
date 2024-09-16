@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/checkout action to v4
+      hash: bd5c52f573c797dbb6381b673c6b5a1bb14bde04
+      body: |
+        Update actions/checkout from 3 to 4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.9.47
+  title: ""
+  date: 2024-09-16T15:54:18.753Z
+- commits:
     - subject: Delete old renovate.json
       hash: ab91d5f1b97ebed2bf12db09932a40c71bd15e31
       body: |
