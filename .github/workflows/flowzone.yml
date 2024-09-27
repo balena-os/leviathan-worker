@@ -82,13 +82,14 @@ jobs:
           submodules: true
           repository: balena-os/leviathan
           ref: master
+          persist-credentials: false
 
       - name: Setup env variables for BalenaCloud
         if: matrix.ENVIRONMENT_URL == 'balena-cloud.com'
         run: |
           echo "BALENACLOUD_API_KEY=${{ secrets.BALENA_TESTBOT_TOKEN }}" >> $GITHUB_ENV
           echo "BALENACLOUD_API_URL=${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
-   
+
       - name: Setup env variables for BalenaCloud
         if: matrix.ENVIRONMENT_URL == 'bm.balena-dev.com'
         run: |
@@ -138,7 +139,7 @@ jobs:
       # - name: Select and repin a testbot worker
       #   if: ${{ env.DEVICE_TYPE }} == 'testbot'
       #   run: #TODO
-      
+
       - name: Run test suite
         id: run-suite
         run: |
@@ -150,7 +151,7 @@ jobs:
         with:
           name: reports-${{ env.WORKER_TYPE }}-${{ env.DEVICE_TYPE }}
           path: ${{ env.REPORTS }}
-  
+
 
   balenamachine-push:
     needs: [flowzone]
@@ -169,6 +170,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          persist-credentials: false
       - name: Get worker release
         env:
           ENVIRONMENT_URL: "balena-cloud.com"
