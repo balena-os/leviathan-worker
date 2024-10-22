@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Lock file maintenance
+      hash: 522c9aa01d1982dfd88ebe12e2140818c01dd6b1
+      body: |
+        Update 
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.9.49
+  title: ""
+  date: 2024-10-22T14:12:52.999Z
+- commits:
     - subject: "patch: Change workflow triggers & use env secrets"
       hash: 963fb2249cc9fdb50f37f046ea8dbf5abee27dc4
       body: ""
