@@ -4,10 +4,6 @@ on:
   pull_request:
     types: [opened, synchronize, closed]
     branches: [main, master]
-  # allow external contributions to use secrets within trusted code
-  pull_request_target:
-    types: [opened, synchronize, closed]
-    branches: [main, master]
 
 jobs:
   flowzone:
@@ -35,15 +31,12 @@ jobs:
       (github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'pull_request_target')) &&
       github.event.action != 'closed'
     runs-on: ubuntu-22.04
+    environment: ${{ matrix.ENVIRONMENT_URL }}
 
     env:
       SUITES: ./suites
       REPORTS: ./reports
       WORKSPACE: ./workspace
-      BALENACLOUD_ORG: testbot
-      BALENACLOUD_APP_NAME: balena/testbot-rig
-      QEMU_CPUS: 1
-      QEMU_MEMORY: 1G
       WORKER_TYPE: ${{ matrix.WORKER_TYPE }}
       DEVICE_TYPE: ${{ matrix.DEVICE_TYPE }}
 
@@ -82,31 +75,16 @@ jobs:
           submodules: true
           repository: balena-os/leviathan
           ref: master
-
-      - name: Setup env variables for BalenaCloud
-        if: matrix.ENVIRONMENT_URL == 'balena-cloud.com'
-        run: |
-          echo "BALENACLOUD_API_KEY=${{ secrets.BALENA_TESTBOT_TOKEN }}" >> $GITHUB_ENV
-          echo "BALENACLOUD_API_URL=${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
-   
-      - name: Setup env variables for BalenaCloud
-        if: matrix.ENVIRONMENT_URL == 'bm.balena-dev.com'
-        run: |
-          echo "BALENACLOUD_API_KEY=${{ secrets.BALENAMACHINE_API_KEY  }}" >> $GITHUB_ENV
-          echo "BALENACLOUD_API_URL=${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
-          echo "BALENACLOUD_SSH_URL=ssh.devices.${{ matrix.ENVIRONMENT_URL }}" >> $GITHUB_ENV
-          echo "BALENACLOUD_SSH_PORT=222" >> $GITHUB_ENV
-
+          persist-credentials: false
 
       - name: Get worker release
         env:
-          ENVIRONMENT_URL: ${{ matrix.ENVIRONMENT_URL }}
           VERSION: "v6"
           TAG_KEY: "balena-ci-commit-sha"
           TAG_VALUE: ${{ github.event.pull_request.head.sha }}
         run: |
           url=()
-          url+=("https://api.${{ env.ENVIRONMENT_URL }}/${{ env.VERSION }}/release")
+          url+=("https://api.${{ matrix.ENVIRONMENT_URL }}/${{ env.VERSION }}/release")
           url+=("?\$filter=")
           url+=("(belongs_to__application%20eq%20${{ matrix.WORKER_APP_ID }})")
           url+=("%20and%20")
@@ -122,7 +100,7 @@ jobs:
 
           commit="$(IFS= ; curl -fsSL -X GET "${url[*]}" \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer ${{ secrets.BALENA_API_KEY_PUSH }}" | jq -r '.d[].commit')"
+              -H "Authorization: Bearer ${{ secrets.BALENA_API_DEPLOY_KEY }}" | jq -r '.d[].commit')"
 
           test -n "${commit}" || exit 1
           echo "WORKER_RELEASE=${commit}" >> $GITHUB_ENV
@@ -138,9 +116,24 @@ jobs:
       # - name: Select and repin a testbot worker
       #   if: ${{ env.DEVICE_TYPE }} == 'testbot'
       #   run: #TODO
-      
+
       - name: Run test suite
         id: run-suite
+        env:
+          BALENACLOUD_API_KEY: ${{ secrets.BALENA_API_TEST_KEY }}
+          BALENACLOUD_API_URL: ${{ matrix.ENVIRONMENT_URL }}
+          BALENACLOUD_SSH_PORT: ${{ vars.BALENACLOUD_SSH_PORT }}
+          BALENACLOUD_SSH_URL: ${{ vars.BALENACLOUD_SSH_URL }}
+          DEVICE_TYPE: ${{ matrix.DEVICE_TYPE }}
+          WORKER_TYPE: ${{ matrix.WORKER_TYPE }}
+          QEMU_CPUS: 1
+          QEMU_MEMORY: "1G"
+          TEST_SUITE: e2e
+          BALENACLOUD_APP_NAME: ${{ vars.BALENACLOUD_APP_NAME }}
+          BALENACLOUD_ORG: ${{ vars.BALENACLOUD_ORG }}
+          REPORTS: ${{ env.REPORTS }}
+          SUITES: ${{ env.SUITES }}
+          WORKSPACE: ${{ env.WORKSPACE }}
         run: |
           make config
           make test || exit 1
@@ -150,11 +143,12 @@ jobs:
         with:
           name: reports-${{ env.WORKER_TYPE }}-${{ env.DEVICE_TYPE }}
           path: ${{ env.REPORTS }}
-  
+
 
   balenamachine-push:
     needs: [flowzone]
     runs-on: ubuntu-22.04
+    environment: "bm.balena-dev.com"
 
     strategy:
       fail-fast: false
@@ -169,6 +163,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          persist-credentials: false
+
       - name: Get worker release
         env:
           ENVIRONMENT_URL: "balena-cloud.com"
@@ -193,7 +190,7 @@ jobs:
 
           commit="$(IFS= ; curl -fsSL -X GET "${url[*]}" \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer ${{ secrets.BALENA_API_KEY_PUSH }}" | jq -r '.d[].commit')"
+              -H "Authorization: Bearer ${{ secrets.BALENA_API_DEPLOY_KEY }}" | jq -r '.d[].commit')"
 
           test -n "${commit}" || exit 1
           echo "WORKER_RELEASE=${commit}" >> $GITHUB_ENV
@@ -204,10 +201,10 @@ jobs:
           sed -r 's|build: .|image: bh\.cr/balena/leviathan-worker-${{ matrix.ARCHITECTURE }}/${{ env.WORKER_RELEASE }} |' -i docker-compose.yml
           cat docker-compose.yml
 
-      - name: Deploy to balenaMachine testbot-rig
+      - name: Deploy to balenaOS balenaMachine testbot-rig
         uses: balena-io/deploy-to-balena-action@master
         with:
-          balena_token: ${{ secrets.BALENAMACHINE_API_KEY }}
-          fleet: ${{ matrix.FLEET_NAME  }}
+          balena_token: ${{ secrets.BALENA_API_TEST_KEY }}
+          fleet: ${{ matrix.FLEET_NAME }}
           environment: 'bm.balena-dev.com'
           source: .
