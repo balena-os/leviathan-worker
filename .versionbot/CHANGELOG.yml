@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Change workflow triggers & use env secrets"
+      hash: 963fb2249cc9fdb50f37f046ea8dbf5abee27dc4
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 2.9.48
+  title: ""
+  date: 2024-10-22T13:02:12.565Z
+- commits:
     - subject: Update actions/checkout action to v4
       hash: bd5c52f573c797dbb6381b673c6b5a1bb14bde04
       body: |
