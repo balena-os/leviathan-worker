@@ -1,4 +1,18 @@
 - commits:
+    - subject: "workers: qemu: listen for qmp connections in /run"
+      hash: b590a109feec3815d47616458958669efa69e812
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.50
+  title: ""
+  date: 2024-10-23T16:01:53.336Z
+- commits:
     - subject: Update Lock file maintenance
       hash: 522c9aa01d1982dfd88ebe12e2140818c01dd6b1
       body: |
