@@ -502,7 +502,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			],
 			aarch64: ['-bios', this.qemuOptions.firmware!.code],
 		};
-		const qmpArgs = ['-qmp', `unix:/tmp/qmp.sock,server,wait=off`];
+		const qmpArgs = ['-qmp', `unix:/run/qemu/qmp.sock,server,wait=off`];
 		let args = baseArgs
 			.concat(options?.internalStorage ? internalStorageArgs : [])
 			.concat(options?.externalStorage ? externalStorageArgs : [])
