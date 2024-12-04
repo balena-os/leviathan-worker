@@ -471,7 +471,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		}
 
 		const archArgs: { [arch: string]: string[] } = {
-			x86_64: ['-M', 'q35', '-cpu', 'max'],
+			x86_64: ['-M', 'q35', '-cpu', 'max,topoext'],
 			aarch64: ['-M', 'virt', '-cpu', 'cortex-a72'],
 		};
 		const networkArgs = [
