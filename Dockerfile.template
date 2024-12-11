@@ -1,6 +1,6 @@
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.17 AS build-base
+FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.18 AS build-base
 
 WORKDIR /usr/app
 
@@ -16,18 +16,22 @@ COPY bin ./bin
 
 COPY package*.json ./
 RUN npm ci
+
 # build typescript
+# hadolint ignore=DL3059
 RUN npm run build
 
 FROM debian:bookworm-20231218 AS ovmf
-RUN apt-get update \
-  && apt-get install ovmf
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.17
+# hadolint ignore=DL3015,DL3008
+RUN apt-get update \
+  && apt-get install -y ovmf
+
+FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.18
 
 WORKDIR /usr/app
 
-ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache \
@@ -56,7 +60,8 @@ RUN dockerd --version && docker --version
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl || true
 
-RUN pip3 install usbsdmux
+# hadolint ignore=DL3013
+RUN pip3 install --no-cache-dir usbsdmux
 
 # create qemu-bridge-helper ACL file
 # https://wiki.qemu.org/Features/HelperNetworking
@@ -67,7 +72,6 @@ RUN mkdir -p /etc/qemu \
 COPY --from=node-dev /usr/app/package.json ./
 COPY --from=node-dev /usr/app/node_modules ./node_modules
 COPY --from=node-dev /usr/app/build ./build
-
 
 COPY entry.sh entry.sh
 
