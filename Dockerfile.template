@@ -19,7 +19,7 @@ RUN npm ci
 # build typescript
 RUN npm run build
 
-FROM debian:bookworm-20231218 AS ovmf
+FROM debian:bookworm-20241223 AS ovmf
 RUN apt-get update \
   && apt-get install ovmf
 
