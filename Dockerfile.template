@@ -1,11 +1,17 @@
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
-FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.17 AS build-base
+# Pin to alpine 3.17 for python3 compatibility with node-gyp ~v4
+# FIXME: switch to official node images when our dependencies are updated.
+FROM alpine:3.17 AS build-base
 
 WORKDIR /usr/app
 
+# FIXME: nodejs >= v18.20.5 fails npm install with these old npm dependencies and node-gyp ~v4
 # hadolint ignore=DL3018
-RUN apk add --no-cache libusb-dev dbus-dev python3 make build-base cmake git linux-headers eudev-dev libftdi1-dev popt-dev hidapi-dev
+RUN apk add --no-cache \
+  libusb-dev dbus-dev python3=3.10.15-r0 make build-base cmake git \
+  linux-headers eudev-dev libftdi1-dev popt-dev hidapi-dev \
+  py3-setuptools nodejs=18.20.1-r0 npm=9.1.2-r0
 
 FROM build-base AS node-dev
 
@@ -16,18 +22,24 @@ COPY bin ./bin
 
 COPY package*.json ./
 RUN npm ci
+
 # build typescript
+# hadolint ignore=DL3059
 RUN npm run build
 
 FROM debian:bookworm-20231218 AS ovmf
-RUN apt-get update \
-  && apt-get install ovmf
 
+# hadolint ignore=DL3008
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends ovmf
+
+# FIXME: switch to official node images and replace UDEV=1 with another solution
+# for devices sharing
 FROM balenalib/${BALENA_ARCH}-alpine-node:18-3.17
 
 WORKDIR /usr/app
 
-ENV DBUS_SYSTEM_BUS_ADDRESS unix:path=/host/run/dbus/system_bus_socket
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache \
@@ -56,7 +68,8 @@ RUN dockerd --version && docker --version
 # hadolint ignore=DL3018
 RUN apk add --no-cache uhubctl || true
 
-RUN pip3 install usbsdmux
+# hadolint ignore=DL3013
+RUN pip3 install --no-cache-dir usbsdmux
 
 # create qemu-bridge-helper ACL file
 # https://wiki.qemu.org/Features/HelperNetworking
@@ -67,7 +80,6 @@ RUN mkdir -p /etc/qemu \
 COPY --from=node-dev /usr/app/package.json ./
 COPY --from=node-dev /usr/app/node_modules ./node_modules
 COPY --from=node-dev /usr/app/build ./build
-
 
 COPY entry.sh entry.sh
 
