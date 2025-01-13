@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/upload-artifact digest to ff15f03
+      hash: 676acb11e37cec22849d0cede0ca2355ce49ea10
+      body: |
+        Update actions/upload-artifact
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.9.53
+  title: ""
+  date: 2025-01-13T18:50:21.441Z
+- commits:
     - subject: Update ubuntu to v24
       hash: 31e219a6d71cbed1820966579921c13739e158aa
       body: |
