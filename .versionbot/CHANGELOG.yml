@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/checkout digest to 11bd719
+      hash: d18bbeb6abdbae2e99a68f4f0aa98669d9754872
+      body: |
+        Update actions/checkout
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.9.54
+  title: ""
+  date: 2025-01-13T20:50:43.622Z
+- commits:
     - subject: Update actions/upload-artifact digest to ff15f03
       hash: 676acb11e37cec22849d0cede0ca2355ce49ea10
       body: |
