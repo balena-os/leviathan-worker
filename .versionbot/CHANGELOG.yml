@@ -1,4 +1,19 @@
 - commits:
+    - subject: Change autokit to 1.1.2
+      hash: 6aede1e86ad95bd107dab1bab2ff205d5de5ef2f
+      body: |
+        This is to fix builds with node 18.20.5 + python > 3.11
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.9.51
+  title: ""
+  date: 2025-01-13T16:02:08.608Z
+- commits:
     - subject: "workers: qemu: listen for qmp connections in /run"
       hash: b590a109feec3815d47616458958669efa69e812
       body: ""
@@ -2094,11 +2109,9 @@
 - commits:
     - subject: Fix links to balenaOS downloads
       hash: d27cbcfd18779fe4fc250913a30daef6b6010e09
-      body: >
+      body: |
         They were previously being rendered as relative to the documentation
-
         page, like
-
         `https://balena-os.github.io/leviathan/pages/Getting-Started/quickstart/balena.io/os`.
       footer:
         Signed-off-by: Leandro Motta Barros <leandro@balena.io>
@@ -2487,9 +2500,8 @@
 - commits:
     - subject: Enable nested changelogs when this project is consumed
       hash: 357fe8d3cf427750c0cbe079ab1924ed50a2752b
-      body: >
+      body: |
         Following process outlined here (restricted access):
-
         https://jel.ly.fish/pattern-enable-nested-changelogs-repos-consuming-repo-cf7bcc8
       footer:
         Change-type: patch
@@ -4143,21 +4155,14 @@
 - commits:
     - subject: "qemu: switch to emulated pflash to support UEFI vars"
 - commits:
-    - body: >-
+    - body: |-
         QEMU is able to optionally use OVMF firmware, built from Tianocore edk2,
-
         to support UEFI. QEMU can be told to load OVMF firmware using a number
-
         of methods, not all of which fully support persistent UEFI variables,
-
         such as are required by secure boot.
-
         Switch from using the -bios flag to fully emulated pflash to load OVMF,
-
         including support for persistent UEFI variables. Also switch from the pc
-
         machine to q35, which is required for fully emulated pflash.
-
         https://github.com/tianocore/edk2/blob/e1e7306b54147e65cb7347b060e94f336d4a82d2/OvmfPkg/README#L65
 - version: 1.30.7
 - date: 2021-11-29T23:59:36Z
