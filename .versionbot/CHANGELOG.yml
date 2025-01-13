@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update ubuntu to v24
+      hash: 31e219a6d71cbed1820966579921c13739e158aa
+      body: |
+        Update ubuntu from 22.04 to 24.04
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.9.52
+  title: ""
+  date: 2025-01-13T16:50:17.534Z
+- commits:
     - subject: Change autokit to 1.1.2
       hash: 6aede1e86ad95bd107dab1bab2ff205d5de5ef2f
       body: |
