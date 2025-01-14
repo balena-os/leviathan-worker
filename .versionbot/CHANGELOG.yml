@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Dockerfile: update OVMF base image to debian:bookworm-20241223"
+      hash: a405f933a5015b0a876efc556d3fed2171716ced
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.9.55
+  title: ""
+  date: 2025-01-14T14:15:21.256Z
+- commits:
     - subject: Update actions/checkout digest to 11bd719
       hash: d18bbeb6abdbae2e99a68f4f0aa98669d9754872
       body: |
