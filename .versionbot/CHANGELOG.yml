@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/upload-artifact action to v4
+      hash: 0326554f912c2d4b623f2165d68d1311a23d50fd
+      body: |
+        Update actions/upload-artifact from 3 to 4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.9.56
+  title: ""
+  date: 2025-01-23T16:22:35.110Z
+- commits:
     - subject: "Dockerfile: update OVMF base image to debian:bookworm-20241223"
       hash: a405f933a5015b0a876efc556d3fed2171716ced
       body: ""
