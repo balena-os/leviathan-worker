@@ -1,4 +1,18 @@
 - commits:
+    - subject: "package-lock: Bump autokit-interface-sw to 1.1.4"
+      hash: 17e26fb6fd6b8a5393c9aee0e41326b3f878cf9e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.9.57
+  title: ""
+  date: 2025-01-24T10:44:21.722Z
+- commits:
     - subject: Update actions/upload-artifact action to v4
       hash: 0326554f912c2d4b623f2165d68d1311a23d50fd
       body: |
