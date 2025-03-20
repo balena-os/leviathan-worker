@@ -1,4 +1,19 @@
 - commits:
+    - subject: Change autokit to 1.2.1
+      hash: 0cad01da8a25ec6fed47b601e11e84c81edd36c6
+      body: |
+        This is to add support for a new device type
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.9.58
+  title: ""
+  date: 2025-03-20T14:17:44.353Z
+- commits:
     - subject: "package-lock: Bump autokit-interface-sw to 1.1.4"
       hash: 17e26fb6fd6b8a5393c9aee0e41326b3f878cf9e
       body: ""

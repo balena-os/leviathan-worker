@@ -19,4 +19,4 @@ data:
   defaultDeviceType: fincm3
   supportedDeviceTypes:
     - fincm3
-version: 2.9.57
+version: 2.9.58
