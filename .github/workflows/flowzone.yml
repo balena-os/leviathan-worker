@@ -20,6 +20,7 @@ jobs:
         balena/testbot-rig,
         balena/testbot-rig-partners,
         balena/testbot-rig-partners-x86,
+        balena/testbot-rig-aarch64,
         balena/leviathan-worker-amd64,
         balena/leviathan-worker-aarch64,
         balena/leviathan-worker-armv7hf
@@ -160,6 +161,9 @@ jobs:
           - WORKER_APP_ID: "1941514" # balena/leviathan-worker-armv7hf
             ARCHITECTURE: "amd64"
             FLEET_NAME: "balena/testbot-rig-x86"
+          - WORKER_APP_ID: "1941515" # balena/leviathan-worker-aarch64
+            ARCHITECTURE: "aarch64"
+            FLEET_NAME: "balena/testbot-rig-aarch64"
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
