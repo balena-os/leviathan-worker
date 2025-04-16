@@ -1,4 +1,18 @@
 - commits:
+    - subject: "workflows: Add deploys to aarch64 testbot fleets"
+      hash: 18c35f6ef6efea81e6a69127ad97ab8236b47562
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.9.59
+  title: ""
+  date: 2025-04-16T09:12:48.258Z
+- commits:
     - subject: Change autokit to 1.2.1
       hash: 0cad01da8a25ec6fed47b601e11e84c81edd36c6
       body: |
