@@ -1,4 +1,19 @@
 - commits:
+    - subject: "leviathan-worker: Bump autokit to v1.2.3"
+      hash: eb3991cefa36023e41c372dbf5861aba3989e660
+      body: |
+        to include the new Jetson Nano based device-types.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.9.60
+  title: ""
+  date: 2025-06-09T14:04:37.192Z
+- commits:
     - subject: "workflows: Add deploys to aarch64 testbot fleets"
       hash: 18c35f6ef6efea81e6a69127ad97ab8236b47562
       body: ""
