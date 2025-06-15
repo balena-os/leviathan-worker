@@ -443,7 +443,7 @@ async function setup(
 					if (balenaLockPath != null) {
 						await unlock(balenaLockPath);
 					}
-				}, 1000 * 60 * 5);
+				}, 1000 * 60 * 10);
 				res.status(200).send('OK');
 			} else {
 				res.status(200).send('BUSY');
