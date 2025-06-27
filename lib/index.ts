@@ -364,8 +364,8 @@ async function setup(
 			});
 
 			const timer = setInterval(() => {
-				res.write('status: pending');
-			}, 5000);
+				res.write('status: pending \n\n');
+			}, 1000);
 
 			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
 			const UNZIPPED_IMAGE_PATH = '/data/os.img';
@@ -399,7 +399,8 @@ async function setup(
 				}
 			} finally {
 				worker.removeListener('progress', onProgress);
-				res.write('status: done');
+				res.write('status: done \n\n');
+				clearInterval(timer);
 				res.end();
 				clearInterval(timer);
 			}
