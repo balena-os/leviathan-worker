@@ -1,4 +1,18 @@
 - commits:
+    - subject: bump autokit 1.2.4
+      hash: 673884cbedacbe808f60d01eda6c80934ecda3a8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.9.61
+  title: ""
+  date: 2025-07-14T15:16:54.319Z
+- commits:
     - subject: "leviathan-worker: Bump autokit to v1.2.3"
       hash: eb3991cefa36023e41c372dbf5861aba3989e660
       body: |
