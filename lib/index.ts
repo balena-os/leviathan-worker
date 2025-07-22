@@ -16,8 +16,9 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { readFile, createReadStream, createWriteStream, watch, unlink as Unlink } from 'fs-extra';
+import { readFile, createReadStream, createWriteStream, watch, stat as Fstat, unlink as Unlink } from 'fs-extra';
 const unlink = util.promisify(Unlink);
+const stat = util.promisify(Fstat);
 
 import { createGzip, createGunzip } from 'zlib';
 import * as lockfile from 'proper-lockfile';
@@ -68,6 +69,7 @@ async function unlock(lockPath: string) {
 }
 
 let state = 'IDLE';
+let flashState = 'IDLE';
 let heartbeatTimeout: NodeJS.Timeout;
 const tunnels: ChildProcess[] = [];
 
@@ -326,6 +328,7 @@ async function setup(
 					}
 				}
 				state = 'IDLE';
+				flashState = 'IDLE';
 				if (balenaLockPath != null) {
 					await unlock(balenaLockPath);
 				}
@@ -405,6 +408,102 @@ async function setup(
 			}
 		},
 	);
+
+	app.post(
+		'/dut/sendImage',
+		async (
+			req: express.Request, 
+			res: express.Response,
+			next: express.NextFunction
+		) => {
+
+			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
+			try {
+				console.log(`Streaming image to temp file...`);
+				await pipeline(
+					req,
+					createWriteStream(ZIPPED_IMAGE_PATH)
+				)
+				res.send('OK');
+			} catch (e) {
+				if (e instanceof Error) {
+					res.status(500).send(e.stack);
+				}
+			}
+		},
+	);
+
+	// flashState tracks the state of the flashing process
+	// DONE: completed
+	// PENDING: still going
+	// ERROR: there was an error
+	// IDLE: nothing doing on
+	app.post(
+		'/dut/flashImage',
+		async (
+			req: express.Request, 
+			res: express.Response,
+			next: express.NextFunction
+		) => {
+			// set flashing state to pending
+			flashState = 'PENDING' 
+			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
+			const UNZIPPED_IMAGE_PATH = '/data/os.img';
+			try {
+
+				// respond OK to client/core once flashing is initiated to end connection
+				res.send('OK');
+
+				// First unzip the image if its zipped
+				// If a zipped version exist, we can assume thats what we want, as to save space we delete it after unzipping.
+				// This saves public URL time, and reduces time in the case of a retry
+				try{
+					await stat(ZIPPED_IMAGE_PATH);
+
+					console.log('Unzipping image...');
+					await pipeline(
+						createReadStream(ZIPPED_IMAGE_PATH),
+						createGunzip(),
+						createWriteStream(UNZIPPED_IMAGE_PATH)
+					)
+
+					// Delete zip archive after to save space, and enable the check above
+					// Remove unzipped file to save space on low storage hosts like the fin
+					console.log(`Removing zipped image...`);
+					await unlink(ZIPPED_IMAGE_PATH)
+
+				} catch (err: any) {
+					if(err.code === 'ENOENT'){
+						// fs.stat throws an ENOENT error if it doesn't exist
+						console.log(`Image already unzipped`);
+					} else {
+						console.log(`Error unzipping image: ${err.message}`);
+					}
+				}
+				
+				console.log(`Flashing DUT...`);
+				await worker.flash(UNZIPPED_IMAGE_PATH);
+				// Once flashing is completed set state to done 
+				flashState = 'DONE';
+			} catch (e) {
+				if (e instanceof Error) {
+					flashState = 'ERROR';
+					console.log(e.message)
+				}
+			}
+		},
+	);
+
+	app.get('/dut/flashState', async (req: express.Request, res: express.Response) => {
+		try {
+			res.status(200).send(flashState);
+		} catch (e) {
+			if (e instanceof Error) {
+				res.status(500).send(e.stack);
+			}
+		}
+	});
+
 
 	app.get('/heartbeat', async (req: express.Request, res: express.Response) => {
 		try {
