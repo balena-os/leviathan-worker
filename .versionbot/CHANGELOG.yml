@@ -1,4 +1,33 @@
 - commits:
+    - subject: "flashing: add enpoint to allow for polling"
+      hash: 379ac73a32eb7234baa8ee0d3eef8f2730193f81
+      body: >
+        This enables:
+
+
+        - sending an image in a separate endpoint - limiting the time we need a
+        persistent publicURL connection
+
+        - Initiating a flash, and then polling the worker for the state -
+        meaning a persistent connection is not needed.
+
+
+        These changes together mean we should hopefully reduce the rate of
+        connection failures while provisioining the DUT.
+
+
+        Completely backwards compatible for now as these are new endpoints.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.10.0
+  title: ""
+  date: 2025-07-22T13:57:43.620Z
+- commits:
     - subject: bump autokit 1.2.4
       hash: 673884cbedacbe808f60d01eda6c80934ecda3a8
       body: ""
