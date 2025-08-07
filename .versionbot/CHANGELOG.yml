@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Lock file maintenance
+      hash: b37cdf870bb2652c2cf531b3bb31ee1713a6b265
+      body: |
+        Update 
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.1
+  title: ""
+  date: 2025-08-07T01:24:15.988Z
+- commits:
     - subject: "flashing: add enpoint to allow for polling"
       hash: 379ac73a32eb7234baa8ee0d3eef8f2730193f81
       body: >
