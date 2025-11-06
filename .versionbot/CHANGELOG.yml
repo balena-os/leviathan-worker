@@ -1,4 +1,18 @@
 - commits:
+    - subject: "package-lock: Bump autokit-interface-sw to 1.2.6"
+      hash: 812caf6c2be559cae1166e0c55fc5827a076e8d2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.10.14
+  title: ""
+  date: 2025-11-06T12:36:23.369Z
+- commits:
     - subject: Update Lock file maintenance
       hash: 0313eb9fde590f20226be124a4426dd3a900d644
       body: |
