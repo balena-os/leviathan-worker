@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Lock file maintenance
+      hash: de8f4f7e895e974587d916c27a031d20773c3b6f
+      body: |
+        Update 
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.15
+  title: ""
+  date: 2025-12-01T01:23:29.685Z
+- commits:
     - subject: "package-lock: Bump autokit-interface-sw to 1.2.6"
       hash: 812caf6c2be559cae1166e0c55fc5827a076e8d2
       body: ""
