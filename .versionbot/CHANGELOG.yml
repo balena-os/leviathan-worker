@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/checkout digest to 93cb6ef
+      hash: 72154a8f7f7796fc8ae349f10ad849d778302229
+      body: |
+        Update actions/checkout
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.17
+  title: ""
+  date: 2025-12-01T05:27:33.398Z
+- commits:
     - subject: Update Lock file maintenance
       hash: b9666a5eccb704c3098bfb81746217f8df7cd29a
       body: |
