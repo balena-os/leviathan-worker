@@ -1,4 +1,22 @@
 - commits:
+    - subject: enable configurable flashing timeout
+      hash: 8863afefcac64be48227a7dc7264f73eef52b732
+      body: >
+        This enables setting a configurable timeout on the time leviathan core
+        will wait for flashing to complete - done via setting an env var and
+        sending that value back in the response to a flashing request to the
+        core
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.10.20
+  title: ""
+  date: 2025-12-16T15:28:40.429Z
+- commits:
     - subject: Update actions/checkout action to v6
       hash: 43a6fc1ecbe21c0365a0ca7499297e97bf08a657
       body: |
