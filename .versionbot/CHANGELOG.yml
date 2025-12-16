@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/checkout action to v6
+      hash: 43a6fc1ecbe21c0365a0ca7499297e97bf08a657
+      body: |
+        Update actions/checkout from 5 to 6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.19
+  title: ""
+  date: 2025-12-16T14:57:24.258Z
+- commits:
     - subject: run e2e tests on self hosted runners
       hash: aa793bf4e1538e9f98660d83d3e6d67e51dae2de
       body: |
