@@ -449,10 +449,11 @@ async function setup(
 			flashState = 'PENDING' 
 			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
 			const UNZIPPED_IMAGE_PATH = '/data/os.img';
+			const FLASH_TIMEOUT_TRIES = process.env.FLASH_TIMEOUT_TRIES || 60
 			try {
 
 				// respond OK to client/core once flashing is initiated to end connection
-				res.send('OK');
+				res.send(JSON.stringify({timeoutTries: FLASH_TIMEOUT_TRIES}));
 
 				// First unzip the image if its zipped
 				// If a zipped version exist, we can assume thats what we want, as to save space we delete it after unzipping.
