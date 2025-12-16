@@ -1,4 +1,19 @@
 - commits:
+    - subject: run e2e tests on self hosted runners
+      hash: aa793bf4e1538e9f98660d83d3e6d67e51dae2de
+      body: |
+        The tests were failing on non-kvn ubuntu runners.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.10.18
+  title: ""
+  date: 2025-12-16T13:18:37.036Z
+- commits:
     - subject: Update actions/checkout digest to 93cb6ef
       hash: 72154a8f7f7796fc8ae349f10ad849d778302229
       body: |
