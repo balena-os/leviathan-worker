@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Lock file maintenance
+      hash: 5ff6b714351df81fbdbbebe9513520ebb4a8dd2e
+      body: |
+        Update 
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.21
+  title: ""
+  date: 2026-01-19T20:49:12.982Z
+- commits:
     - subject: enable configurable flashing timeout
       hash: 8863afefcac64be48227a7dc7264f73eef52b732
       body: >
