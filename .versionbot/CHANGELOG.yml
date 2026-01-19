@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/upload-artifact action to v6
+      hash: 419977a3f70765cce7ecf2d26df40534303f3a51
+      body: |
+        Update actions/upload-artifact from 5 to 6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.22
+  title: ""
+  date: 2026-01-19T22:43:00.816Z
+- commits:
     - subject: Update Lock file maintenance
       hash: 5ff6b714351df81fbdbbebe9513520ebb4a8dd2e
       body: |
