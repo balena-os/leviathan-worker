@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/checkout digest to de0fac2
+      hash: ebc23701177d9e2192012025f02c21154990c3d0
+      body: |
+        Update actions/checkout
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.26
+  title: ""
+  date: 2026-02-09T04:00:11.203Z
+- commits:
     - subject: Update Lock file maintenance
       hash: 6477473f5af5c5f0a5b985138db931c171ca9d26
       body: |
