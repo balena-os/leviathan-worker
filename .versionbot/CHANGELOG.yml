@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/upload-artifact action to v7
+      hash: 6717fcfc5f5a72b91eaec261623e36b76b92e575
+      body: |
+        Update actions/upload-artifact from 6 to 7
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.28
+  title: ""
+  date: 2026-02-28T01:21:30.643Z
+- commits:
     - subject: "autokit: add custom board power routine"
       hash: d04395aba49f7bb1eea022fcb5752546d5382df0
       body: >
