@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update debian Docker tag to bookworm-20260518
+      hash: 9b9adb3e600c22f5889f85b2cab6ce47fff3bef8
+      body: |
+        Update debian from bookworm-20241223 to bookworm-20260518
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.31
+  title: ""
+  date: 2026-05-21T13:31:03.879Z
+- commits:
     - subject: Update Lock file maintenance
       hash: 214c7761a016f89748ff5d85b44fb5f52d9aaafe
       body: |
