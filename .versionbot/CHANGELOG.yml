@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/upload-artifact digest to 043fb46
+      hash: 73b7ed613aee4a3d4f8f88e6accfbaef847b9e1b
+      body: |
+        Update actions/upload-artifact
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.32
+  title: ""
+  date: 2026-05-21T14:36:38.242Z
+- commits:
     - subject: Update debian Docker tag to bookworm-20260518
       hash: 9b9adb3e600c22f5889f85b2cab6ce47fff3bef8
       body: |
