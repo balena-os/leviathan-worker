@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update lodash to v4.18.1 [SECURITY]
+      hash: 5fb361fce1f40a2ec1fbd37c9013fadf60f95786
+      body: |
+        Update lodash from 4.17.23 to 4.18.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.33
+  title: ""
+  date: 2026-05-21T16:26:07.300Z
+- commits:
     - subject: Update actions/upload-artifact digest to 043fb46
       hash: 73b7ed613aee4a3d4f8f88e6accfbaef847b9e1b
       body: |
