@@ -418,16 +418,48 @@ async function setup(
 		) => {
 
 			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
+
+			const contentLength = req.headers['content-length'];
+			if (!contentLength) {
+			    console.warn("WARNING: Client sent a chunked stream without a Content-Length header!");
+			    res.status(411).send('Length Required: Please provide a Content-Length header.');
+			    return;
+			}
+
+			const totalExpectedBytes = parseInt(contentLength, 10);
+			console.log(`Transfer verified: Expecting exactly ${totalExpectedBytes} bytes.`);
+
+			// Extend socket timeout metrics to handle slow VPN links
+			req.socket.setKeepAlive(true, 60000);
+			req.socket.setTimeout(600000);
+
 			try {
 				console.log(`Streaming image to temp file...`);
+				let bytesReceived = 0;
+				req.on('data', (chunk: Buffer) => {
+				    bytesReceived += chunk.length;
+				});
+
 				await pipeline(
 					req,
 					createWriteStream(ZIPPED_IMAGE_PATH)
-				)
-				res.send('OK');
+				);
+
+				if (bytesReceived !== totalExpectedBytes) {
+				    throw new Error(`File transmission was truncated! Received ${bytesReceived}/${totalExpectedBytes} bytes.`);
+				}
+
+				console.log(`Upload complete and verified successfully.`);
+				res.writeHead(200, {
+				    'Content-Type': 'text/plain',
+				    'Content-Length': '2',
+				    'Connection': 'close'
+				});
+				res.end('OK');
 			} catch (e) {
-				if (e instanceof Error) {
-					res.status(500).send(e.stack);
+				console.error(`Stream error encountered:`, e);
+				if (!res.headersSent && e instanceof Error) {
+				    res.status(500).send(e.stack);
 				}
 			}
 		},
