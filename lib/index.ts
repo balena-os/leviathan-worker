@@ -16,7 +16,7 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { readFile, createReadStream, createWriteStream, watch, stat as Fstat, unlink as Unlink } from 'fs-extra';
+import { appendFile, createReadStream, createWriteStream, readFile, remove, watch, stat as Fstat, unlink as Unlink } from 'fs-extra';
 const unlink = util.promisify(Unlink);
 const stat = util.promisify(Fstat);
 
@@ -418,6 +418,60 @@ async function setup(
 		) => {
 
 			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
+			const tempChunkPath = `${ZIPPED_IMAGE_PATH}.part`;
+
+			// determine the upload strategy: full file upload or segmented file upload
+			const chunkIndex = req.headers['x-chunk-index'];
+			const totalChunks = req.headers['x-total-chunks'];
+			const isSegmentedUpload = chunkIndex !== undefined;
+
+			const contentLength = req.headers['content-length'];
+			if (!contentLength) {
+				console.warn("WARNING: Client sent a stream without a Content-Length header!");
+				res.status(411).send('Length Required: Please provide a Content-Length header.');
+				return;
+			}
+
+			req.socket.setKeepAlive(true, 60000);
+			req.socket.setTimeout(600000);
+
+			// Segmented OS image upload
+			if (isSegmentedUpload) {
+				const isFirstChunk = chunkIndex === '0';
+				const isLastChunk = chunkIndex === String(Number(totalChunks) - 1);
+
+				try {
+					console.log(`Streaming segmented image to temp file...`);
+					// Clean up old assets if this is a fresh retry run
+					if (isFirstChunk) {
+						await remove(ZIPPED_IMAGE_PATH);
+						await remove(tempChunkPath);
+					}
+
+					await pipeline(
+						req,
+						createWriteStream(tempChunkPath)
+					);
+
+					// Append the chunk to the final target file
+					const chunkBuffer = await readFile(tempChunkPath);
+					await appendFile(ZIPPED_IMAGE_PATH, chunkBuffer);
+					await unlink(tempChunkPath);
+
+					if (isLastChunk) {
+						console.log(`All ${totalChunks} chunks gathered. Rebuilt final image successfully.`);
+					}
+
+					res.writeHead(200, { 'Content-Type': 'text/plain' });
+					res.end('CHUNK_OK');
+				} catch (e: any) {
+					console.error(`Chunk assembly error at segment index ${chunkIndex}:`, e);
+					res.status(500).send(e.message);
+				}
+				return;
+			}
+
+			// Full OS image upload
 			try {
 				console.log(`Streaming image to temp file...`);
 				await pipeline(
