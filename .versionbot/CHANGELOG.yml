@@ -1,4 +1,20 @@
 - commits:
+    - subject: "workflows: remove BM push"
+      hash: f12ab57340335896f1579225b062fd286b294447
+      body: >
+        We are no longer using the dedicated BM instance, so we must remove the
+        workflow step to push to the BM fleets
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 2.10.34
+  title: ""
+  date: 2026-07-03T10:44:22.836Z
+- commits:
     - subject: Update lodash to v4.18.1 [SECURITY]
       hash: 5fb361fce1f40a2ec1fbd37c9013fadf60f95786
       body: |
