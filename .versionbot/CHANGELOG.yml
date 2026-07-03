@@ -1,4 +1,22 @@
 - commits:
+    - subject: "lib/index.ts: Add support for segmented OS image upload in sendImage"
+      hash: 46115c23d66eb62219cd35b95b15afb9dc93f715
+      body: >
+        This alternate upload strategy will allow users of sendImage to split
+        the OS image files
+
+        in smaller chunks. This circumvents the timeout issues with Cloudlink.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+      nested: []
+  version: 2.10.35
+  title: ""
+  date: 2026-07-03T11:59:08.039Z
+- commits:
     - subject: "workflows: remove BM push"
       hash: f12ab57340335896f1579225b062fd286b294447
       body: >
