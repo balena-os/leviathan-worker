@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update @balena/node-serial-terminal to ^0.0.3
+      hash: 7ff59ae788ef07429b5f44d834b475f7e8dfab73
+      body: |
+        Update @balena/node-serial-terminal from 0.0.2 to 0.0.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.39
+  title: ""
+  date: 2026-07-23T19:34:10.831Z
+- commits:
     - subject: Update Pin dependencies
       hash: 6516a237718177bbdb1249204c1fd01cc473145c
       body: |
