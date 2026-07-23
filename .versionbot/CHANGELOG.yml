@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update body-parser to v1.20.6 [SECURITY]
+      hash: 7a54e3eca2416ed54d5002ca18c05bd94ac74f2e
+      body: |
+        Update body-parser from 1.20.4 to 1.20.6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.40
+  title: ""
+  date: 2026-07-23T21:43:14.252Z
+- commits:
     - subject: Update @balena/node-serial-terminal to ^0.0.3
       hash: 7ff59ae788ef07429b5f44d834b475f7e8dfab73
       body: |
