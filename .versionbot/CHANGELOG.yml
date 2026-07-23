@@ -1,4 +1,35 @@
 - commits:
+    - subject: "lib/index.ts: write segmented image chunks at their byte offset"
+      hash: d98d4b3d758a889b61e6a35ad69f2e5df79203de
+      body: >
+        The /dut/sendImage handler streamed each chunk through a shared temp
+        file and
+
+        appended it onto the final image, so write order depended purely on
+        request
+
+        completion order. If a chunk's "CHUNK_OK" response was lost after the
+        server
+
+        had already applied it, the client's retry would append the same bytes
+        again,
+
+        silently corrupting the image. Chunks now write directly at chunkIndex *
+
+        chunkSize in the final file, so a resent chunk overwrites the same bytes
+
+        instead of duplicating them.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: guille-vega <guillermo.vega@balena.io>
+        signed-off-by: guille-vega <guillermo.vega@balena.io>
+      author: guille-vega
+      nested: []
+  version: 2.10.36
+  title: ""
+  date: 2026-07-23T15:01:46.081Z
+- commits:
     - subject: "lib/index.ts: Add support for segmented OS image upload in sendImage"
       hash: 46115c23d66eb62219cd35b95b15afb9dc93f715
       body: >
