@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@balena/autokit": "^1.2.9",
-    "@balena/node-qmp": "^0.0.5",
+    "@balena/node-qmp": "^0.0.6",
     "@balena/node-serial-terminal": "^0.0.2",
     "@balena/testbot": "^1.9.28",
     "@types/bluebird": "^3.5.26",
