@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update @balena/node-qmp to ^0.0.6
+      hash: cc66e451be1fc3c9242c1aeab1733fddf6ac2821
+      body: |
+        Update @balena/node-qmp from 0.0.5 to 0.0.6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.37
+  title: ""
+  date: 2026-07-23T15:56:42.533Z
+- commits:
     - subject: "lib/index.ts: write segmented image chunks at their byte offset"
       hash: d98d4b3d758a889b61e6a35ad69f2e5df79203de
       body: >
