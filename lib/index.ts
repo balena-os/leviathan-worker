@@ -16,7 +16,7 @@ import * as tar from 'tar-fs';
 import * as util from 'util';
 const pipeline = util.promisify(Stream.pipeline);
 const execSync = util.promisify(exec);
-import { appendFile, createReadStream, createWriteStream, readFile, remove, watch, stat as Fstat, unlink as Unlink } from 'fs-extra';
+import { createReadStream, createWriteStream, ensureFile, readFile, remove, watch, stat as Fstat, unlink as Unlink } from 'fs-extra';
 const unlink = util.promisify(Unlink);
 const stat = util.promisify(Fstat);
 
@@ -35,6 +35,11 @@ const workersDict: Dictionary<typeof TestBotWorker | typeof QemuWorker | typeof 
 };
 
 const balenaLockPath = process.env.BALENA_APP_LOCK_PATH?.replace('.lock', '');
+
+// Chunk size for segmented OS image uploads, computed once so the /dut/sendImage/chunkSize
+// handshake and the chunk position calculation in /dut/sendImage can never drift out of sync.
+const chunkSizeMib = parseInt(process.env.OS_IMAGE_CHUNK_SIZE_MIB || '40', 10);
+const chunkSizeBytes = chunkSizeMib * 1024 * 1024;
 
 const handleCompromised = (err: Error) => {
 	console.warn(`lock compromised: ${err}`);
@@ -415,14 +420,13 @@ async function setup(
 			req: express.Request,
 			res: express.Response
 		) => {
-			const preferredChunkMiB = process.env.OS_IMAGE_CHUNK_SIZE_MIB || '40';
-			console.log(`Handshake requested via GET. Responding with constraint: ${preferredChunkMiB} MiB.`);
+			console.log(`Handshake requested via GET. Responding with constraint: ${chunkSizeMib} MiB.`);
 
 			res.writeHead(200, {
 				'Content-Type': 'application/json',
 				'Connection': 'close'
 			});
-			res.end(JSON.stringify({ chunkMiB: parseInt(preferredChunkMiB, 10) }));
+			res.end(JSON.stringify({ chunkMiB: chunkSizeMib }));
 		}
 	);
 
@@ -434,7 +438,6 @@ async function setup(
 			next: express.NextFunction
 		) => {
 			const ZIPPED_IMAGE_PATH = '/data/os.img.gz';
-			const tempChunkPath = `${ZIPPED_IMAGE_PATH}.part`;
 
 			// determine the upload strategy: full file upload or segmented file upload
 			const chunkIndex = req.headers['x-chunk-index'];
@@ -453,26 +456,33 @@ async function setup(
 					return;
 				}
 
-				const isFirstChunk = chunkIndex === '0';
-				const isLastChunk = chunkIndex === String(Number(totalChunks) - 1);
+				const index = Number(chunkIndex);
+				const isFirstChunk = index === 0;
+				const isLastChunk = index === Number(totalChunks) - 1;
+
+				const position = index * chunkSizeBytes;
 
 				try {
-					console.log(`Streaming segmented image to temp file...`);
 					// Clean up old assets if this is a fresh retry run
 					if (isFirstChunk) {
 						await remove(ZIPPED_IMAGE_PATH);
-						await remove(tempChunkPath);
+						// Older worker versions streamed chunks through a "<path>.part" temp file
+						// before appending them - clean up any leftover from before this upgrade.
+						await remove(`${ZIPPED_IMAGE_PATH}.part`);
 					}
+					// The positional write below opens with flags: 'r+', which requires the file to
+					// already exist - ensureFile creates it empty if missing (e.g. first chunk after
+					// the remove() above) and is a no-op if a prior chunk already created it.
+					await ensureFile(ZIPPED_IMAGE_PATH);
 
+					console.log(`Writing segment ${chunkIndex} directly at offset ${position}...`);
+					// Write directly at this chunk's byte offset instead of appending, so a chunk
+					// that's resent (e.g. after its "CHUNK_OK" response is lost in transit) overwrites
+					// the same bytes instead of duplicating them in the final image.
 					await pipeline(
 						req,
-						createWriteStream(tempChunkPath)
+						createWriteStream(ZIPPED_IMAGE_PATH, { start: position, flags: 'r+' })
 					);
-
-					// Append the chunk to the final target file
-					const chunkBuffer = await readFile(tempChunkPath);
-					await appendFile(ZIPPED_IMAGE_PATH, chunkBuffer);
-					await unlink(tempChunkPath);
 
 					if (isLastChunk) {
 						console.log(`All ${totalChunks} chunks gathered. Rebuilt final image successfully.`);
