@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update debian Docker tag to bookworm-20260713
+      hash: 7dd89c0df179a3967d197466c7d395a162ba3b55
+      body: |
+        Update debian from bookworm-20260518 to bookworm-20260713
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.41
+  title: ""
+  date: 2026-07-23T23:42:59.902Z
+- commits:
     - subject: Update body-parser to v1.20.6 [SECURITY]
       hash: 7a54e3eca2416ed54d5002ca18c05bd94ac74f2e
       body: |
