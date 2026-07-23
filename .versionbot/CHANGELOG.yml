@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Pin dependencies
+      hash: 6516a237718177bbdb1249204c1fd01cc473145c
+      body: |
+        Update @types/bluebird-retry
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.38
+  title: ""
+  date: 2026-07-23T17:37:56.315Z
+- commits:
     - subject: Update @balena/node-qmp to ^0.0.6
       hash: cc66e451be1fc3c9242c1aeab1733fddf6ac2821
       body: |
