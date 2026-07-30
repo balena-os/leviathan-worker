@@ -431,7 +431,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 			this.qemuOptions.cpus,
 			'-chardev',
 			`pty,id=char0,logfile=${dutSerialPath},signal=off`,
-			'-serial', 
+			'-serial',
 			'chardev:char0'
 		];
 
@@ -471,7 +471,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		}
 
 		const archArgs: { [arch: string]: string[] } = {
-			x86_64: ['-M', 'q35', '-cpu', 'max'],
+			x86_64: ['-M', 'q35', '-cpu', 'max,topoext'],
 			aarch64: ['-M', 'virt', '-cpu', 'cortex-a72'],
 		};
 		const networkArgs = [
@@ -537,7 +537,7 @@ class QemuWorker extends EventEmitter implements Leviathan.Worker {
 		return new Promise((resolve, reject) => {
 			let spawnOptions = {};
 			spawnOptions = { stdio: 'pipe' };
-			
+
 			this.qemuProc = spawn(`qemu-system-${deviceArch}`, args, spawnOptions);
 
 			if (options?.listeners?.onExit !== undefined) {
