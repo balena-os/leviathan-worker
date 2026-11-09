@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update autokit to v1.2.10
+      hash: 60f1e694b6b41872205e8a9fd81c8daed2d4f710
+      body: |
+        To include CM5 provisioning support
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 2.10.42
+  title: ""
+  date: 2026-11-09T14:38:30.093Z
+- commits:
     - subject: Update debian Docker tag to bookworm-20260713
       hash: 7dd89c0df179a3967d197466c7d395a162ba3b55
       body: |
