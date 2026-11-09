@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update body-parser to v1.20.9 [SECURITY]
+      hash: 4b0961be7dd623eab70b2e953c8ff126010bb9ce
+      body: |
+        Update body-parser from 1.20.6 to 1.20.9
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 2.10.43
+  title: ""
+  date: 2026-11-09T15:28:00.494Z
+- commits:
     - subject: Update autokit to v1.2.10
       hash: 60f1e694b6b41872205e8a9fd81c8daed2d4f710
       body: |
