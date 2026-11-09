@@ -27,7 +27,7 @@
     "bin": "bin"
   },
   "dependencies": {
-    "@balena/autokit": "^1.2.9",
+    "@balena/autokit": "^1.2.10",
     "@balena/node-qmp": "^0.0.6",
     "@balena/node-serial-terminal": "^0.0.3",
     "@balena/testbot": "^1.9.28",
