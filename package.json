@@ -32,7 +32,7 @@
     "@balena/node-serial-terminal": "^0.0.3",
     "@balena/testbot": "^1.9.28",
     "@types/bluebird": "^3.5.26",
-    "balena-sdk": "^16.12.1",
+    "balena-sdk": "^17.0.0",
     "bluebird": "^3.7.2",
     "body-parser": "^1.18.3",
     "dbus-next": "^0.8.1",
